@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 620" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="bSky" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d171c"/>
+      <stop offset="45%" stop-color="#19333a"/>
+      <stop offset="82%" stop-color="#3a4c44"/>
+      <stop offset="100%" stop-color="#c99557"/>
+    </linearGradient>
+    <radialGradient id="bSun" cx="76%" cy="42%" r="42%">
+      <stop offset="0%" stop-color="#ffe8b8" stop-opacity="0.72"/>
+      <stop offset="40%" stop-color="#e5a95c" stop-opacity="0.28"/>
+      <stop offset="100%" stop-color="#0e181c" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="waterfall" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#99f6e4" stop-opacity="0.75"/>
+      <stop offset="70%" stop-color="#34d399" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ecfeff" stop-opacity="0.72"/>
+    </linearGradient>
+    <filter id="bBlur" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <rect width="1600" height="620" fill="url(#bSky)"/>
+  <rect width="1600" height="620" fill="url(#bSun)"/>
+
+  <!-- Snow-Capped Nordic Peaks in Distance -->
+  <path d="M0,410 L180,295 L320,350 L510,235 L680,335 L860,255 L1060,340 L1250,210 L1440,315 L1600,260 L1600,620 L0,620 Z" fill="#17282e"/>
+  <path d="M510,235 L555,288 L518,280 L492,294 L468,284 Z" fill="#dbeafe" opacity="0.38"/>
+  <path d="M1250,210 L1304,274 L1264,264 L1234,278 L1202,268 Z" fill="#fef3c7" opacity="0.44"/>
+
+  <!-- Misty Turquoise Canyon & Waterfall -->
+  <path d="M0,445 L460,410 L760,440 L1080,400 L1600,435 L1600,620 L0,620 Z" fill="#111e22"/>
+  <rect x="860" y="345" width="42" height="190" rx="14" fill="url(#waterfall)" opacity="0.72"/>
+  <ellipse cx="881" cy="535" rx="130" ry="26" fill="#99f6e4" opacity="0.28" filter="url(#bBlur)"/>
+
+  <!-- Towering Redwood Forest Silhouettes (Left & Right) -->
+  <g fill="#0c1416">
+    <rect x="75" y="0" width="48" height="620"/>
+    <rect x="170" y="30" width="36" height="590"/>
+    <rect x="260" y="80" width="24" height="540"/>
+    <rect x="1370" y="15" width="44" height="605"/>
+    <rect x="1475" y="0" width="58" height="620"/>
+    <!-- Forest canopy boughs -->
+    <polygon points="40,145 100,90 230,155"/>
+    <polygon points="120,215 190,155 315,220"/>
+    <polygon points="1290,170 1395,105 1510,180"/>
+    <polygon points="1365,245 1495,180 1600,250"/>
+  </g>
+
+  <!-- Gliding Snow Owl Silhouette in Golden Sunbeam -->
+  <g fill="#1c272c" opacity="0.84" transform="translate(1090, 175)">
+    <path d="M0,18 C24,-4 58,-12 88,-2 C60,12 42,20 26,28 C12,35 -12,35 -26,28 C-42,20 -60,12 -88,-2 C-58,-12 -24,-4 0,18 Z"/>
+  </g>
+
+  <!-- Glowing Bioluminescent Spores (Redwoods & Swamp Touch) -->
+  <g fill="#5eead4" opacity="0.75">
+    <circle cx="340" cy="450" r="3"/><circle cx="410" cy="395" r="2.2"/><circle cx="520" cy="470" r="2.6"/>
+    <circle cx="1140" cy="445" r="2.8"/><circle cx="1225" cy="405" r="2.1"/><circle cx="1310" cy="465" r="3"/>
+  </g>
+
+  <!-- Warm Ground Horizon -->
+  <rect x="0" y="540" width="1600" height="80" fill="#0b0a0d"/>
+</svg>

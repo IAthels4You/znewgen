@@ -1,0 +1,1647 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Z NEW GEN · Ragnarok PvP x15 [2Man]</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #0b0a0d;
+    --bg-elev: #131117;
+    --card: rgba(20, 18, 24, 0.88);
+    --card-solid: #141218;
+    --card-hover: rgba(34, 29, 39, 0.92);
+    --border: rgba(230, 185, 106, 0.14);
+    --border-hi: rgba(230, 185, 106, 0.34);
+    --text: #f4eee4;
+    --text-soft: #ded6ca;
+    --muted: #a69c8e;
+    --gold: #e6b96a;
+    --gold-bright: #f7d694;
+    --gold-bg: rgba(230, 185, 106, 0.12);
+    --emerald: #4fd1a5;
+    --emerald-bg: rgba(79, 209, 165, 0.12);
+    --sky: #70c6f5;
+    --sky-bg: rgba(112, 198, 245, 0.12);
+    --lavender: #c996fa;
+    --lavender-bg: rgba(201, 150, 250, 0.13);
+    --amber: #e6825e;
+    --amber-bg: rgba(230, 130, 94, 0.13);
+    --radius: 20px;
+    --shadow: 0 22px 54px rgba(0, 0, 0, 0.55);
+    --display: "Cinzel", Georgia, "Times New Roman", serif;
+    --editorial: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+    --sans: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    --mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--text);
+    background:
+      radial-gradient(980px 580px at 8% 18%, rgba(230, 185, 106, 0.06), transparent 65%),
+      radial-gradient(900px 540px at 92% 45%, rgba(168, 89, 52, 0.06), transparent 65%),
+      var(--bg);
+    line-height: 1.82;
+    letter-spacing: 0.015em;
+    -webkit-font-smoothing: antialiased;
+    min-height: 100vh;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* Subtle warm film-grain texture (boutique editorial touch) */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 100;
+    opacity: 0.028;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  @keyframes kenBurns {
+    0% { transform: scale(1.0) translate3d(0, 0, 0); }
+    100% { transform: scale(1.07) translate3d(-1.2%, -0.8%, 0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes pulseDot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.45; transform: scale(0.82); }
+  }
+
+  /* Floating Top Navigation Bar */
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 60;
+    background: rgba(11, 10, 13, 0.78);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 13px 26px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-family: var(--display);
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.14em;
+    color: var(--text);
+  }
+  .logo-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(145deg, #f3cd82, #b87e34);
+    color: #0b0a0d;
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    box-shadow: 0 4px 16px rgba(230, 185, 106, 0.32);
+  }
+  .nav-links {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+  }
+  .nav-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    color: var(--muted);
+    padding: 6px 13px;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .nav-btn:hover { color: var(--text); background: rgba(230, 185, 106, 0.08); }
+  .nav-btn.active {
+    color: var(--gold-bright);
+    background: rgba(230, 185, 106, 0.14);
+    border-color: rgba(230, 185, 106, 0.42);
+  }
+
+  .lang-switch {
+    display: flex;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-hi);
+    border-radius: 999px;
+    padding: 3px;
+    gap: 3px;
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: var(--muted);
+    padding: 4px 12px;
+    border-radius: 999px;
+    font-size: 0.76rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+    transition: all 0.18s;
+  }
+  .lang-btn.active {
+    background: linear-gradient(135deg, rgba(230, 185, 106, 0.26), rgba(230, 185, 106, 0.12));
+    color: var(--gold-bright);
+  }
+
+  /* Full-Bleed Cinematic Editorial Hero */
+  .hero-outer {
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 36px;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background: url("img/hero-ragnarok.svg") center center / cover no-repeat;
+    animation: kenBurns 26s ease-in-out infinite alternate;
+    will-change: transform;
+  }
+  .hero-scrim {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(11, 10, 13, 0.56) 0%, rgba(11, 10, 13, 0.34) 38%, rgba(11, 10, 13, 0.86) 84%, #0b0a0d 100%),
+      linear-gradient(90deg, rgba(11, 10, 13, 0.84) 0%, rgba(11, 10, 13, 0.46) 54%, rgba(11, 10, 13, 0.22) 100%);
+  }
+  .hero {
+    position: relative;
+    z-index: 2;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 76px 26px 46px;
+  }
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    background: rgba(15, 14, 18, 0.72);
+    backdrop-filter: blur(10px);
+    color: var(--gold-bright);
+    border: 1px solid rgba(230, 185, 106, 0.4);
+    padding: 7px 16px;
+    border-radius: 999px;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+  .hero-badge::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--emerald);
+    box-shadow: 0 0 10px var(--emerald);
+    animation: pulseDot 2.2s ease-in-out infinite;
+  }
+  .hero h1 {
+    font-family: var(--display);
+    font-size: clamp(2.15rem, 4.4vw, 3.5rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    line-height: 1.16;
+    color: #fbf6ee;
+    text-shadow: 0 8px 34px rgba(0, 0, 0, 0.65);
+    max-width: 840px;
+  }
+  .hero-rule {
+    width: 92px;
+    height: 1px;
+    margin: 22px 0 20px;
+    background: linear-gradient(90deg, var(--gold-bright), rgba(230, 185, 106, 0.1));
+  }
+  .hero-sub {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-weight: 500;
+    color: #efe7da;
+    font-size: clamp(1.22rem, 2vw, 1.44rem);
+    line-height: 1.65;
+    letter-spacing: 0.015em;
+    max-width: 720px;
+    text-shadow: 0 2px 16px rgba(0, 0, 0, 0.72);
+  }
+
+  /* Hero Direct Connect & Community Action Bar */
+  .hero-actions {
+    margin-top: 26px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+  }
+  .btn-primary, .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 22px;
+    border-radius: 13px;
+    font-family: var(--sans);
+    font-size: 0.9rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+  }
+  .btn-primary {
+    background: linear-gradient(135deg, #f3cd82 0%, #c88e3d 100%);
+    color: #0b0a0d;
+    border: 1px solid rgba(255, 232, 180, 0.7);
+    box-shadow: 0 10px 28px rgba(230, 185, 106, 0.28);
+  }
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(230, 185, 106, 0.42);
+  }
+  .btn-secondary {
+    background: rgba(16, 14, 20, 0.78);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    color: var(--text);
+    border: 1px solid rgba(230, 185, 106, 0.34);
+  }
+  .btn-secondary:hover {
+    transform: translateY(-2px);
+    border-color: var(--gold-bright);
+    background: rgba(230, 185, 106, 0.14);
+  }
+  .btn-secondary.copied {
+    border-color: var(--emerald);
+    color: var(--emerald);
+    background: var(--emerald-bg);
+  }
+  .btn-ip-code {
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    color: var(--gold-bright);
+  }
+  .hero-connect-note {
+    margin-top: 10px;
+    font-size: 0.82rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+  }
+
+  /* Frosted Search Bar */
+  .search-wrap {
+    margin-top: 22px;
+    max-width: 680px;
+    position: relative;
+  }
+  .search-wrap svg {
+    position: absolute;
+    left: 17px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--gold);
+    pointer-events: none;
+  }
+  #searchInput {
+    width: 100%;
+    background: rgba(15, 13, 18, 0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid rgba(230, 185, 106, 0.34);
+    color: var(--text);
+    padding: 15px 76px 15px 46px;
+    border-radius: 14px;
+    font-family: var(--sans);
+    font-size: 0.96rem;
+    outline: none;
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.42);
+    transition: border-color 0.22s, box-shadow 0.22s, background 0.22s;
+  }
+  #searchInput::placeholder { color: #b5aa9a; }
+  #searchInput:focus {
+    border-color: var(--gold-bright);
+    background: rgba(18, 16, 22, 0.92);
+    box-shadow: 0 0 0 4px rgba(230, 185, 106, 0.16), 0 14px 36px rgba(0, 0, 0, 0.55);
+  }
+  .search-clear {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(230, 185, 106, 0.12);
+    border: 1px solid rgba(230, 185, 106, 0.28);
+    color: var(--gold-bright);
+    font-size: 0.74rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  /* Signature Luxury Strip at Hero Footer */
+  .hero-strip {
+    margin-top: 34px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+    gap: 12px;
+  }
+  .hero-strip-item {
+    background: rgba(16, 14, 20, 0.68);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(230, 185, 106, 0.22);
+    border-radius: 14px;
+    padding: 13px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .hero-strip-item span {
+    font-size: 0.71rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .hero-strip-item strong {
+    font-size: 0.95rem;
+    color: #fbf6ee;
+    font-weight: 650;
+  }
+
+  /* Main Editorial Container */
+  main {
+    max-width: 1200px;
+    margin: 0 auto 88px;
+    padding: 0 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .section-card {
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    overflow: hidden;
+    animation: fadeUp 0.45s ease both;
+    position: relative;
+  }
+  .section-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 28px;
+    right: 28px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(230, 185, 106, 0.38), transparent);
+    pointer-events: none;
+  }
+
+  /* Editorial Photo Banner Headers (Boutique Café / Restaurant Feel) */
+  .section-banner {
+    position: relative;
+    min-height: 205px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 14px;
+    padding: 26px 32px;
+    background-size: cover;
+    background-position: center;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .section-banner::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(11, 10, 13, 0.25) 0%, rgba(11, 10, 13, 0.65) 58%, rgba(21, 19, 25, 0.98) 100%);
+  }
+  .section-banner > * { position: relative; z-index: 2; }
+  .section-banner h2 {
+    font-family: var(--display);
+    font-size: clamp(1.3rem, 2.3vw, 1.65rem);
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #fcf7ef;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.78);
+  }
+
+  .section-head {
+    padding: 24px 36px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(90deg, rgba(230, 185, 106, 0.07), transparent 72%);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .section-head h2 {
+    font-family: var(--display);
+    font-size: 1.24rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    color: #fbf6ee;
+  }
+  .pill {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 0.96rem;
+    font-weight: 600;
+    padding: 4px 16px;
+    border-radius: 999px;
+    letter-spacing: 0.04em;
+    backdrop-filter: blur(8px);
+  }
+  .pill-sky { background: rgba(112, 198, 245, 0.14); color: var(--sky); border: 1px solid rgba(112, 198, 245, 0.35); }
+  .pill-gold { background: rgba(230, 185, 106, 0.16); color: var(--gold-bright); border: 1px solid rgba(230, 185, 106, 0.42); }
+  .pill-emerald { background: rgba(79, 209, 165, 0.14); color: var(--emerald); border: 1px solid rgba(79, 209, 165, 0.35); }
+  .pill-lavender { background: rgba(201, 150, 250, 0.14); color: var(--lavender); border: 1px solid rgba(201, 150, 250, 0.35); }
+  .pill-amber { background: rgba(230, 130, 94, 0.15); color: var(--amber); border: 1px solid rgba(230, 130, 94, 0.38); }
+
+  .section-body { padding: 30px 36px 34px; }
+  .editorial-lead {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 1.22rem;
+    line-height: 1.75;
+    letter-spacing: 0.014em;
+    color: #ede4d6;
+    margin-bottom: 24px;
+    max-width: 960px;
+  }
+
+  /* Grids & Tactile Cards */
+  .grid-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(245px, 1fr));
+    gap: 18px;
+  }
+  .stat-box {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.025), rgba(11, 10, 13, 0.52));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .stat-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hi);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.34);
+  }
+  .stat-box .label {
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+  }
+  .stat-box .val {
+    font-family: var(--editorial);
+    font-size: 1.32rem;
+    font-weight: 600;
+    color: #fbf6ee;
+    margin-top: 8px;
+    line-height: 1.32;
+    letter-spacing: 0.015em;
+  }
+  .stat-box .note {
+    font-size: 0.91rem;
+    color: var(--text-soft);
+    margin-top: 10px;
+    line-height: 1.82;
+    letter-spacing: 0.016em;
+  }
+
+  .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+    gap: 20px;
+  }
+  .feature-box {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.024), rgba(11, 10, 13, 0.48));
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 24px 26px;
+    transition: transform 0.2s ease, border-color 0.2s ease;
+  }
+  .feature-box:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-hi);
+  }
+  .feature-box h3 {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 1.34rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--gold-bright);
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(230, 185, 106, 0.16);
+  }
+  .feature-box p, .feature-box li {
+    font-size: 0.93rem;
+    color: var(--text-soft);
+    line-height: 1.86;
+    letter-spacing: 0.016em;
+  }
+  .feature-box ul { padding-left: 20px; display: flex; flex-direction: column; gap: 12px; }
+  .feature-box li::marker { color: var(--gold); }
+
+  /* Command Menu List (Tasting Menu Rhythm) */
+  .cmd-list { display: flex; flex-direction: column; }
+  .cmd-row {
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) 1.55fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 18px 36px;
+    border-top: 1px solid rgba(230, 185, 106, 0.09);
+    transition: background 0.16s ease;
+  }
+  .cmd-row:first-child { border-top: none; }
+  .cmd-row:hover { background: var(--card-hover); }
+  .cmd-code {
+    font-family: var(--mono);
+    font-size: 0.84rem;
+    color: var(--gold-bright);
+    background: rgba(8, 7, 10, 0.62);
+    border: 1px solid rgba(230, 185, 106, 0.24);
+    padding: 6px 12px;
+    border-radius: 9px;
+    display: inline-block;
+  }
+  .cmd-cat {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 0.92rem;
+    letter-spacing: 0.04em;
+    color: var(--muted);
+    margin-top: 6px;
+  }
+  .cmd-desc {
+    font-size: 0.93rem;
+    line-height: 1.78;
+    letter-spacing: 0.015em;
+    color: var(--text-soft);
+  }
+
+  .copy-btn {
+    background: rgba(230, 185, 106, 0.08);
+    border: 1px solid rgba(230, 185, 106, 0.3);
+    color: var(--gold-bright);
+    padding: 8px 15px;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 0.79rem;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    cursor: pointer;
+    transition: all 0.18s;
+    white-space: nowrap;
+  }
+  .copy-btn:hover { background: rgba(230, 185, 106, 0.22); border-color: var(--gold-bright); transform: translateY(-1px); }
+  .copy-btn.copied { background: var(--emerald-bg); border-color: var(--emerald); color: var(--emerald); }
+
+  /* Color Swatches */
+  .swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(156px, 1fr));
+    gap: 10px;
+    margin-top: 16px;
+  }
+  .swatch {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: rgba(11, 10, 13, 0.56);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 9px 12px;
+    font-size: 0.83rem;
+    color: var(--text-soft);
+    cursor: pointer;
+    transition: border-color 0.18s, transform 0.18s, background 0.18s;
+  }
+  .swatch:hover {
+    border-color: var(--gold-bright);
+    background: rgba(230, 185, 106, 0.08);
+    transform: translateY(-2px);
+  }
+  .dot {
+    width: 19px;
+    height: 19px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.38);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+    flex-shrink: 0;
+  }
+  .swatch b { font-family: var(--mono); color: var(--gold-bright); }
+
+  /* Rules */
+  .rules-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+    gap: 18px;
+  }
+  .rule-item {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(11, 10, 13, 0.52));
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 13px;
+    padding: 20px 22px;
+    font-size: 0.93rem;
+    line-height: 1.82;
+    letter-spacing: 0.016em;
+    color: var(--text-soft);
+    transition: transform 0.18s, border-color 0.18s;
+  }
+  .rule-item:hover { transform: translateY(-2px); border-color: var(--border-hi); }
+  .rule-num {
+    font-family: var(--display);
+    font-size: 0.8rem;
+    color: var(--gold);
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    margin-bottom: 8px;
+  }
+
+  .empty-state {
+    display: none;
+    text-align: center;
+    padding: 56px 24px;
+    color: var(--muted);
+    background: var(--card);
+    border: 1px dashed var(--border-hi);
+    border-radius: var(--radius);
+  }
+
+  /* Fine-Dining Colophon Footer */
+  footer {
+    text-align: center;
+    padding: 52px 24px 64px;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    background: linear-gradient(180deg, transparent, rgba(230, 185, 106, 0.035));
+  }
+  .footer-brand {
+    font-family: var(--display);
+    font-size: 1.05rem;
+    letter-spacing: 0.24em;
+    color: var(--gold-bright);
+    margin-bottom: 8px;
+  }
+  .footer-motto {
+    font-family: var(--editorial);
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--text-soft);
+    letter-spacing: 0.03em;
+    margin-bottom: 18px;
+  }
+  .footer-rule {
+    width: 68px;
+    height: 1px;
+    margin: 0 auto 18px;
+    background: linear-gradient(90deg, transparent, rgba(230, 185, 106, 0.55), transparent);
+  }
+  .footer-note {
+    font-size: 0.84rem;
+    color: var(--muted);
+    letter-spacing: 0.02em;
+    margin-bottom: 10px;
+  }
+  .footer-copy {
+    font-family: var(--display);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    opacity: 0.9;
+  }
+
+  .toast {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    background: rgba(20, 18, 24, 0.96);
+    color: var(--gold-bright);
+    border: 1px solid rgba(230, 185, 106, 0.5);
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 0.86rem;
+    font-weight: 500;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(10px);
+    pointer-events: none;
+    transition: all 0.22s ease;
+    z-index: 120;
+  }
+  .toast.show { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 780px) {
+    .hero { padding: 48px 18px 34px; }
+    main { padding: 0 16px; gap: 22px; }
+    .section-head, .section-body, .section-banner { padding-left: 18px; padding-right: 18px; }
+    .section-banner { min-height: 165px; }
+    .cmd-row { grid-template-columns: 1fr; gap: 10px; padding: 14px 18px; }
+    .copy-btn { justify-self: start; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="topbar-inner">
+    <div class="logo">
+      <div class="logo-mark">Z</div>
+      <span>Z NEW GEN · RAGNAROK</span>
+    </div>
+    <div class="nav-links" id="navLinks"></div>
+    <div class="lang-switch">
+      <button class="lang-btn active" id="btnES" onclick="setLang('es')">ES</button>
+      <button class="lang-btn" id="btnEN" onclick="setLang('en')">EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="hero-outer">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-scrim" aria-hidden="true"></div>
+  <header class="hero">
+    <div class="hero-badge" id="heroBadge"></div>
+    <h1 id="heroTitle"></h1>
+    <div class="hero-rule" aria-hidden="true"></div>
+    <p class="hero-sub" id="heroSub"></p>
+
+    <div class="hero-actions" id="heroActions"></div>
+    <p class="hero-connect-note" id="heroConnectNote"></p>
+
+    <div class="search-wrap">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+      </svg>
+      <input id="searchInput" type="text" autocomplete="off" />
+      <button class="search-clear" id="clearBtn">Esc</button>
+    </div>
+
+    <div class="hero-strip" id="heroStrip"></div>
+  </header>
+</div>
+
+<main id="appRoot"></main>
+
+<div class="empty-state" id="emptyState" style="max-width:1180px;margin:0 auto 48px;">
+  <h3 id="emptyTitle"></h3>
+  <p id="emptySub"></p>
+</div>
+
+<footer id="footerText"></footer>
+<div class="toast" id="toast"></div>
+
+<script>
+const COLORS = [
+  { id: 1, es: "Rojo", en: "Red", hex: "#ef4444" },
+  { id: 2, es: "Azul", en: "Blue", hex: "#2563eb" },
+  { id: 3, es: "Verde", en: "Green", hex: "#22c55e" },
+  { id: 4, es: "Amarillo", en: "Yellow", hex: "#facc15" },
+  { id: 5, es: "Cian", en: "Cyan", hex: "#06b6d4" },
+  { id: 6, es: "Magenta", en: "Magenta", hex: "#d946ef" },
+  { id: 7, es: "Verde Claro", en: "Light Green", hex: "#86efac" },
+  { id: 8, es: "Gris Claro", en: "Light Grey", hex: "#cbd5e1" },
+  { id: 10, es: "Naranja Claro", en: "Light Orange", hex: "#fdba74" },
+  { id: 11, es: "Amarillo Claro", en: "Light Yellow", hex: "#fef08a" },
+  { id: 12, es: "Rojo Coral", en: "Light Red", hex: "#fca5a5" },
+  { id: 13, es: "Gris Oscuro", en: "Dark Grey", hex: "#64748b" },
+  { id: 14, es: "Negro", en: "Black", hex: "#27272a" },
+  { id: 15, es: "Café", en: "Brown", hex: "#78350f" },
+  { id: 16, es: "Verde Oscuro", en: "Dark Green", hex: "#166534" },
+  { id: 17, es: "Rojo Oscuro", en: "Dark Red", hex: "#991b1b" },
+  { id: 18, es: "Blanco", en: "White", hex: "#f1f5f9" },
+  { id: 24, es: "Dorado Arena", en: "Warm Gold", hex: "#d97706" },
+  { id: 36, es: "Blanco Puro", en: "Pure White", hex: "#ffffff" },
+  { id: 42, es: "Gris Acero", en: "Dark Slate", hex: "#334155" },
+  { id: 44, es: "Carmesí", en: "Crimson", hex: "#b91c1c" },
+  { id: 45, es: "Fuego Naranja", en: "Dragon Fire", hex: "#ea580c" },
+  { id: 52, es: "Azul Cielo", en: "Sky Blue", hex: "#38bdf8" },
+  { id: 53, es: "Turquesa Neón", en: "Neon Cyan", hex: "#22d3ee" },
+  { id: 54, es: "Verde Azulado", en: "Teal", hex: "#0d9488" },
+  { id: 55, es: "Rosa Fuerte", en: "Deep Pink", hex: "#ec4899" },
+  { id: 56, es: "Morado", en: "Purple", hex: "#9333ea" },
+  { id: 57, es: "Púrpura Real", en: "Royal Purple", hex: "#6d28d9" },
+  { id: 58, es: "Fucsia", en: "Fuchsia", hex: "#e879f9" },
+  { id: 59, es: "Rubí", en: "Ruby", hex: "#be123c" },
+  { id: 68, es: "Rosa Pastel", en: "Pink", hex: "#f9a8d4" },
+  { id: 70, es: "Naranja Vivo", en: "Bright Orange", hex: "#f97316" },
+  { id: 71, es: "Menta", en: "Mint", hex: "#5eead4" },
+  { id: 72, es: "Lavanda", en: "Lavender", hex: "#c084fc" },
+  { id: 75, es: "Hielo Glacial", en: "Glacial Ice", hex: "#bae6fd" },
+  { id: 79, es: "Negro Puro", en: "Pure Black", hex: "#050505" },
+  { id: 83, es: "Dorado", en: "Gold", hex: "#f5b942" },
+  { id: 85, es: "Jade", en: "Jade", hex: "#10b981" },
+  { id: 88, es: "Azul Eléctrico", en: "Electric Blue", hex: "#1d4ed8" },
+  { id: 90, es: "Violeta Oscuro", en: "Dark Violet", hex: "#4c1d95" },
+  { id: 94, es: "Verde Neón", en: "Neon Green", hex: "#4ade80" },
+  { id: 100, es: "Ámbar Dorado", en: "Amber Gold", hex: "#f59e0b" }
+];
+
+const CONTENT = {
+  es: {
+    badge: "Ragnarok PvP x15 · 2Man · 100% NO ADMIN ABUSE (/adminlog)",
+    title: "Z NEW GEN · Ragnarok PvP x15 [2Man]",
+    sub: "Portal oficial del servidor. PvP competitivo justo donde el vacile sano suma y la toxicidad no tiene lugar. Máximo 2 bases por tribu, Mercado con Subastas Élite, ORP a los 30 minutos y eventos épicos.",
+    searchPh: "Buscar comandos, rates, dinos, biomas, reglas... (ej. /curar, subasta, novato, war score, valhalla)",
+    copy: "Copiar",
+    copied: "Copiado",
+    toastPrefix: "Copiado:",
+    emptyTitle: "Sin resultados para tu búsqueda",
+    emptySub: "Prueba otra palabra o presiona Esc para ver toda la guía.",
+    footerMotto: "Ragnarok PvP x15 · 2Man · PvP Competitivo · Transparencia Total",
+    footer: "Dentro del juego escribe /info para la guía modular, /dc para Discord y Web, o /en para inglés.",
+    footerCopy: "© @znewgen2026 · Todos los derechos reservados",
+    nav: [
+      { id: "all", label: "Todo" },
+      { id: "start", label: "Inicio Rápido" },
+      { id: "rates", label: "Rates" },
+      { id: "market", label: "Mercado & Subasta" },
+      { id: "valhalla", label: "Valhalla" },
+      { id: "events", label: "Eventos & Top" },
+      { id: "biomes", label: "Dinos DLC" },
+      { id: "commands", label: "Comandos" },
+      { id: "rules", label: "Reglas" }
+    ],
+    startHead: "Empieza en 60 Segundos",
+    startPill: "Guía Paso a Paso",
+    startSteps: [
+      { k: "Paso 1 · Al Entrar", v: "Saca tu Kit y tienes 24h de Paz", n: "Escribe /kit 1 en el chat (funciona en cualquier lado). Tienes 24 horas de Protección de Novato (/npp): nadie puede matarte ni raidearte, pero si atacas tú primero o usas /pvp la pierdes. Recuerda: MÁXIMO 2 BASES POR TRIBU." },
+      { k: "Paso 2 · Gana Puntos", v: "Juega, /daily y Vende Recursos", n: "Solo por estar conectado ganas puntos cada 15 min. Reclama /daily cada día, vende recursos en Z-MARKET (/shopsell o Demanda Caliente /demanda que paga el doble) y compite en eventos (/event, /valhalla)." },
+      { k: "Paso 3 · Cúpulas de Colores", v: "Qué Significa Cada Burbuja", n: "Obeliscos (Azul, Verde, Rojo) y Z-MARKET (Dorada) = ZONAS SEGURAS (sin PvP, mesas y TPs sin combustible; tras combatir espera 60s). Cúpula Roja en campo abierto = EVENTO PVP ACTIVO. Cúpula gigante rotativa (Miércoles Desierto, Sábado Pantano, Domingo Hielo) = VALHALLA." },
+      { k: "Paso 4 · Juego Limpio", v: "100% NO ADMIN ABUSE", n: "Cero favoritismos: cada comando administrativo queda registrado y público en vivo. Escribe /adminlog cuando quieras para comprobarlo. Aquí el PvP y el vacile sano se promueven, pero toxiquear está prohibido." }
+    ],
+    ratesHead: "Rates y Formato del Servidor",
+    ratesPill: "PvP Competitivo · 2Man",
+    rates: [
+      { k: "Recolección y XP", v: "Farmeo x15 · XP x6", n: "Progresión ágil pensada para llegar rápido al PvP sin perder el valor del progreso." },
+      { k: "Tameo y Crianza", v: "Tameo x15 · Cría Rápida", n: "Incubación x80 · Maduración x65 · Impronta compartida de tribu." },
+      { k: "Dinos Salvajes", v: "Máx. Nivel 300", n: "Tek y Wyvern hasta nivel 380 en estado salvaje." },
+      { k: "Tribu y Bases", v: "2Man · 1 Alianza · Máx. 2 Bases", n: "Máximo 2 jugadores por tribu, 1 alianza formal y máximo 2 bases por tribu." },
+      { k: "Protecciones", v: "ORP 30 min · Novato 24h", n: "La Protección Offline (ORP) se activa a los 30 minutos de desconectarse. Escudo de novato 24h (/npp)." },
+      { k: "Comodidad", v: "Peso Infinito · Pickup Siempre", n: "Peso infinito en jugadores y dinos, recoger estructuras en todo momento y generador inalámbrico." }
+    ],
+    marketHead: "Z-MARKET (Zona Segura), Tienda y Subastas Élite",
+    marketPill: "Corazón Económico",
+    marketCards: [
+      {
+        title: "Estaciones Públicas (0 Combustible)",
+        items: [
+          "Tek Replicator, Forja Industrial, Mesa Química, Fabricator y Neveras siempre encendidos dentro de Z-MARKET.",
+          "Teleporters Tek públicos siempre activos en los Obeliscos con Escudo Anti-Secuestro TP (nadie de otra tribu puede arrastrarte a ti ni a tus dinos).",
+          "No almacenes objetos personales en las estaciones públicas."
+        ]
+      },
+      {
+        title: "Tienda, Kits y Ventas",
+        items: [
+          "/kit, /tienda pvp y Cryopods (/buy 37) funcionan en cualquier lugar del mapa.",
+          "Dinos (Nivel 350 castrados en Cryopod + montura + 150 niveles), Monturas, Tek y /sell son exclusivos de Z-MARKET.",
+          "8 lotes rentables en /sell 100% farmeables en Ragnarok (Miel, Pasteles, Kibbles, Perlas Negras, Leche, Cuerno Deathworm)."
+        ]
+      },
+      {
+        title: "Demanda Caliente (Paga el DOBLE cada 1h 30m)",
+        items: [
+          "Cada 90 min el mercado pide un recurso de Ragnarok al doble de precio (60 min activa + 30 min pausa).",
+          "1) Escribe /demanda para ver qué pide. 2) Ve a Z-MARKET (incluso montado en tu dino con el loot encima) y escribe /entregar."
+        ]
+      },
+      {
+        title: "Subastas Élite: Cómo Funcionan en 4 Pasos (Nvl 450 sin Castrar)",
+        items: [
+          "1) ¿Qué se subasta? 15 especies exclusivas (Maewing, Carcha, Reaper, Giga, Gólem, Desmodus, Voidwyrm, Tuso y más). Escribe /subasta lista para ver los 15 dinos y cuáles tienen más prioridad para salir.",
+          "2) ¿Cómo se inicia? Escribe /subasta. Arranca cuando hay 4+ jugadores conectados y 3 votos (máx. 2 subastas cada 12 horas).",
+          "3) ¿Cómo pujo? Tienes 5 min para ir a Z-MARKET. Ya dentro, escribe /pujar <puntos> (sube mínimo +500 pts). Si alguien te supera, tus puntos se devuelven al instante.",
+          "4) Anti-abuso y entrega: Deben pujar mínimo 2 TRIBUS DISTINTAS; cada puja reinicia 30s (cuenta 10..1). Nunca repite dino seguido y el ganador recibe el Cryopod al instante (si tienes inventario lleno: /reclamar)."
+        ]
+      }
+    ],
+    colorsTitle: "IDs de Colores Populares para /color <región 0-5> <ID> (clic para copiar)",
+    valhallaHead: "Mega-Evento PvPvE: VALHALLA",
+    valhallaPill: "Mié Desierto · Sáb Pantano · Dom Hielo · 19:00",
+    valhallaIntro: "Cada Miércoles, Sábado y Domingo a las 19:00 se activa una arena gigante en terreno plano que rota entre tres biomas con jefes temáticos y dificultad progresiva. Una Cúpula translúcida marca cada fase del combate. Entras a pie con /valhalla, enfrentas al Guardián y a las demás tribus, disputas 3 Altares Azules y compites por liderar el Puntaje de Guerra (War Score) para coronarte Campeón.",
+    valhallaArenas: [
+      { k: "Miércoles · 19:00", v: "Arena del Desierto (Mono o Araña)", n: "Dificultad Clásica. Planicie abierta con visibilidad total y calor seco. El Guardián sale al azar entre Megapithecus o Broodmother." },
+      { k: "Sábado · 19:00", v: "Arena del Pantano (Titán del Bosque)", n: "Dificultad Media-Alta. Terreno plano con atmósfera densa y emboscadas cerradas. Guardián fijo: Titán del Bosque." },
+      { k: "Domingo · 19:00", v: "Arena del Hielo (Titán de Hielo)", n: "Dificultad Extrema. Planicie helada de frío severo que exige ropa térmica y preparación total. Guardián fijo: Titán de Hielo." }
+    ],
+    valhallaPhases: [
+      { k: "18:55 · Preaviso (5m)", v: "Cúpula Púrpura: Prepárate", n: "Aún no despierta el Guardián. Equípate, guarda tu dino en Cryopod y escribe /valhalla (a pie) para entrar al perímetro." },
+      { k: "Fase 1 · El Guardián (20m)", v: "Derrota al Jefe + Drops Rojos", n: "Tienes 20 minutos para derribar al Guardián en el centro mientras caen Drops Rojos. Si el Guardián no muere a tiempo, el evento falla y la Bóveda Suprema NO se abre." },
+      { k: "Fase 2 · Frenesí Altares", v: "Cúpula Roja: 3 Altares Azules", n: "Los puntos por minuto estallan al máximo (x4), aparecen 2 Bestias Míticas domables y se activan 3 Altares Azules: quédate 10 segundos dentro de su cúpula azul sin enemigos para conquistarlo." },
+      { k: "Fase 3 · Extracción (4m)", v: "Cúpula Dorada: Bóveda Suprema", n: "Se abre la Bóveda Dorada central (Elemento, Planos de alto nivel y equipo Tek), se libera la barrera y se corona al Campeón #1 en Puntaje de Guerra." }
+    ],
+    valhallaCards: [
+      {
+        title: "Puntaje de Guerra (War Score): Cómo se Define el Ganador",
+        items: [
+          "El ganador de Valhalla se define por impacto real en combate y objetivo: durante la arena acumulas Puntaje de Guerra (War Score) y al abrirse la Bóveda Dorada en Fase 3, el jugador #1 se corona Campeón.",
+          "+10 War Score por cada 10,000 de daño infligido al Guardián (quien ignore al Jefe difícilmente podrá ganar).",
+          "+50 War Score al jugador que dé el Golpe Final al Guardián (además de Chibi Épico y 500 Elemento) y +30 War Score al Top #1 de daño total al Jefe.",
+          "+40 War Score por cada Kill PvP conseguida dentro del perímetro de Valhalla.",
+          "+20 War Score al conquistar un Altar Azul (10 segundos sin tribus rivales dentro) y +15 War Score cada 30 segundos por cada Altar bajo el control de tu tribu.",
+          "+5 War Score por cada minuto que permanezcas peleando dentro de la arena.",
+          "Premio al Campeón (#1 War Score): +5,000 puntos de tienda + un Dino Élite Nvl 450 sin castrar en Cryopod. Consulta el Top en vivo con /valhalla y reclámalo con /valhalla claim si tu inventario está lleno."
+        ]
+      },
+      {
+        title: "Recompensas de Combate y Cómo Volver Si Mueres",
+        items: [
+          "Puntos activos por pelear dentro de la arena (explotan x4 al activar los Altares), por cada Kill PvP, por conquistar Altares Azules y bono de Honor del Caído si mueres. Mientras un Altar esté disputado con enemigos dentro, la curación del Altar se pausa hasta ganar el choque.",
+          "Rachas de Berserker (sin morir): cada Kill PvP dentro de Valhalla te cura al instante a ti y a tu montura de forma progresiva (Kill 1: +10%, Kill 2: +20%, Kill 3 en adelante: +40% siempre hasta que te derriben y reinicien tu racha), más Chibi-Dino Épico por mérito real.",
+          "Drops Rojos periódicos y Bóveda Suprema central con Elemento, Planos exclusivos y botín Tek de alto valor.",
+          "¿Cómo entro? Quédate a pie (mete tu dino en Cryopod) y escribe /valhalla para aparecer en el perímetro.",
+          "¿Qué pasa si muero? Reapareces en tu base (tus bolsas permanecen disponibles), sacas otro kit con /kit 4, guardas tu dino en Cryopod y vuelves directo al combate con /valhalla (a pie, CD 90s).",
+          "Perímetro sellado con retorno libre: puedes entrar cuando quieras, pero en Fases 1 y 2 nadie puede salir hasta que se abre la Bóveda Dorada en Fase 3."
+        ]
+      }
+    ],
+    eventsHead: "Eventos Horarios, Recompensas y Beneficios de Ranking",
+    eventsPill: "Tierra Firme · Cada 60 min",
+    eventsCards: [
+      {
+        title: "4 Eventos Dinámicos en Tierra Firme (Cada 60 min)",
+        items: [
+          "Rey de la Colina (KOTH): +35 pts/min por mantener la Cúpula Roja PvP.",
+          "Boss Alpha Rex (Nivel 350): +400 pts a los participantes al derrotarlo.",
+          "Bóveda de Suministros (Blueprints & DLC): Planos de Flak/Armas/Monturas DLC + Elixir Sanguíneo/Mutagel + 200 pts al primero.",
+          "Dino Élite Salvaje (Nvl 330 a 345): Colores Rojo/Oro listo para domar o pelear (40 min).",
+          "KillRace (50% combo): Carrera cronometrada de kills PvP con premio al #1."
+        ]
+      },
+      {
+        title: "Recompensas y Beneficios por Top",
+        items: [
+          "Racha Diaria (/daily): De 75 hasta 400 pts por día consecutivo.",
+          "Weekend Boost (/boost): +25 pts extra cada 15 min todos los Sábados y Domingos.",
+          "Top 1 a 3 Kills PvP: Bono automático cada 30 min (#1 +60, #2 +40, #3 +25 pts) + anuncio de Campeón.",
+          "Top 1 a 3 Puntos: Pintura /color GRATIS en Z-MARKET + título de Magnate #1."
+        ]
+      }
+    ],
+    biomesHead: "Ecosistema Ragnarok Expandido (Dinos Salvajes de Otros Mapas)",
+    biomesPill: "14 Especies DLC Integradas",
+    biomes: [
+      { title: "Nieve", items: ["Snow Owl", "Managarmr", "Ferox"] },
+      { title: "Desierto y Dunas", items: ["Velonasaur", "Gasbags"] },
+      { title: "Centro y Praderas", items: ["Sinomacrops", "Gasbags", "Shinehorn", "Bulbdog"] },
+      { title: "Redwoods y Pantano", items: ["Shadowmane", "Bloodstalker", "Dinopithecus", "Sinomacrops", "Gacha (ultra-raro en Redwoods)"] },
+      { title: "Montañas y Playas", items: ["Desmodus", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight"] },
+      { title: "Exclusivos de Subasta (/subasta lista)", items: ["Maewing (NO está en tienda ni salvaje)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm", "Rock Elemental, Noglin, Tuso, Mosa y más (Nvl 450 sin castrar)"] }
+    ],
+    cmdsHead: "Comandos de Jugador (Chat)",
+    cmdsPill: "Clic en Copiar",
+    commands: [
+      { cmd: "/info  |  /help  |  /ayuda", copy: "/info", cat: "Guía Modular", desc: "Menú en pantalla con 8 secciones: /info pvp, valhalla, subasta, mercado, tienda, eventos, dinos, colores.", kw: "ayuda menu guia" },
+      { cmd: "/es  |  /espanol  |  /en  |  /english", copy: "/es", cat: "Idioma", desc: "Cambia tu idioma en todos los plugins (Español o Inglés).", kw: "idioma lenguaje" },
+      { cmd: "/dc  |  /discord  |  /web  |  /pagina", copy: "/dc", cat: "Comunidad", desc: "Muestra el enlace oficial de Discord y de esta Página Web.", kw: "discord web pagina" },
+      { cmd: "/groups  |  /grupos", copy: "/groups", cat: "Cuenta", desc: "Muestra tus grupos activos (Default, VIP, LangEN).", kw: "grupos rango vip" },
+      { cmd: "/points  |  /puntos", copy: "/points", cat: "Tienda", desc: "Consulta tu saldo actual de puntos.", kw: "puntos saldo" },
+      { cmd: "/kit  |  /kits  |  /kit <1-4>", copy: "/kit", cat: "Tienda (Global)", desc: "Lista y reclama kits (1 Inicio, 2 Granja, 3 Doma, 4 PvP) en cualquier punto del mapa.", kw: "kits inicio starter" },
+      { cmd: "/buykit <1-4> <Cant>", copy: "/buykit 4 1", cat: "Tienda (Global)", desc: "Compra usos adicionales de cualquier kit usando puntos.", kw: "comprar kit" },
+      { cmd: "/tienda <dinos|monturas|pvp|tek>  |  /shop", copy: "/tienda pvp", cat: "Tienda", desc: "Navega por categorías o páginas. PvP y Cryopods funcionan en todo el mapa; el resto en Z-MARKET.", kw: "shop catalogo comprar" },
+      { cmd: "/buy <ID> [Cant]", copy: "/buy 37 5", cat: "Tienda", desc: "Compra artículos o dinos en Cryopod (ej. /buy 37 5 para 5 Cryopods).", kw: "comprar" },
+      { cmd: "/shopfind <palabra>", copy: "/shopfind cryo", cat: "Tienda", desc: "Busca artículos o dinos en la tienda por palabra clave.", kw: "buscar tienda" },
+      { cmd: "/shopsell  |  /sell <ID> [Cant]", copy: "/shopsell", cat: "Mercado", desc: "Ver catálogo y vender lotes de recursos por puntos dentro de Z-MARKET.", kw: "vender" },
+      { cmd: "/trade 'Jug' <Pts>  |  /pagar  |  /pay", copy: "/pagar ", cat: "Economía", desc: "Transfiere puntos a otro jugador conectado dentro de Z-MARKET.", kw: "pay trade transferir" },
+      { cmd: "/curar  |  /curar pagar  |  /heal", copy: "/curar", cat: "Mercado", desc: "Cura al 100% tu dino montado y quita Cryo Sickness (CD 5h; pagar salta CD por 10,000 pts).", kw: "clinica heal" },
+      { cmd: "/color <0-5> <1-100>", copy: "/color 0 55", cat: "Mercado", desc: "Pinta tu dino montado en Z-MARKET (150 pts · GRATIS para Top 3 Puntos).", kw: "pintar colores" },
+      { cmd: "/demanda  |  /entregar [lotes]  |  /demand  |  /deliver", copy: "/demanda", cat: "Mercado", desc: "Consulta y entrega el material de Demanda Caliente 2x (acepta ítems directo del inventario de tu dino montado).", kw: "demand deliver" },
+      { cmd: "/subasta  |  /subasta lista  |  /pujar <Pts>  |  /reclamar", copy: "/subasta lista", cat: "Mercado", desc: "Mira los 15 dinos y su prioridad (/subasta lista), vota (/subasta), puja (/pujar) y reclama tu Cryopod 450 (/reclamar).", kw: "auction list bid claim maewing" },
+      { cmd: "/bounty [Jug] [Pts]  |  /bounties  |  /recompensa", copy: "/bounty", cat: "PvP & Mercado", desc: "Pon o consulta recompensas permanentes (mín. 500 pts; cancelar propia: /bounty cancelar).", kw: "recompensa caza" },
+      { cmd: "/daily", copy: "/daily", cat: "Eventos", desc: "Reclama tu recompensa diaria de racha (75 a 400 pts; bonos VIP).", kw: "diaria racha" },
+      { cmd: "/valhalla  |  /valhalla info  |  /valhalla claim", copy: "/valhalla", cat: "Mega-Evento", desc: "Mié/Sáb/Dom 19:00: tepea al perímetro de Valhalla, muestra Puntaje de Guerra o reclama Cryopod 450 / Chibi / Elemento.", kw: "valhalla boss guardian altares" },
+      { cmd: "/mutagen", copy: "/mutagen", cat: "Cueva PvP", desc: "Cueva de Mutagen (Cueva de los Hongos): muestra Bulbos activos (3 a 5 Mutagen c/u, respawn 45m) y entradas GPS.", kw: "mutagen hongos cueva bulbos" },
+      { cmd: "/event  |  /evento", copy: "/event", cat: "Eventos", desc: "Consulta evento mundial activo, GPS en vivo y minutos para el próximo.", kw: "evento gps" },
+      { cmd: "/killrace  |  /racha", copy: "/killrace", cat: "Eventos PvP", desc: "Muestra el Top 5 en vivo de la Racha de Kills PvP y el premio en juego.", kw: "racha kills torneo" },
+      { cmd: "/boost  |  /weekend", copy: "/boost", cat: "Eventos", desc: "Consulta si el Bono de Fin de Semana (+25 pts cada 15m) está activo.", kw: "weekend fin de semana" },
+      { cmd: "/npp  |  /novato  |  /npp off  |  /pvp", copy: "/npp", cat: "Protección", desc: "Consulta tu Protección de Novato (24h) o desactívala con /pvp para pelear ya.", kw: "novato newbie" },
+      { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "Rankings", desc: "Tus estadísticas personales y Rankings Top 10 de Kills PvP y Cazadores de Dinos.", kw: "stats ranking" },
+      { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Rankings", desc: "Atajos directos al Top 10 de Kills PvP y al Top 10 de Jugadores más Ricos.", kw: "topkills toppoints" },
+      { cmd: "/musica [1-14|on|off]  |  /sonido [on|off]", copy: "/musica", cat: "Audio (Nativo)", desc: "14 temas oficiales de ARK (música tranquila en Z-MARKET y combate épico en VALHALLA) o silencia alertas (/music, /sound).", kw: "musica sonido audio jukebox" },
+      { cmd: "/die", copy: "/die", cat: "Utilidad", desc: "Destrabe / anti-jaula global (10s espera, funciona incluso dormido o esposado).", kw: "suicidio atascado" },
+      { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "Transparencia", desc: "Muestra los últimos 10 comandos administrativos ejecutados en el servidor.", kw: "transparencia logs" }
+    ],
+    rulesHead: "Reglas Básicas y Protecciones PvP",
+    rulesPill: "Juego Limpio",
+    rules: [
+      "Prohibido el uso de hacks, exploits, mesheo o dupes (tolerancia cero).",
+      "Respetar el límite de 2 jugadores por tribu (2Man), máximo 1 alianza formal y MÁXIMO 2 BASES POR TRIBU.",
+      "No bloquear zonas de spawn ni abusar del borde de la Zona Segura.",
+      "Todas las Cuevas de Artefacto, la Cueva de Mutagen (Hongos) y las Arenas de VALHALLA son zonas No-Build permanentes 24/7.",
+      "PvP competitivo al 100%: vacilar y el pique sano SÍ se pueden, pero toxiquear, insultar o acosar está PROHIBIDO.",
+      "Protección de Novato 24h: si atacas primero a otro jugador o base, tu protección se cancela al instante.",
+      "Combat Tag 60s y Anti-Popcorn: tras daño PvP espera 60s para entrar a SafeZones; no se puede tirar loot durante raideos."
+    ]
+  },
+  en: {
+    badge: "Ragnarok PvP x15 · 2Man · 100% NO ADMIN ABUSE (/adminlog)",
+    title: "Z NEW GEN · Ragnarok PvP x15 [2Man]",
+    sub: "Official server portal. Fair competitive PvP where friendly banter thrives and toxicity has no place. Max 2 bases per tribe, live Market with Elite Auctions, 30-minute ORP & weekly mega-events.",
+    searchPh: "Search commands, rates, dinos, biomes, rules... (e.g. /heal, auction, newbie, war score, valhalla)",
+    copy: "Copy",
+    copied: "Copied",
+    toastPrefix: "Copied:",
+    emptyTitle: "No matching entries found",
+    emptySub: "Try another keyword or press Esc to show the full guide.",
+    footerMotto: "Ragnarok PvP x15 · 2Man · Competitive PvP · Full Transparency",
+    footer: "In-game type /info for the modular guide, /dc for Discord & Web, or /es for Spanish.",
+    footerCopy: "© @znewgen2026 · All rights reserved",
+    nav: [
+      { id: "all", label: "All" },
+      { id: "start", label: "Quick Start" },
+      { id: "rates", label: "Rates" },
+      { id: "market", label: "Market & Auction" },
+      { id: "valhalla", label: "Valhalla" },
+      { id: "events", label: "Events & Top" },
+      { id: "biomes", label: "DLC Dinos" },
+      { id: "commands", label: "Commands" },
+      { id: "rules", label: "Rules" }
+    ],
+    startHead: "Start in 60 Seconds",
+    startPill: "Step-by-Step Guide",
+    startSteps: [
+      { k: "Step 1 · First Login", v: "Grab Your Kit & 24h Peace Shield", n: "Type /kit 1 in chat (works anywhere). You start with 24h Newbie Protection (/npp): nobody can kill or raid you, but attacking first or typing /pvp removes it. Remember: MAX 2 BASES PER TRIBE." },
+      { k: "Step 2 · Earn Points", v: "Play, /daily & Sell Resources", n: "Just playing earns points every 15m. Claim /daily every day, sell resources at Z-MARKET (/shopsell or 2x Hot Demand /demand) and compete in events (/event, /valhalla)." },
+      { k: "Step 3 · Colored Domes", v: "What Every Bubble Means", n: "Obelisks (Blue, Green, Red) & Z-MARKET (Gold) = SAFE ZONES (no PvP, free-power benches & TPs; wait 60s after combat). Red Dome in open land = LIVE PVP EVENT. Giant rotating Dome (Wed Desert, Sat Swamp, Sun Ice) = VALHALLA." },
+      { k: "Step 4 · Fair Play", v: "100% NO ADMIN ABUSE", n: "Zero favoritism: every admin command is logged live & publicly. Type /adminlog anytime to verify. Competitive PvP & friendly banter are encouraged; toxicity is banned." }
+    ],
+    ratesHead: "Server Rates & Format",
+    ratesPill: "Competitive PvP · 2Man",
+    rates: [
+      { k: "Harvest & XP", v: "Harvest x15 · XP x6", n: "Smooth, rewarding pace built to get you into real PvP without losing progression value." },
+      { k: "Taming & Breeding", v: "Taming x15 · Fast Breed", n: "Hatch x80 · Mature x65 · Tribe-wide imprint." },
+      { k: "Wild Dinos", v: "Max Wild Level 300", n: "Tek & Wyverns spawn up to wild level 380." },
+      { k: "Tribe & Bases", v: "2Man · 1 Alliance · Max 2 Bases", n: "Max 2 players per tribe, 1 formal alliance and max 2 bases per tribe." },
+      { k: "Protections", v: "30m ORP · 24h Newbie Shield", n: "Offline Raid Protection activates 30 minutes after logging off. 24h Newbie Protection (/npp)." },
+      { k: "Quality of Life", v: "Infinite Weight · Always Pickup", n: "Infinite weight on players & dinos, always pick up structures & wireless generator." }
+    ],
+    marketHead: "Z-MARKET (Safe Zone), Shop & Elite Auctions",
+    marketPill: "Economic Hub",
+    marketCards: [
+      {
+        title: "Always-Powered Public Stations (0 Fuel)",
+        items: [
+          "Tek Replicator, Industrial Forge, Chemistry Bench, Fabricator & Fridges always active inside Z-MARKET.",
+          "Public Tek Teleporters always powered at Obelisks with Anti-Kidnap TP Shield (other tribes can never drag you or your dinos away).",
+          "Do not leave personal items stored in public stations."
+        ]
+      },
+      {
+        title: "Shop, Kits & Selling",
+        items: [
+          "/kit, /shop pvp & Cryopods (/buy 37) work anywhere on the map.",
+          "Dinos (Level 350 neutered in Cryopod + saddle + 150 level-ups), Saddles, Tek & /sell are Z-MARKET exclusive.",
+          "8 profitable /sell batches 100% farmable on Ragnarok (Honey, Veggie Cakes, Kibbles, Black Pearls, Wyvern Milk, Deathworm Horns)."
+        ]
+      },
+      {
+        title: "Hot Demand (Pays DOUBLE Every 90 Minutes)",
+        items: [
+          "Every 90m the market requests one Ragnarok resource at 2x points (60m active + 30m break).",
+          "1) Type /demand to see what's hot. 2) Go to Z-MARKET (even mounted on your dino carrying the loot) and type /deliver."
+        ]
+      },
+      {
+        title: "Elite Auctions: How They Work in 4 Steps (Lvl 450 Breedable)",
+        items: [
+          "1) What's in the pool? 15 exclusive species (Maewing, Carcha, Reaper, Giga, Rock Elemental, Desmodus, Voidwyrm, Tuso & more). Type /auction list to see all 15 dinos & their priority queue.",
+          "2) How to start one? Type /auction. Starts at 4+ players online & 3 votes (max 2 auctions per 12h).",
+          "3) How to bid? You get 5m to reach Z-MARKET. Inside, type /bid <points> (+500 min raise). Outbid points refund instantly.",
+          "4) Anti-abuse & delivery: Requires at least 2 DISTINCT TRIBES bidding; each bid resets 30s (10..1 countdown). Never repeats back-to-back & delivers Cryopod instantly (inventory full: /claim)."
+        ]
+      }
+    ],
+    colorsTitle: "Popular Color IDs for /color <region 0-5> <ID> (click to copy)",
+    valhallaHead: "PvPvE Mega-Event: VALHALLA",
+    valhallaPill: "Wed Desert · Sat Swamp · Sun Ice · 19:00",
+    valhallaIntro: "Every Wednesday, Saturday and Sunday at 19:00 a giant flat-ground arena spawns across three distinct biomes with thematic Guardians and escalating difficulty. A translucent Dome marks every phase. Join on foot with /valhalla, battle the Guardian and rival tribes, hold 3 Blue Altars, and climb the War Score leaderboard to be crowned Champion.",
+    valhallaArenas: [
+      { k: "Wednesday · 19:00", v: "Desert Arena (Gorilla or Spider)", n: "Classic Difficulty. Flat open dunes with clean sightlines and dry heat. Guardian spawns randomly as Megapithecus or Broodmother." },
+      { k: "Saturday · 19:00", v: "Swamp Arena (Forest Titan)", n: "Medium-High Difficulty. Flat marshland with dense mist and close-quarters ambushes. Fixed Guardian: Forest Titan." },
+      { k: "Sunday · 19:00", v: "Ice Arena (Ice Titan)", n: "Extreme Difficulty. Flat frozen plains with harsh cold demanding thermal gear and full preparation. Fixed Guardian: Ice Titan." }
+    ],
+    valhallaPhases: [
+      { k: "18:55 · Prep (5m)", v: "Purple Dome: Gear Up", n: "No boss yet. Grab gear, cryo your dino and type /valhalla (on foot) to teleport safely to the perimeter." },
+      { k: "Phase 1 · Guardian (20m)", v: "Defeat the Boss + Red Drops", n: "You have 20 minutes to slay the Guardian at center while Red Drops spawn. If the Boss survives past 20m, the arena fails and the Supreme Vault stays SEALED." },
+      { k: "Phase 2 · Altars Frenzy", v: "Red Dome: 3 Blue Altars", n: "Points per minute surge to peak levels (4x), 2 tamable Mythic Beasts spawn and 3 Blue Altars activate: stand 10 seconds inside a Blue dome uncontested to capture it." },
+      { k: "Phase 3 · Extract (4m)", v: "Gold Dome: Supreme Vault", n: "Center Gold Vault unlocks (Element, high-tier Blueprints & Tek gear), the barrier drops and the #1 War Score player is crowned Champion." }
+    ],
+    valhallaCards: [
+      {
+        title: "War Score: How the Arena Winner Is Decided",
+        items: [
+          "Winning Valhalla rewards real objective play and PvP: throughout the match you build War Score, and when the Gold Vault unlocks in Phase 3, the #1 fighter is crowned Champion.",
+          "+10 War Score for every 10,000 damage dealt to the Guardian (ignoring the Boss makes winning nearly impossible).",
+          "+50 War Score for landing the Guardian Killing Blow (plus Epic Chibi & 500 Element) and +30 War Score for finishing Top #1 in total Boss damage.",
+          "+40 War Score for every PvP Kill scored inside the Valhalla perimeter.",
+          "+20 War Score for capturing a Blue Altar (10 seconds uncontested) and +15 War Score every 30 seconds for each Altar your tribe controls.",
+          "+5 War Score for every minute spent fighting inside the arena.",
+          "Champion Prize (#1 War Score): +5,000 shop points + a Breedable Lvl 450 Elite Dino in Cryopod. Check live standings with /valhalla and claim via /valhalla claim if your inventory is full."
+        ]
+      },
+      {
+        title: "Combat Rewards & How to Rejoin If You Die",
+        items: [
+          "Earn shop points for fighting inside the arena (surging 4x once Altars activate), for PvP kills, for holding Blue Altars, plus a Fallen Honor bonus if you die. Whenever an Altar is contested by enemy tribes, Altar healing pauses until the fight is won.",
+          "Berserker Streaks (without dying): every PvP Kill inside Valhalla heals you and your mount progressively (Kill 1: +10%, Kill 2: +20%, Kill 3 onwards: +40% every kill until someone breaks your streak), plus an Epic Chibi-Dino earned strictly by skill.",
+          "Periodic Red Drops and the central Supreme Vault filled with Element, exclusive Blueprints and high-tier Tek loot.",
+          "How do I join? Stay on foot (cryo your dino) and type /valhalla to enter the perimeter.",
+          "What if I die? Respawn at base (loot bags stay available), grab another kit with /kit 4, cryo your dino and jump right back in with /valhalla (on foot, 90s CD).",
+          "Sealed perimeter, open entry: you can enter anytime, while during Phases 1 & 2 nobody can exit until the Gold Vault opens in Phase 3."
+        ]
+      }
+    ],
+    eventsHead: "Hourly World Events, Daily Rewards & Leaderboard Perks",
+    eventsPill: "Dry Land · Every 60 min",
+    eventsCards: [
+      {
+        title: "4 Dynamic Dry-Land World Events (Every 60m)",
+        items: [
+          "King of the Hill (KOTH): +35 pts/min for holding the Red PvP Dome.",
+          "Alpha Rex Boss (Level 350): +400 pts to nearby fighters on defeat.",
+          "Supply Vault Drop (Blueprints & DLC): High-tier Flak/Weapon/DLC Saddle Blueprints + Sanguine Elixir/Mutagel + 200 pts to first arrival.",
+          "Wild Elite Dino (Lvl 330 to 345): Red/Gold colors ready to tame or contest (40m).",
+          "KillRace (50% combo): Timed PvP kill tournament rewarding #1."
+        ]
+      },
+      {
+        title: "Rewards & Top 1 to 3 Perks",
+        items: [
+          "Daily Streak (/daily): 75 up to 400 pts per consecutive day.",
+          "Weekend Boost (/boost): +25 bonus points every 15m on Saturdays & Sundays.",
+          "Top 1 to 3 PvP Kills: Automatic 30m bonus (#1 +60, #2 +40, #3 +25 pts) + #1 login callout.",
+          "Top 1 to 3 Points: FREE /color dino painting in Z-MARKET + #1 Tycoon login callout."
+        ]
+      }
+    ],
+    biomesHead: "Expanded Ragnarok Ecosystem (14 Wild DLC Species)",
+    biomesPill: "Balanced Biomes",
+    biomes: [
+      { title: "Snow", items: ["Snow Owl", "Managarmr", "Ferox"] },
+      { title: "Desert & Dunes", items: ["Velonasaur", "Gasbags"] },
+      { title: "Center & Grasslands", items: ["Sinomacrops", "Gasbags", "Shinehorn", "Bulbdog"] },
+      { title: "Redwoods & Swamp", items: ["Shadowmane", "Bloodstalker", "Dinopithecus", "Sinomacrops", "Gacha (ultra-rare in Redwoods)"] },
+      { title: "Mountains & Beaches", items: ["Desmodus", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight"] },
+      { title: "Auction Exclusives (/auction list)", items: ["Maewing (NOT in shop or wild)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm", "Rock Elemental, Noglin, Tuso, Mosa & more (Lvl 450 breedable)"] }
+    ],
+    cmdsHead: "Player Chat Commands",
+    cmdsPill: "1-Click Copy",
+    commands: [
+      { cmd: "/info  |  /help  |  /ayuda", copy: "/info", cat: "Modular Guide", desc: "On-screen guide with 8 sections: /info pvp, valhalla, auction, market, shop, events, dinos, colors.", kw: "help menu guide" },
+      { cmd: "/en  |  /english  |  /es  |  /espanol", copy: "/en", cat: "Language", desc: "Switch all menus, shop & alerts across all 12 plugins to English or Spanish.", kw: "language" },
+      { cmd: "/dc  |  /discord  |  /web  |  /pagina", copy: "/dc", cat: "Community", desc: "Displays the official Discord invite & Website link.", kw: "discord web site" },
+      { cmd: "/groups  |  /grupos", copy: "/groups", cat: "Account", desc: "Displays your active permission groups (Default, VIP, LangEN).", kw: "groups vip rank" },
+      { cmd: "/points  |  /puntos", copy: "/points", cat: "Shop", desc: "Check your current point balance.", kw: "balance" },
+      { cmd: "/kit  |  /kits  |  /kit <1-4>", copy: "/kit", cat: "Shop (Global)", desc: "List and claim kits (1 Starter, 2 Farm, 3 Taming, 4 PvP) anywhere on the map.", kw: "starter kits" },
+      { cmd: "/buykit <1-4> <Amt>", copy: "/buykit 4 1", cat: "Shop (Global)", desc: "Buy extra uses of any kit with points.", kw: "buy kit" },
+      { cmd: "/shop <dinos|saddles|pvp|tek>  |  /tienda", copy: "/shop pvp", cat: "Shop", desc: "Browse categories or pages. PvP & Cryopods work anywhere; all others require Z-MARKET.", kw: "catalog buy" },
+      { cmd: "/buy <ID> [Amt]", copy: "/buy 37 5", cat: "Shop", desc: "Buy items or Cryopod dinos (e.g. /buy 37 5 for 5 Cryopods).", kw: "purchase" },
+      { cmd: "/shopfind <word>", copy: "/shopfind cryo", cat: "Shop", desc: "Search store items or dinos by keyword.", kw: "search shop" },
+      { cmd: "/shopsell  |  /sell <ID> [Amt]", copy: "/shopsell", cat: "Market", desc: "View and sell resource batches for points inside Z-MARKET.", kw: "sell" },
+      { cmd: "/trade 'Player' <Pts>  |  /pay  |  /pagar", copy: "/pay ", cat: "Economy", desc: "Transfer points to another online player inside Z-MARKET.", kw: "transfer trade" },
+      { cmd: "/heal  |  /heal pay  |  /curar", copy: "/heal", cat: "Market", desc: "100% mounted dino heal + clears Cryo Sickness (5h CD; pay skips CD for 10,000 pts).", kw: "clinic cure" },
+      { cmd: "/color <0-5> <1-100>", copy: "/color 0 55", cat: "Market", desc: "Paint mounted dino in Z-MARKET (150 pts · FREE for Top 3 Points).", kw: "paint colors" },
+      { cmd: "/demand  |  /deliver [batches]  |  /demanda  |  /entregar", copy: "/demand", cat: "Market", desc: "Check & turn in 2x Hot Demand material (works straight from your mounted dino's inventory!).", kw: "hot demand" },
+      { cmd: "/auction  |  /auction list  |  /bid <Pts>  |  /claim", copy: "/auction list", cat: "Market", desc: "See all 15 dinos & priority (/auction list), vote (/auction), bid (/bid) & claim Lvl 450 Cryopod (/claim).", kw: "subasta list bid maewing" },
+      { cmd: "/bounty [Player] [Pts]  |  /bounties", copy: "/bounty", cat: "PvP & Market", desc: "View or place persistent bounties (min 500 pts; self-cancel: /bounty cancel).", kw: "hunt reward" },
+      { cmd: "/daily", copy: "/daily", cat: "Events", desc: "Claim daily login streak reward (75 to 400 pts; VIP bonuses).", kw: "streak reward" },
+      { cmd: "/valhalla  |  /valhalla info  |  /valhalla claim", copy: "/valhalla", cat: "Mega-Event", desc: "Wed/Sat/Sun 19:00: teleport to Valhalla perimeter, view War Score or claim Lvl 450 Cryopod / Chibi / Element.", kw: "valhalla boss guardian altars" },
+      { cmd: "/mutagen", copy: "/mutagen", cat: "PvP Cave", desc: "Mutagen Cave (Mushroom Cave): shows active glowing Bulbs (3 to 5 Mutagen each, 45m respawn) & GPS entrances.", kw: "mutagen mushroom cave bulbs" },
+      { cmd: "/event  |  /evento", copy: "/event", cat: "Events", desc: "Check active world event, live GPS and time until next event.", kw: "event gps" },
+      { cmd: "/killrace  |  /racha", copy: "/killrace", cat: "PvP Events", desc: "View live Top 5 Kill Race leaderboard and prize pool.", kw: "killrace tournament" },
+      { cmd: "/boost  |  /weekend", copy: "/boost", cat: "Events", desc: "Check if Weekend Boost (+25 bonus pts every 15m) is active.", kw: "weekend boost" },
+      { cmd: "/npp  |  /novato  |  /npp off  |  /pvp", copy: "/npp", cat: "Protection", desc: "Check 24h Newbie Protection time left or disable early with /pvp.", kw: "newbie protection" },
+      { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "Leaderboards", desc: "View personal stats and Top 10 PvP Kills & Dino Hunter rankings.", kw: "stats ranking" },
+      { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Leaderboards", desc: "Quick shortcuts to Top 10 PvP Kills & Top 10 Richest Players.", kw: "topkills toppoints" },
+      { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "Audio (Native)", desc: "14 official ARK soundtracks (calm music in Z-MARKET, boss themes across VALHALLA) or mute alerts (/musica, /sonido).", kw: "music sound audio jukebox" },
+      { cmd: "/die", copy: "/die", cat: "Utility", desc: "Global unstuck / anti-cage (10s delay, works knocked out or handcuffed).", kw: "unstuck cage" },
+      { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "Transparency", desc: "View the last 10 admin commands executed on the server.", kw: "transparency audit" }
+    ],
+    rulesHead: "Core Rules & Fair PvP Protections",
+    rulesPill: "Fair Play",
+    rules: [
+      "Zero tolerance for cheats, meshing, duping, or exploits.",
+      "Respect the 2-player tribe cap (2Man), 1 formal alliance max, and MAX 2 BASES PER TRIBE.",
+      "No blocking player spawns or abusing the SafeZone border.",
+      "All Artifact Caves, the Mutagen Cave (Mushroom Cave) and VALHALLA Arenas are permanent 24/7 No-Build zones.",
+      "Competitive PvP 100%: friendly banter is welcome, but toxicity, insults, or personal harassment are BANNED.",
+      "24h Newbie Protection: attacking another player, tame, or base cancels your protection immediately.",
+      "60s Combat Tag & Anti-Popcorn: wait 60s after PvP to enter SafeZones; dropping loot is blocked during active raids."
+    ]
+  }
+};
+
+let lang = "es";
+let activeTab = "all";
+let query = "";
+let colorRegion = 0;
+
+function setColorRegion(r) {
+  colorRegion = r;
+  render();
+}
+
+function norm(s) {
+  return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+}
+function esc(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;" }[c]));
+}
+
+function copyText(text, btn) {
+  navigator.clipboard.writeText(text).then(() => {
+    const t = CONTENT[lang];
+    if (btn) {
+      const oldHtml = btn.innerHTML;
+      btn.textContent = t.copied;
+      btn.classList.add("copied");
+      setTimeout(() => { btn.innerHTML = oldHtml; btn.classList.remove("copied"); }, 1200);
+    }
+    const toast = document.getElementById("toast");
+    toast.textContent = `${t.toastPrefix} ${text}`;
+    toast.classList.add("show");
+    clearTimeout(window._t);
+    window._t = setTimeout(() => toast.classList.remove("show"), 1800);
+  });
+}
+
+function setLang(l) {
+  lang = l;
+  document.documentElement.lang = l;
+  document.getElementById("btnES").classList.toggle("active", l === "es");
+  document.getElementById("btnEN").classList.toggle("active", l === "en");
+  render();
+}
+
+function setTab(id) {
+  activeTab = id;
+  render();
+}
+
+function matchesSearch(text) {
+  const q = norm(query.trim());
+  if (!q) return true;
+  const hay = norm(text);
+  return q.split(/\s+/).every(tok => hay.includes(tok));
+}
+
+function render() {
+  const t = CONTENT[lang];
+  document.getElementById("heroBadge").textContent = t.badge;
+  document.getElementById("heroTitle").textContent = t.title;
+  document.getElementById("heroSub").textContent = t.sub;
+  document.getElementById("heroActions").innerHTML = lang === "es"
+    ? `
+      <a class="btn-primary" href="steam://connect/198.50.250.196:27015">Conectar en Steam (1 Clic)</a>
+      <button class="btn-secondary" type="button" onclick="copyText('198.50.250.196:27015', this)"><span class="btn-ip-code">198.50.250.196:27015</span> · Copiar IP</button>
+      <a class="btn-secondary" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Discord Oficial</a>
+    `
+    : `
+      <a class="btn-primary" href="steam://connect/198.50.250.196:27015">Connect on Steam (1-Click)</a>
+      <button class="btn-secondary" type="button" onclick="copyText('198.50.250.196:27015', this)"><span class="btn-ip-code">198.50.250.196:27015</span> · Copy IP</button>
+      <a class="btn-secondary" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Official Discord</a>
+    `;
+  document.getElementById("heroConnectNote").textContent = lang === "es"
+    ? "Nombre en Steam: Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop · Favoritos Steam: Ver · Servidores · 198.50.250.196:27015"
+    : "Steam Server Name: Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop · Steam Favorites: View · Game Servers · 198.50.250.196:27015";
+  document.getElementById("searchInput").placeholder = t.searchPh;
+  document.getElementById("emptyTitle").textContent = t.emptyTitle;
+  document.getElementById("emptySub").textContent = t.emptySub;
+  document.getElementById("footerText").innerHTML = `
+    <div class="footer-brand">Z NEW GEN</div>
+    <div class="footer-motto">${esc(t.footerMotto)}</div>
+    <div class="footer-rule" aria-hidden="true"></div>
+    <div class="footer-note">${esc(t.footer)}</div>
+    <div class="footer-copy">${esc(t.footerCopy)}</div>
+  `;
+
+  const stripData = lang === "es"
+    ? [
+        { k: "Ritmo Ideal", v: "Farmeo & Tame x15 · Peso ∞" },
+        { k: "Formato PvP", v: "2Man · Máx. 2 Bases · ORP 30m" },
+        { k: "Mega-Evento", v: "Valhalla · Mié / Sáb / Dom 19:00" },
+        { k: "Transparencia", v: "100% No Admin Abuse (/adminlog)" }
+      ]
+    : [
+        { k: "Balanced Pace", v: "x15 Harvest & Tame · ∞ Weight" },
+        { k: "PvP Format", v: "2Man · Max 2 Bases · 30m ORP" },
+        { k: "Mega-Event", v: "Valhalla · Wed / Sat / Sun 19:00" },
+        { k: "Transparency", v: "100% No Admin Abuse (/adminlog)" }
+      ];
+  document.getElementById("heroStrip").innerHTML = stripData.map(s =>
+    `<div class="hero-strip-item"><span>${esc(s.k)}</span><strong>${esc(s.v)}</strong></div>`
+  ).join("");
+
+  const navEl = document.getElementById("navLinks");
+  navEl.innerHTML = t.nav.map(n =>
+    `<button class="nav-btn ${activeTab === n.id ? 'active' : ''}" onclick="setTab('${n.id}')">${esc(n.label)}</button>`
+  ).join("");
+
+  let html = "";
+  let visibleSections = 0;
+  const show = id => activeTab === "all" || activeTab === id;
+
+  // 0. Quick Start (60-Second Beginner Guide)
+  if (show("start")) {
+    const steps = t.startSteps.filter(s => matchesSearch(`${t.startHead} ${s.k} ${s.v} ${s.n}`));
+    if (steps.length) {
+      visibleSections++;
+      html += `
+        <section class="section-card" style="border-color:rgba(52,211,153,0.35);">
+          <div class="section-head" style="background:linear-gradient(90deg, rgba(52,211,153,0.12), transparent);">
+            <h2>${esc(t.startHead)}</h2>
+            <span class="pill pill-emerald">${esc(t.startPill)}</span>
+          </div>
+          <div class="section-body">
+            <div class="grid-2">
+              ${steps.map(s => `
+                <div class="stat-box" style="border-color:rgba(52,211,153,0.22);">
+                  <div class="label" style="color:var(--emerald);">${esc(s.k)}</div>
+                  <div class="val">${esc(s.v)}</div>
+                  <div class="note">${esc(s.n)}</div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>`;
+    }
+  }
+
+  // 1. Rates
+  if (show("rates")) {
+    const items = t.rates.filter(r => matchesSearch(`${t.ratesHead} ${r.k} ${r.v} ${r.n}`));
+    if (items.length) {
+      visibleSections++;
+      html += `
+        <section class="section-card">
+          <div class="section-head">
+            <h2>${esc(t.ratesHead)}</h2>
+            <span class="pill pill-sky">${esc(t.ratesPill)}</span>
+          </div>
+          <div class="section-body">
+            <div class="grid-stats">
+              ${items.map(r => `
+                <div class="stat-box">
+                  <div class="label">${esc(r.k)}</div>
+                  <div class="val">${esc(r.v)}</div>
+                  <div class="note">${esc(r.n)}</div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>`;
+    }
+  }
+
+  // 2. Market & Colors
+  if (show("market")) {
+    const cards = t.marketCards.filter(c => matchesSearch(`${t.marketHead} ${c.title} ${c.items.join(" ")}`));
+    const colorsMatch = matchesSearch(`${t.colorsTitle} color pintar ${COLORS.map(c => `${c.id} ${c.es} ${c.en}`).join(" ")}`);
+    if (cards.length || colorsMatch) {
+      visibleSections++;
+      html += `
+        <section class="section-card">
+          <div class="section-banner" style="background-image:url('img/market-oasis.svg');">
+            <h2>${esc(t.marketHead)}</h2>
+            <span class="pill pill-emerald">${esc(t.marketPill)}</span>
+          </div>
+          <div class="section-body">
+            ${cards.length ? `<div class="grid-2">${cards.map(c => `
+              <div class="feature-box">
+                <h3>${esc(c.title)}</h3>
+                <ul>${c.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+              </div>
+            `).join("")}</div>` : ""}
+            ${colorsMatch ? `
+              <div style="margin-top:20px;">
+                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+                  <div style="font-size:0.88rem;color:var(--muted);font-weight:600;">${esc(t.colorsTitle)}</div>
+                  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                    <span style="font-size:0.78rem;color:var(--muted);">${lang === 'es' ? 'Región:' : 'Region:'}</span>
+                    ${[0,1,2,3,4,5].map(r => `
+                      <button class="nav-btn ${colorRegion === r ? 'active' : ''}" style="padding:3px 10px;font-family:var(--mono);" onclick="setColorRegion(${r})">${r}</button>
+                    `).join("")}
+                  </div>
+                </div>
+                <div class="swatches">
+                  ${COLORS.map(c => `
+                    <div class="swatch" onclick="copyText('/color ${colorRegion} ${c.id}')">
+                      <span class="dot" style="background:${c.hex}"></span>
+                      <span><b>${c.id}</b> · ${esc(c[lang])}</span>
+                    </div>
+                  `).join("")}
+                </div>
+              </div>` : ""}
+          </div>
+        </section>`;
+    }
+  }
+
+  // 2.5 VALHALLA Dedicated Weekend Mega-Event Section
+  if (show("valhalla")) {
+    const vHay = `${t.valhallaHead} ${t.valhallaIntro} ${t.valhallaArenas.map(a => `${a.k} ${a.v} ${a.n}`).join(" ")} ${t.valhallaPhases.map(p => `${p.k} ${p.v} ${p.n}`).join(" ")} ${t.valhallaCards.map(c => `${c.title} ${c.items.join(" ")}`).join(" ")}`;
+    if (matchesSearch(vHay)) {
+      visibleSections++;
+      html += `
+        <section class="section-card" style="border-color:rgba(230,185,106,0.38);">
+          <div class="section-banner" style="min-height:225px;background-image:url('img/valhalla-arena.svg');">
+            <h2>${esc(t.valhallaHead)}</h2>
+            <span class="pill pill-gold">${esc(t.valhallaPill)}</span>
+          </div>
+          <div class="section-body">
+            <p class="editorial-lead">${esc(t.valhallaIntro)}</p>
+            <div class="grid-stats" style="margin-bottom:20px;">
+              ${t.valhallaArenas.map(a => `
+                <div class="stat-box" style="border-color:rgba(112,198,245,0.28);background:linear-gradient(180deg, rgba(112,198,245,0.06), rgba(11,10,13,0.56));">
+                  <div class="label" style="color:var(--sky);">${esc(a.k)}</div>
+                  <div class="val">${esc(a.v)}</div>
+                  <div class="note">${esc(a.n)}</div>
+                </div>
+              `).join("")}
+            </div>
+            <div class="grid-stats" style="margin-bottom:20px;">
+              ${t.valhallaPhases.map(p => `
+                <div class="stat-box" style="border-color:rgba(245,185,66,0.25);">
+                  <div class="label" style="color:var(--gold);">${esc(p.k)}</div>
+                  <div class="val">${esc(p.v)}</div>
+                  <div class="note">${esc(p.n)}</div>
+                </div>
+              `).join("")}
+            </div>
+            <div class="grid-2">
+              ${t.valhallaCards.map(c => `
+                <div class="feature-box">
+                  <h3>${esc(c.title)}</h3>
+                  <ul>${c.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>`;
+    }
+  }
+
+  // 3. Events & Top
+  if (show("events")) {
+    const cards = t.eventsCards.filter(c => matchesSearch(`${t.eventsHead} ${c.title} ${c.items.join(" ")}`));
+    if (cards.length) {
+      visibleSections++;
+      html += `
+        <section class="section-card">
+          <div class="section-head">
+            <h2>${esc(t.eventsHead)}</h2>
+            <span class="pill pill-gold">${esc(t.eventsPill)}</span>
+          </div>
+          <div class="section-body">
+            <div class="grid-2">
+              ${cards.map(c => `
+                <div class="feature-box">
+                  <h3>${esc(c.title)}</h3>
+                  <ul>${c.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>`;
+    }
+  }
+
+  // 4. Biomes / DLC Dinos
+  if (show("biomes")) {
+    const biomes = t.biomes.filter(b => matchesSearch(`${t.biomesHead} ${b.title} ${b.items.join(" ")}`));
+    if (biomes.length) {
+      visibleSections++;
+      html += `
+        <section class="section-card">
+          <div class="section-banner" style="background-image:url('img/biomes-wild.svg');">
+            <h2>${esc(t.biomesHead)}</h2>
+            <span class="pill pill-lavender">${esc(t.biomesPill)}</span>
+          </div>
+          <div class="section-body">
+            <div class="grid-stats">
+              ${biomes.map(b => `
+                <div class="feature-box">
+                  <h3>${esc(b.title)}</h3>
+                  <ul>${b.items.map(d => `<li>${esc(d)}</li>`).join("")}</ul>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>`;
+    }
+  }
+
+  // 5. Player Commands
+  if (show("commands")) {
+    const cmds = t.commands.filter(c => matchesSearch(`${t.cmdsHead} ${c.cmd} ${c.cat} ${c.desc} ${c.kw || ""}`));
+    if (cmds.length) {
+      visibleSections++;
+      html += `
+        <section class="section-card">
+          <div class="section-head">
+            <h2>${esc(t.cmdsHead)}</h2>
+            <span class="pill pill-emerald">${esc(t.cmdsPill)}</span>
+          </div>
+          <div class="cmd-list">
+            ${cmds.map(c => {
+              const safe = c.copy.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+              return `
+                <div class="cmd-row">
+                  <div>
+                    <span class="cmd-code">${esc(c.cmd)}</span>
+                    <div class="cmd-cat">${esc(c.cat)}</div>
+                  </div>
+                  <div class="cmd-desc">${esc(c.desc)}</div>
+                  <button class="copy-btn" onclick="copyText('${safe}', this)">${esc(t.copy)}</button>
+                </div>`;
+            }).join("")}
+          </div>
+        </section>`;
+    }
+  }
+
+  // 6. Rules
+  if (show("rules")) {
+    const rules = t.rules.filter(r => matchesSearch(`${t.rulesHead} ${r}`));
+    if (rules.length) {
+      visibleSections++;
+      html += `
+        <section class="section-card">
+          <div class="section-head">
+            <h2>${esc(t.rulesHead)}</h2>
+            <span class="pill pill-amber">${esc(t.rulesPill)}</span>
+          </div>
+          <div class="section-body">
+            <div class="rules-list">
+              ${rules.map((r, i) => `
+                <div class="rule-item">
+                  <div class="rule-num">0${i + 1}</div>
+                  <div>${esc(r)}</div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+        </section>`;
+    }
+  }
+
+  document.getElementById("appRoot").innerHTML = html;
+  document.getElementById("emptyState").style.display = visibleSections === 0 ? "block" : "none";
+}
+
+const searchInput = document.getElementById("searchInput");
+searchInput.addEventListener("input", e => { query = e.target.value; render(); });
+document.getElementById("clearBtn").addEventListener("click", () => {
+  query = ""; searchInput.value = ""; activeTab = "all"; render(); searchInput.focus();
+});
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") { query = ""; searchInput.value = ""; activeTab = "all"; render(); }
+  else if (e.key === "/" && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
+});
+
+render();
+</script>
+</body>
+</html>

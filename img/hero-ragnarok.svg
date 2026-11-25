@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0b0912"/>
+      <stop offset="28%" stop-color="#1c1426"/>
+      <stop offset="56%" stop-color="#4b2934"/>
+      <stop offset="78%" stop-color="#a85934"/>
+      <stop offset="94%" stop-color="#e39d52"/>
+      <stop offset="100%" stop-color="#f3c57c"/>
+    </linearGradient>
+    <radialGradient id="sunHalo" cx="68%" cy="68%" r="44%">
+      <stop offset="0%" stop-color="#ffe7b3" stop-opacity="0.92"/>
+      <stop offset="22%" stop-color="#f3a953" stop-opacity="0.58"/>
+      <stop offset="55%" stop-color="#a6432e" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#120d16" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="obBeam" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff4d2" stop-opacity="0"/>
+      <stop offset="35%" stop-color="#f6c76e" stop-opacity="0.34"/>
+      <stop offset="100%" stop-color="#ffe5a3" stop-opacity="0.82"/>
+    </linearGradient>
+    <linearGradient id="obCrystal" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#2b2738"/>
+      <stop offset="50%" stop-color="#15121d"/>
+      <stop offset="100%" stop-color="#3d2c28"/>
+    </linearGradient>
+    <linearGradient id="mtnFar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#4a2b36"/>
+      <stop offset="100%" stop-color="#211622"/>
+    </linearGradient>
+    <linearGradient id="mtnMid" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#2b1b24"/>
+      <stop offset="100%" stop-color="#140f17"/>
+    </linearGradient>
+    <linearGradient id="mtnNear" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#171219"/>
+      <stop offset="100%" stop-color="#0b0a0d"/>
+    </linearGradient>
+    <linearGradient id="mistBand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f0b66b" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#e59e54" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0b0a0d" stop-opacity="0"/>
+    </linearGradient>
+    <filter id="glowSoft" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="14" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowTight" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Sky & Golden Hour Sun -->
+  <rect width="1920" height="1080" fill="url(#sky)"/>
+  <rect width="1920" height="1080" fill="url(#sunHalo)"/>
+
+  <!-- Subtle high stars -->
+  <g fill="#fde8c2" opacity="0.55">
+    <circle cx="140" cy="90" r="1.4"/><circle cx="290" cy="140" r="1.1"/><circle cx="460" cy="70" r="1.6"/>
+    <circle cx="620" cy="120" r="1.2"/><circle cx="880" cy="85" r="1.5"/><circle cx="1090" cy="60" r="1.2"/>
+    <circle cx="1510" cy="110" r="1.5"/><circle cx="1720" cy="75" r="1.3"/><circle cx="1830" cy="155" r="1.1"/>
+  </g>
+
+  <!-- Atmospheric sun disk & light rays -->
+  <circle cx="1310" cy="710" r="118" fill="#ffe6ad" opacity="0.65" filter="url(#glowSoft)"/>
+  <g opacity="0.11" fill="#ffd996">
+    <polygon points="1310,710 620,1080 910,1080"/>
+    <polygon points="1310,710 1050,1080 1280,1080"/>
+    <polygon points="1310,710 1480,1080 1760,1080"/>
+    <polygon points="1310,710 180,520 340,360"/>
+  </g>
+
+  <!-- Distant Ragnarok Volcanic Peaks -->
+  <path d="M0,700 L140,630 L280,665 L430,545 L560,615 L720,515 L880,610 L1020,565 L1170,630 L1340,560 L1500,625 L1670,510 L1810,585 L1920,550 L1920,1080 L0,1080 Z" fill="url(#mtnFar)" opacity="0.88"/>
+
+  <!-- Floating Ragnarok Crystal Obelisk (Golden Beacon) -->
+  <g transform="translate(1310, 0)">
+    <rect x="-14" y="0" width="28" height="690" fill="url(#obBeam)" filter="url(#glowSoft)"/>
+    <rect x="-4" y="0" width="8" height="690" fill="#fff3cf" opacity="0.7"/>
+    <!-- Floating Obelisk Rings -->
+    <ellipse cx="0" cy="370" rx="58" ry="11" fill="none" stroke="#f7cb75" stroke-width="2.2" opacity="0.65" filter="url(#glowTight)"/>
+    <ellipse cx="0" cy="410" rx="38" ry="8" fill="none" stroke="#ffe5a3" stroke-width="1.6" opacity="0.5"/>
+    <!-- Obelisk Monolith Structure -->
+    <polygon points="0,128 34,330 0,382 -34,330" fill="url(#obCrystal)" stroke="#e6b86a" stroke-width="1.4" stroke-opacity="0.55"/>
+    <polygon points="0,128 12,330 0,382 -12,330" fill="#2c2230" opacity="0.85"/>
+    <polygon points="0,210 6,330 0,366 -6,330" fill="#ffdf94" opacity="0.92" filter="url(#glowTight)"/>
+    <!-- Floating base shards -->
+    <polygon points="-44,352 -24,365 -36,396" fill="#241c29" stroke="#e5b869" stroke-width="0.9" stroke-opacity="0.45"/>
+    <polygon points="44,352 24,365 36,396" fill="#241c29" stroke="#e5b869" stroke-width="0.9" stroke-opacity="0.45"/>
+  </g>
+
+  <!-- Soaring Wyvern Silhouettes in Golden Mist -->
+  <g fill="#2b1922" opacity="0.82">
+    <path d="M895,355 C918,334 946,326 968,332 C944,344 934,354 926,368 C942,366 958,370 972,379 C945,382 925,378 908,370 C892,380 872,384 850,377 C868,368 880,362 888,354 C865,342 840,336 815,341 C840,326 872,332 895,355 Z"/>
+    <path d="M1060,295 C1074,282 1091,278 1104,282 C1090,289 1083,295 1078,303 C1088,302 1097,305 1106,310 C1089,312 1077,309 1067,304 C1057,310 1045,313 1032,308 C1043,303 1050,299 1055,294 C1041,287 1026,283 1011,286 C1027,277 1046,281 1060,295 Z" opacity="0.62"/>
+  </g>
+
+  <!-- Warm Golden Valley Mist -->
+  <rect x="0" y="560" width="1920" height="260" fill="url(#mistBand)"/>
+
+  <!-- Midground Highland Cliffs & Ancient Stone Arch -->
+  <path d="M0,765 L120,715 L250,745 L410,670 L540,735 L690,695 L870,760 L1080,720 L1240,770 L1430,710 L1610,665 L1780,715 L1920,660 L1920,1080 L0,1080 Z" fill="url(#mtnMid)"/>
+
+  <!-- Ancient Ruin Pillars on Right Ridge -->
+  <g fill="#1c141d" stroke="#e5b869" stroke-width="1" stroke-opacity="0.18">
+    <path d="M1560,680 L1574,602 L1594,606 L1586,685 Z"/>
+    <path d="M1618,672 L1628,588 L1650,592 L1644,678 Z"/>
+    <path d="M1566,605 L1656,588 L1658,602 L1568,618 Z"/>
+  </g>
+
+  <!-- Foreground Pine Ridge & Dark Volcanic Frame -->
+  <path d="M0,850 L110,810 L240,860 L380,825 L560,885 L780,855 L980,910 L1220,870 L1460,905 L1690,830 L1830,860 L1920,820 L1920,1080 L0,1080 Z" fill="url(#mtnNear)"/>
+
+  <!-- Stylized Nordic Pine Tree Silhouettes (Left & Right Framing) -->
+  <g fill="#0c0a0e">
+    <polygon points="85,870 112,765 139,870"/><polygon points="125,885 156,745 187,885"/>
+    <polygon points="175,895 198,795 221,895"/><polygon points="220,905 246,785 272,905"/>
+    <polygon points="1640,880 1672,745 1704,880"/><polygon points="1700,875 1738,715 1776,875"/>
+    <polygon points="1770,880 1805,750 1840,880"/><polygon points="1835,880 1875,725 1915,880"/>
+  </g>
+
+  <!-- Floating Warm Gold Embers -->
+  <g fill="#f7ca74" filter="url(#glowTight)">
+    <circle cx="1180" cy="610" r="2.6" opacity="0.75"/>
+    <circle cx="1260" cy="540" r="2.1" opacity="0.65"/>
+    <circle cx="1370" cy="590" r="3.0" opacity="0.8"/>
+    <circle cx="1445" cy="510" r="2.0" opacity="0.55"/>
+    <circle cx="1100" cy="670" r="1.8" opacity="0.55"/>
+    <circle cx="760" cy="640" r="2.2" opacity="0.45"/>
+    <circle cx="1520" cy="640" r="2.5" opacity="0.65"/>
+  </g>
+</svg>
