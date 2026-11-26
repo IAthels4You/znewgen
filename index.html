@@ -1334,12 +1334,12 @@ function render() {
   document.getElementById("heroSub").textContent = t.sub;
   document.getElementById("heroActions").innerHTML = lang === "es"
     ? `
-      <a class="btn-primary" href="steam://connect/198.50.250.196:27015">Conectar en Steam (1 Clic)</a>
+      <a class="btn-primary" href="steam://run/346110//+connect%20198.50.250.196:27015">Conectar en Steam (1 Clic)</a>
       <button class="btn-secondary" type="button" onclick="copyText('198.50.250.196:27015', this)"><span class="btn-ip-code">198.50.250.196:27015</span> · Copiar IP</button>
       <a class="btn-secondary" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Discord Oficial</a>
     `
     : `
-      <a class="btn-primary" href="steam://connect/198.50.250.196:27015">Connect on Steam (1-Click)</a>
+      <a class="btn-primary" href="steam://run/346110//+connect%20198.50.250.196:27015">Connect on Steam (1-Click)</a>
       <button class="btn-secondary" type="button" onclick="copyText('198.50.250.196:27015', this)"><span class="btn-ip-code">198.50.250.196:27015</span> · Copy IP</button>
       <a class="btn-secondary" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Official Discord</a>
     `;

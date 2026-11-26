@@ -75,23 +75,31 @@
   }
 </style>
 <script>
-  const STEAM_URL = "steam://connect/198.50.250.196:27015";
+  const STEAM_URL = "steam://run/346110//+connect%20198.50.250.196:27015";
   window.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => { window.location.href = STEAM_URL; }, 250);
   });
+  function copyIp(btn) {
+    navigator.clipboard.writeText("198.50.250.196:27015").then(() => {
+      const old = btn.textContent;
+      btn.textContent = "IP Copiada: 198.50.250.196:27015";
+      setTimeout(() => { btn.textContent = old; }, 1600);
+    });
+  }
 </script>
 </head>
 <body>
   <div class="box">
     <div class="brand">Z NEW GEN · RAGNAROK PVP x15</div>
-    <h1>Abriendo Steam...</h1>
-    <p>Acepta el aviso de tu navegador para abrir Steam y entrar directo al servidor. Si no se abrió automáticamente, usa el botón de abajo.</p>
+    <h1>Abriendo ARK en Steam...</h1>
+    <p>Acepta el aviso del navegador para lanzar ARK directo al servidor (funciona mejor con el juego cerrado). Si ya tienes ARK abierto, copia la IP y agrégala en Steam: Ver · Servidores · Favoritos.</p>
     <div class="actions">
-      <a class="btn btn-main" href="steam://connect/198.50.250.196:27015">Conectar Ahora en Steam</a>
+      <a class="btn btn-main" href="steam://run/346110//+connect%20198.50.250.196:27015">Lanzar ARK y Conectar (1 Clic)</a>
+      <button class="btn btn-sub" type="button" style="cursor:pointer;" onclick="copyIp(this)">Copiar IP: 198.50.250.196:27015</button>
       <a class="btn btn-sub" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Discord Oficial</a>
       <a class="btn btn-sub" href="./">Ver Guía, Rates y Comandos</a>
     </div>
-    <div class="ip">IP: 198.50.250.196:27015</div>
+    <div class="ip">Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop</div>
   </div>
 </body>
 </html>
