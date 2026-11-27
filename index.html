@@ -1128,7 +1128,7 @@ const CONTENT = {
       { k: "Tameo y Crianza", v: "Tameo x15 · Cría Rápida", n: "Incubación x80 · Maduración x65 · Impronta compartida de tribu." },
       { k: "Dinos Salvajes", v: "Máx. Nivel 300", n: "Tek y Wyvern hasta nivel 380 en estado salvaje." },
       { k: "Tribu y Bases", v: "2Man · 1 Alianza · Máx. 2 Bases", n: "Máximo 2 jugadores por tribu, 1 alianza formal y máximo 2 bases por tribu." },
-      { k: "Protecciones", v: "ORP 30 min · Novato 24h", n: "La Protección Offline (ORP) se activa a los 30 minutos de desconectarse. Escudo de novato 24h (/npp)." },
+      { k: "Protecciones y Raideos", v: "Raideo Lun-Vie 15:00-23:00 CR · Fin de Semana 24h", n: "PvP en mundo abierto y eventos 24/7. Fuera de horario (06:00-14:00 JST) las bases y dinos pasivos sin jinete quedan protegidos. ORP 30m y Novato 24h (/npp · /raidtime)." },
       { k: "Comodidad", v: "Peso Infinito · Pickup Siempre", n: "Peso infinito en jugadores y dinos, recoger estructuras en todo momento y generador inalámbrico." }
     ],
     marketHead: "Z-MARKET (Zona Segura), Tienda y Subastas Élite",
@@ -1267,6 +1267,7 @@ const CONTENT = {
       { cmd: "/killrace  |  /racha", copy: "/killrace", cat: "Eventos PvP", desc: "Muestra el Top 5 en vivo de la Racha de Kills PvP y el premio en juego.", kw: "racha kills torneo" },
       { cmd: "/boost  |  /weekend", copy: "/boost", cat: "Eventos", desc: "Consulta si el Bono de Fin de Semana (+25 pts cada 15m) está activo.", kw: "weekend fin de semana" },
       { cmd: "/npp  |  /novato  |  /npp off  |  /pvp", copy: "/npp", cat: "Protección", desc: "Consulta tu Protección de Novato (24h) o desactívala con /pvp para pelear ya.", kw: "novato newbie" },
+      { cmd: "/raidtime  |  /horario", copy: "/raidtime", cat: "Horario PvP", desc: "Muestra si los raideos están abiertos o cerrados (Lun-Vie 15:00-23:00 CR / 06:00-14:00 JST, Sáb-Dom 24h; PvP abierto 24/7) y cuánto falta para el cambio.", kw: "horario raidtime raideo proteccion base pvp" },
       { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "Rankings", desc: "Tus estadísticas personales y Rankings Top 10 de Kills PvP y Cazadores de Dinos.", kw: "stats ranking" },
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Rankings", desc: "Atajos directos al Top 10 de Kills PvP y al Top 10 de Jugadores más Ricos.", kw: "topkills toppoints" },
       { cmd: "/musica [1-14|on|off]  |  /sonido [on|off]", copy: "/musica", cat: "Audio (Nativo)", desc: "14 temas oficiales de ARK (música tranquila en Z-MARKET y combate épico en VALHALLA) o silencia alertas (/music, /sound).", kw: "musica sonido audio jukebox" },
@@ -1326,7 +1327,7 @@ const CONTENT = {
       { k: "Taming & Breeding", v: "Taming x15 · Fast Breed", n: "Hatch x80 · Mature x65 · Tribe-wide imprint." },
       { k: "Wild Dinos", v: "Max Wild Level 300", n: "Tek & Wyverns spawn up to wild level 380." },
       { k: "Tribe & Bases", v: "2Man · 1 Alliance · Max 2 Bases", n: "Max 2 players per tribe, 1 formal alliance and max 2 bases per tribe." },
-      { k: "Protections", v: "30m ORP · 24h Newbie Shield", n: "Offline Raid Protection activates 30 minutes after logging off. 24h Newbie Protection (/npp)." },
+      { k: "Raid Schedule & ORP", v: "Raids Mon-Fri 15:00-23:00 CR · Weekends 24h", n: "Open-world PvP & events stay 24/7. Off-hours protect bases & unridden passive dinos (06:00-14:00 JST). 30m ORP & 24h Newbie Shield (/npp · /raidtime)." },
       { k: "Quality of Life", v: "Infinite Weight · Always Pickup", n: "Infinite weight on players & dinos, always pick up structures & wireless generator." }
     ],
     marketHead: "Z-MARKET (Safe Zone), Shop & Elite Auctions",
@@ -1465,6 +1466,7 @@ const CONTENT = {
       { cmd: "/killrace  |  /racha", copy: "/killrace", cat: "PvP Events", desc: "View live Top 5 Kill Race leaderboard and prize pool.", kw: "killrace tournament" },
       { cmd: "/boost  |  /weekend", copy: "/boost", cat: "Events", desc: "Check if Weekend Boost (+25 bonus pts every 15m) is active.", kw: "weekend boost" },
       { cmd: "/npp  |  /novato  |  /npp off  |  /pvp", copy: "/npp", cat: "Protection", desc: "Check 24h Newbie Protection time left or disable early with /pvp.", kw: "newbie protection" },
+      { cmd: "/raidtime  |  /horario", copy: "/raidtime", cat: "Raid Schedule", desc: "Shows live base raid status (Mon-Fri 15:00-23:00 CR / 06:00-14:00 JST, Weekends 24h; open-world PvP 24/7) and countdown to next switch.", kw: "raidtime schedule base protection pvp" },
       { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "Leaderboards", desc: "View personal stats and Top 10 PvP Kills & Dino Hunter rankings.", kw: "stats ranking" },
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Leaderboards", desc: "Quick shortcuts to Top 10 PvP Kills & Top 10 Richest Players.", kw: "topkills toppoints" },
       { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "Audio (Native)", desc: "14 official ARK soundtracks (calm music in Z-MARKET, boss themes across VALHALLA) or mute alerts (/musica, /sonido).", kw: "music sound audio jukebox" },
@@ -1524,7 +1526,7 @@ const CONTENT = {
       { k: "テイム・ブリーディング", v: "テイム x15 · 高速育成", n: "孵化 x80 · 成長 x65 · トライブ共有インプリント対応。" },
       { k: "野生恐竜レベル", v: "野生最大 Lv.300", n: "Tek恐竜（全6種出現率アップ）とワイバーンは野生最大 Lv.380。" },
       { k: "トライブ・拠点制限", v: "2人トライブ · 最大2拠点", n: "1トライブ最大2名、1トライブ最大2拠点。タレット上限200基。" },
-      { k: "保護システム", v: "ORP 30分 · 初心者保護 24時間", n: "ログアウト30分後にオフライン保護（ORP）が自動発動。初心者保護24時間（/npp）。" },
+      { k: "レイド時間＆保護", v: "平日 06:00-14:00 JST · 土日24時間レイド可", n: "フィールドPvP＆イベントは24時間有効。平日時間外は拠点と騎乗していない無抵抗恐竜を保護。ORP30分＆初心者保護24h（/npp · /raidtime）。" },
       { k: "快適機能", v: "重量無限 · 常時回収可", n: "プレイヤー・恐竜ともに重量無限、建築物の常時回収、ワイヤレス発電機対応。" }
     ],
     marketHead: "Z-MARKET（安全地帯）・ショップ・エリートオークション",
@@ -1663,6 +1665,7 @@ const CONTENT = {
       { cmd: "/killrace  |  /racha", copy: "/killrace", cat: "PvPイベント", desc: "開催中のキルレース上位5名と賞金プールを表示。", kw: "キルレース 大会" },
       { cmd: "/boost  |  /weekend", copy: "/boost", cat: "イベント", desc: "週末ポイントブースト（15分ごとに+25pts）が有効か確認。", kw: "週末 ブースト" },
       { cmd: "/npp  |  /novato  |  /npp off  |  /pvp", copy: "/npp", cat: "保護", desc: "24時間初心者保護の残り時間確認、または /pvp で早期解除。", kw: "初心者保護 シールド" },
+      { cmd: "/raidtime  |  /horario", copy: "/raidtime", cat: "レイド時間", desc: "現在の拠点レイド可否（平日06:00-14:00 JST / 土日24時間、フィールドPvPは常時有効）と次の切替までの残り時間を表示。", kw: "レイド時間 拠点保護 raidtime" },
       { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "ランキング", desc: "個人戦績およびPvPキル・恐竜ハンターTop10ランキングを表示。", kw: "戦績 ランキング" },
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "ランキング", desc: "PvPキルTop10・ポイント富豪Top10へのショートカット。", kw: "トップ キル ポイント" },
       { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "オーディオ", desc: "ARK公式BGM全14曲（Z-MARKETの穏やかな曲・ヴァルハラのボス曲）切替、または効果音ミュート。", kw: "音楽 サウンド ミュート" },
@@ -1725,13 +1728,13 @@ function classifyCommand(c) {
       s.includes("/demand") || s.includes("/subasta") || s.includes("/auction")) return "economy";
   if (s.includes("/valhalla") || s.includes("/event") || s.includes("/mutagen") || s.includes("/killrace") ||
       s.includes("/daily") || s.includes("/boost") || s.includes("/bounty") || s.includes("/mystats") ||
-      s.includes("/topkills")) return "events";
+      s.includes("/topkills") || s.includes("/raidtime") || s.includes("/horario")) return "events";
   return "general";
 }
 
 function isEssentialCommand(c) {
   const cp = (c.copy || "").trim().toLowerCase();
-  return ["/kit", "/tienda pvp", "/shop pvp", "/llenar", "/fill", "/balas", "/craftarb", "/npp", "/event", "/valhalla", "/subasta lista", "/auction list", "/info", "/apagar", "/off", "/misdinos", "/mydinos"].includes(cp);
+  return ["/kit", "/tienda pvp", "/shop pvp", "/llenar", "/fill", "/balas", "/craftarb", "/npp", "/raidtime", "/event", "/valhalla", "/subasta lista", "/auction list", "/info", "/apagar", "/off", "/misdinos", "/mydinos"].includes(cp);
 }
 
 function norm(s) {
@@ -1872,7 +1875,7 @@ function render() {
       clearSearch: "Volver a la pestaña",
       quickCmdHead: "Comandos Esenciales para Empezar",
       quickCmdPill: "Los 6 Más Usados",
-      allCmdsBtn: "Explorar los 32 comandos con filtros ->",
+      allCmdsBtn: `Explorar los ${t.commands.length} comandos con filtros ->`,
       exploreHead: "Explorar el Servidor por Tema",
       explorePill: "Elige lo que necesitas",
       portals: [
@@ -1898,7 +1901,7 @@ function render() {
       clearSearch: "Clear search",
       quickCmdHead: "Essential Starter Commands",
       quickCmdPill: "Top 6 Most Used",
-      allCmdsBtn: "Browse all 32 commands with filters ->",
+      allCmdsBtn: `Browse all ${t.commands.length} commands with filters ->`,
       exploreHead: "Explore the Server by Topic",
       explorePill: "Jump to what you need",
       portals: [
@@ -1924,7 +1927,7 @@ function render() {
       clearSearch: "検索をクリア",
       quickCmdHead: "まず覚える基本コマンド",
       quickCmdPill: "よく使う6つ",
-      allCmdsBtn: "全32コマンドをカテゴリ別に見る ->",
+      allCmdsBtn: `全${t.commands.length}コマンドをカテゴリ別に見る ->`,
       exploreHead: "テーマ別に詳しく見る",
       explorePill: "必要な情報へすぐ移動",
       portals: [
