@@ -76,14 +76,68 @@
 </style>
 <script>
   const STEAM_URL = "steam://run/346110//+connect%20198.50.250.196:27015";
+  const I18N = {
+    es: {
+      title: "Abriendo ARK en Steam...",
+      desc: "Acepta el aviso del navegador para lanzar ARK directo al servidor (funciona mejor con el juego cerrado). Si ya tienes ARK abierto, copia la IP y agrégala en Steam: Ver · Servidores · Favoritos.",
+      launch: "Lanzar ARK y Conectar (1 Clic)",
+      copy: "Copiar IP: 198.50.250.196:27015",
+      copied: "IP Copiada: 198.50.250.196:27015",
+      discord: "Discord Oficial",
+      guide: "Ver Guía, Rates y Comandos",
+      guideHref: "./"
+    },
+    en: {
+      title: "Launching ARK on Steam...",
+      desc: "Accept the browser prompt to launch ARK directly into the server (works best when the game is closed). If ARK is already open, copy the IP and add it in Steam: View · Game Servers · Favorites.",
+      launch: "Launch ARK & Connect (1-Click)",
+      copy: "Copy IP: 198.50.250.196:27015",
+      copied: "IP Copied: 198.50.250.196:27015",
+      discord: "Official Discord",
+      guide: "View Guide, Rates & Commands",
+      guideHref: "./?lang=en"
+    },
+    ja: {
+      title: "SteamでARKを起動しています...",
+      desc: "ブラウザの確認ダイアログを許可すると、ARKが直接サーバーに接続されます（ゲーム終了状態での起動を推奨）。すでにARKを起動中の場合は、IPをコピーして Steam の「表示 · ゲームサーバー · お気に入り」から追加してください。",
+      launch: "ARKを起動して接続（ワンクリック）",
+      copy: "IPをコピー: 198.50.250.196:27015",
+      copied: "IPをコピーしました: 198.50.250.196:27015",
+      discord: "公式Discord",
+      guide: "ガイド・倍率・コマンドを見る",
+      guideHref: "./?lang=ja"
+    }
+  };
+  let curLang = "es";
+  function detectLang() {
+    const p = new URLSearchParams(window.location.search).get("lang");
+    if (p === "ja" || p === "jp") return "ja";
+    if (p === "en") return "en";
+    if (p === "es") return "es";
+    const nl = (navigator.language || "").toLowerCase();
+    if (nl.startsWith("ja")) return "ja";
+    if (nl.startsWith("en")) return "en";
+    return "es";
+  }
   window.addEventListener("DOMContentLoaded", () => {
+    curLang = detectLang();
+    document.documentElement.lang = curLang;
+    const t = I18N[curLang];
+    document.getElementById("cTitle").textContent = t.title;
+    document.getElementById("cDesc").textContent = t.desc;
+    document.getElementById("cLaunch").textContent = t.launch;
+    document.getElementById("cCopy").textContent = t.copy;
+    document.getElementById("cDiscord").textContent = t.discord;
+    const g = document.getElementById("cGuide");
+    g.textContent = t.guide;
+    g.href = t.guideHref;
     setTimeout(() => { window.location.href = STEAM_URL; }, 250);
   });
   function copyIp(btn) {
     navigator.clipboard.writeText("198.50.250.196:27015").then(() => {
-      const old = btn.textContent;
-      btn.textContent = "IP Copiada: 198.50.250.196:27015";
-      setTimeout(() => { btn.textContent = old; }, 1600);
+      const t = I18N[curLang];
+      btn.textContent = t.copied;
+      setTimeout(() => { btn.textContent = t.copy; }, 1600);
     });
   }
 </script>
@@ -91,13 +145,13 @@
 <body>
   <div class="box">
     <div class="brand">Z NEW GEN · RAGNAROK PVP x15</div>
-    <h1>Abriendo ARK en Steam...</h1>
-    <p>Acepta el aviso del navegador para lanzar ARK directo al servidor (funciona mejor con el juego cerrado). Si ya tienes ARK abierto, copia la IP y agrégala en Steam: Ver · Servidores · Favoritos.</p>
+    <h1 id="cTitle">Abriendo ARK en Steam...</h1>
+    <p id="cDesc">Acepta el aviso del navegador para lanzar ARK directo al servidor (funciona mejor con el juego cerrado). Si ya tienes ARK abierto, copia la IP y agrégala en Steam: Ver · Servidores · Favoritos.</p>
     <div class="actions">
-      <a class="btn btn-main" href="steam://run/346110//+connect%20198.50.250.196:27015">Lanzar ARK y Conectar (1 Clic)</a>
-      <button class="btn btn-sub" type="button" style="cursor:pointer;" onclick="copyIp(this)">Copiar IP: 198.50.250.196:27015</button>
-      <a class="btn btn-sub" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Discord Oficial</a>
-      <a class="btn btn-sub" href="./">Ver Guía, Rates y Comandos</a>
+      <a class="btn btn-main" id="cLaunch" href="steam://run/346110//+connect%20198.50.250.196:27015">Lanzar ARK y Conectar (1 Clic)</a>
+      <button class="btn btn-sub" id="cCopy" type="button" style="cursor:pointer;" onclick="copyIp(this)">Copiar IP: 198.50.250.196:27015</button>
+      <a class="btn btn-sub" id="cDiscord" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Discord Oficial</a>
+      <a class="btn btn-sub" id="cGuide" href="./">Ver Guía, Rates y Comandos</a>
     </div>
     <div class="ip">Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop</div>
   </div>

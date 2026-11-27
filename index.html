@@ -6,7 +6,7 @@
 <title>Z NEW GEN · Ragnarok PvP x15 [2Man]</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=JetBrains+Mono:wght@500;600&family=Noto+Sans+JP:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
 <style>
   :root {
     --bg: #0b0a0d;
@@ -32,10 +32,19 @@
     --amber-bg: rgba(230, 130, 94, 0.13);
     --radius: 20px;
     --shadow: 0 22px 54px rgba(0, 0, 0, 0.55);
-    --display: "Cinzel", Georgia, "Times New Roman", serif;
-    --editorial: "Cormorant Garamond", Georgia, "Times New Roman", serif;
-    --sans: "Plus Jakarta Sans", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
+    --display: "Cinzel", "Noto Sans JP", Georgia, "Times New Roman", serif;
+    --editorial: "Cormorant Garamond", "Noto Sans JP", Georgia, "Times New Roman", serif;
+    --sans: "Plus Jakarta Sans", "Noto Sans JP", "Segoe UI", system-ui, -apple-system, Roboto, sans-serif;
     --mono: "JetBrains Mono", "Cascadia Code", Consolas, monospace;
+  }
+
+  html[lang="ja"] .hero-sub,
+  html[lang="ja"] .editorial-lead,
+  html[lang="ja"] .feature-box h3,
+  html[lang="ja"] .pill,
+  html[lang="ja"] .cmd-cat,
+  html[lang="ja"] .footer-motto {
+    font-style: normal;
   }
 
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -794,6 +803,7 @@
     <div class="lang-switch">
       <button class="lang-btn active" id="btnES" onclick="setLang('es')">ES</button>
       <button class="lang-btn" id="btnEN" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" id="btnJA" onclick="setLang('ja')">日本語</button>
     </div>
   </div>
 </nav>
@@ -834,48 +844,48 @@
 
 <script>
 const COLORS = [
-  { id: 1, es: "Rojo", en: "Red", hex: "#ef4444" },
-  { id: 2, es: "Azul", en: "Blue", hex: "#2563eb" },
-  { id: 3, es: "Verde", en: "Green", hex: "#22c55e" },
-  { id: 4, es: "Amarillo", en: "Yellow", hex: "#facc15" },
-  { id: 5, es: "Cian", en: "Cyan", hex: "#06b6d4" },
-  { id: 6, es: "Magenta", en: "Magenta", hex: "#d946ef" },
-  { id: 7, es: "Verde Claro", en: "Light Green", hex: "#86efac" },
-  { id: 8, es: "Gris Claro", en: "Light Grey", hex: "#cbd5e1" },
-  { id: 10, es: "Naranja Claro", en: "Light Orange", hex: "#fdba74" },
-  { id: 11, es: "Amarillo Claro", en: "Light Yellow", hex: "#fef08a" },
-  { id: 12, es: "Rojo Coral", en: "Light Red", hex: "#fca5a5" },
-  { id: 13, es: "Gris Oscuro", en: "Dark Grey", hex: "#64748b" },
-  { id: 14, es: "Negro", en: "Black", hex: "#27272a" },
-  { id: 15, es: "Café", en: "Brown", hex: "#78350f" },
-  { id: 16, es: "Verde Oscuro", en: "Dark Green", hex: "#166534" },
-  { id: 17, es: "Rojo Oscuro", en: "Dark Red", hex: "#991b1b" },
-  { id: 18, es: "Blanco", en: "White", hex: "#f1f5f9" },
-  { id: 24, es: "Dorado Arena", en: "Warm Gold", hex: "#d97706" },
-  { id: 36, es: "Blanco Puro", en: "Pure White", hex: "#ffffff" },
-  { id: 42, es: "Gris Acero", en: "Dark Slate", hex: "#334155" },
-  { id: 44, es: "Carmesí", en: "Crimson", hex: "#b91c1c" },
-  { id: 45, es: "Fuego Naranja", en: "Dragon Fire", hex: "#ea580c" },
-  { id: 52, es: "Azul Cielo", en: "Sky Blue", hex: "#38bdf8" },
-  { id: 53, es: "Turquesa Neón", en: "Neon Cyan", hex: "#22d3ee" },
-  { id: 54, es: "Verde Azulado", en: "Teal", hex: "#0d9488" },
-  { id: 55, es: "Rosa Fuerte", en: "Deep Pink", hex: "#ec4899" },
-  { id: 56, es: "Morado", en: "Purple", hex: "#9333ea" },
-  { id: 57, es: "Púrpura Real", en: "Royal Purple", hex: "#6d28d9" },
-  { id: 58, es: "Fucsia", en: "Fuchsia", hex: "#e879f9" },
-  { id: 59, es: "Rubí", en: "Ruby", hex: "#be123c" },
-  { id: 68, es: "Rosa Pastel", en: "Pink", hex: "#f9a8d4" },
-  { id: 70, es: "Naranja Vivo", en: "Bright Orange", hex: "#f97316" },
-  { id: 71, es: "Menta", en: "Mint", hex: "#5eead4" },
-  { id: 72, es: "Lavanda", en: "Lavender", hex: "#c084fc" },
-  { id: 75, es: "Hielo Glacial", en: "Glacial Ice", hex: "#bae6fd" },
-  { id: 79, es: "Negro Puro", en: "Pure Black", hex: "#050505" },
-  { id: 83, es: "Dorado", en: "Gold", hex: "#f5b942" },
-  { id: 85, es: "Jade", en: "Jade", hex: "#10b981" },
-  { id: 88, es: "Azul Eléctrico", en: "Electric Blue", hex: "#1d4ed8" },
-  { id: 90, es: "Violeta Oscuro", en: "Dark Violet", hex: "#4c1d95" },
-  { id: 94, es: "Verde Neón", en: "Neon Green", hex: "#4ade80" },
-  { id: 100, es: "Ámbar Dorado", en: "Amber Gold", hex: "#f59e0b" }
+  { id: 1, es: "Rojo", en: "Red", ja: "赤", hex: "#ef4444" },
+  { id: 2, es: "Azul", en: "Blue", ja: "青", hex: "#2563eb" },
+  { id: 3, es: "Verde", en: "Green", ja: "緑", hex: "#22c55e" },
+  { id: 4, es: "Amarillo", en: "Yellow", ja: "黄色", hex: "#facc15" },
+  { id: 5, es: "Cian", en: "Cyan", ja: "シアン", hex: "#06b6d4" },
+  { id: 6, es: "Magenta", en: "Magenta", ja: "マゼンタ", hex: "#d946ef" },
+  { id: 7, es: "Verde Claro", en: "Light Green", ja: "ライトグリーン", hex: "#86efac" },
+  { id: 8, es: "Gris Claro", en: "Light Grey", ja: "ライトグレー", hex: "#cbd5e1" },
+  { id: 10, es: "Naranja Claro", en: "Light Orange", ja: "ライトオレンジ", hex: "#fdba74" },
+  { id: 11, es: "Amarillo Claro", en: "Light Yellow", ja: "ライトイエロー", hex: "#fef08a" },
+  { id: 12, es: "Rojo Coral", en: "Light Red", ja: "コーラルレッド", hex: "#fca5a5" },
+  { id: 13, es: "Gris Oscuro", en: "Dark Grey", ja: "ダークグレー", hex: "#64748b" },
+  { id: 14, es: "Negro", en: "Black", ja: "黒", hex: "#27272a" },
+  { id: 15, es: "Café", en: "Brown", ja: "茶色", hex: "#78350f" },
+  { id: 16, es: "Verde Oscuro", en: "Dark Green", ja: "ダークグリーン", hex: "#166534" },
+  { id: 17, es: "Rojo Oscuro", en: "Dark Red", ja: "ダークレッド", hex: "#991b1b" },
+  { id: 18, es: "Blanco", en: "White", ja: "白", hex: "#f1f5f9" },
+  { id: 24, es: "Dorado Arena", en: "Warm Gold", ja: "ウォームゴールド", hex: "#d97706" },
+  { id: 36, es: "Blanco Puro", en: "Pure White", ja: "ピュアホワイト", hex: "#ffffff" },
+  { id: 42, es: "Gris Acero", en: "Dark Slate", ja: "ダークスレート", hex: "#334155" },
+  { id: 44, es: "Carmesí", en: "Crimson", ja: "クリムゾン", hex: "#b91c1c" },
+  { id: 45, es: "Fuego Naranja", en: "Dragon Fire", ja: "ドラゴンファイア", hex: "#ea580c" },
+  { id: 52, es: "Azul Cielo", en: "Sky Blue", ja: "スカイブルー", hex: "#38bdf8" },
+  { id: 53, es: "Turquesa Neón", en: "Neon Cyan", ja: "ネオンシアン", hex: "#22d3ee" },
+  { id: 54, es: "Verde Azulado", en: "Teal", ja: "ティール", hex: "#0d9488" },
+  { id: 55, es: "Rosa Fuerte", en: "Deep Pink", ja: "ディープピンク", hex: "#ec4899" },
+  { id: 56, es: "Morado", en: "Purple", ja: "紫", hex: "#9333ea" },
+  { id: 57, es: "Púrpura Real", en: "Royal Purple", ja: "ロイヤルパープル", hex: "#6d28d9" },
+  { id: 58, es: "Fucsia", en: "Fuchsia", ja: "フクシア", hex: "#e879f9" },
+  { id: 59, es: "Rubí", en: "Ruby", ja: "ルビー", hex: "#be123c" },
+  { id: 68, es: "Rosa Pastel", en: "Pink", ja: "ピンク", hex: "#f9a8d4" },
+  { id: 70, es: "Naranja Vivo", en: "Bright Orange", ja: "ブライトオレンジ", hex: "#f97316" },
+  { id: 71, es: "Menta", en: "Mint", ja: "ミント", hex: "#5eead4" },
+  { id: 72, es: "Lavanda", en: "Lavender", ja: "ラベンダー", hex: "#c084fc" },
+  { id: 75, es: "Hielo Glacial", en: "Glacial Ice", ja: "アイスブルー", hex: "#bae6fd" },
+  { id: 79, es: "Negro Puro", en: "Pure Black", ja: "ピュアブラック", hex: "#050505" },
+  { id: 83, es: "Dorado", en: "Gold", ja: "ゴールド", hex: "#f5b942" },
+  { id: 85, es: "Jade", en: "Jade", ja: "ジェイド", hex: "#10b981" },
+  { id: 88, es: "Azul Eléctrico", en: "Electric Blue", ja: "エレクトリックブルー", hex: "#1d4ed8" },
+  { id: 90, es: "Violeta Oscuro", en: "Dark Violet", ja: "ダークバイオレット", hex: "#4c1d95" },
+  { id: 94, es: "Verde Neón", en: "Neon Green", ja: "ネオングリーン", hex: "#4ade80" },
+  { id: 100, es: "Ámbar Dorado", en: "Amber Gold", ja: "アンバーゴールド", hex: "#f59e0b" }
 ];
 
 const CONTENT = {
@@ -1270,6 +1280,202 @@ const CONTENT = {
       "24h Newbie Protection: attacking another player, tame, or base cancels your protection immediately.",
       "60s Combat Tag & Anti-Popcorn: wait 60s after PvP to enter SafeZones; dropping loot is blocked during active raids."
     ]
+  },
+  ja: {
+    badge: "Ragnarok PvP x15 · 2人トライブ · 管理者不正ゼロ (/adminlog)",
+    title: "Z NEW GEN · Ragnarok PvP x15 [2Man]",
+    sub: "公式サーバーガイド。フェアで熱いPvPを楽しめる2人トライブ制サーバー。1トライブ最大2拠点、ライブオークション付きマーケット、30分ORP、毎週開催の大型イベントを搭載。",
+    searchPh: "コマンド、倍率、恐竜、バイオーム、ルールを検索... (例: /heal, オークション, 初心者, ヴァルハラ)",
+    copy: "コピー",
+    copied: "コピー済",
+    toastPrefix: "コピーしました:",
+    emptyTitle: "該当する結果が見つかりません",
+    emptySub: "別のキーワードを試すか、Escキーで全ガイドを表示してください。",
+    footerMotto: "Ragnarok PvP x15 · 2Man · フェアPvP · 完全透明運営",
+    footer: "ゲーム内で /info でガイド表示、/dc でDiscordとWebリンク、/en で英語表示に切替できます。",
+    footerCopy: "© @znewgen2026 · All rights reserved",
+    nav: [
+      { id: "all", label: "すべて" },
+      { id: "start", label: "スタートガイド" },
+      { id: "rates", label: "倍率・設定" },
+      { id: "market", label: "マーケット＆オークション" },
+      { id: "valhalla", label: "ヴァルハラ" },
+      { id: "events", label: "イベント＆ランキング" },
+      { id: "biomes", label: "DLC恐竜" },
+      { id: "commands", label: "コマンド一覧" },
+      { id: "rules", label: "ルール" }
+    ],
+    startHead: "60秒で始めるスタートガイド",
+    startPill: "ステップ別ガイド",
+    startSteps: [
+      { k: "ステップ1 · 初回ログイン", v: "初期キット受取＆24時間初心者保護", n: "チャットで /kit 1 と入力（マップどこでも使用可・20分ごとに自動チャージ・最大2回分ストック）。開始後24時間は初心者保護（/npp）が有効で攻撃やレイドを受けませんが、自分から攻撃するか /pvp を入力すると解除されます。1トライブ最大2拠点までです。" },
+      { k: "ステップ2 · ポイント獲得", v: "プレイ報酬・/daily・資源売却", n: "ログインしているだけで15分ごとにポイント獲得。毎日 /daily を受け取り、Z-MARKETで資源売却（/shopsell や2倍買取のホットデマンド /demand）やイベント参加（/event, /valhalla）で稼げます。" },
+      { k: "ステップ3 · カラーバリアの意味", v: "各ドームの役割", n: "オベリスク（青・緑・赤）とZ-MARKET（金）＝セーフゾーン（PvP禁止・燃料不要の作業台＆無料TPあり・戦闘後は60秒待機）。フィールドの赤ドーム＝PvPイベント開催中。大型ローテーションドーム（水:砂漠・土:沼地・日:雪原）＝ヴァルハラ。" },
+      { k: "ステップ4 · フェアプレイ", v: "100% 管理者不正ゼロ", n: "依怙贔屓なし：すべての管理者コマンドはリアルタイムで公開記録されます。いつでも /adminlog で確認可能。熱いPvPと健全な掛け合いは歓迎ですが、暴言・ハラスメントは厳禁です。" }
+    ],
+    ratesHead: "サーバー倍率・基本仕様",
+    ratesPill: "競技PvP · 2Man",
+    rates: [
+      { k: "採取・経験値", v: "採取 x15 · 経験値 x6", n: "育成の達成感を保ちつつ、素早くPvPへ参加できる快適バランス。" },
+      { k: "テイム・ブリーディング", v: "テイム x15 · 高速育成", n: "孵化 x80 · 成長 x65 · トライブ共有インプリント対応。" },
+      { k: "野生恐竜レベル", v: "野生最大 Lv.300", n: "Tek恐竜（全6種出現率アップ）とワイバーンは野生最大 Lv.380。" },
+      { k: "トライブ・拠点制限", v: "2人トライブ · 最大2拠点", n: "1トライブ最大2名、1トライブ最大2拠点。タレット上限200基。" },
+      { k: "保護システム", v: "ORP 30分 · 初心者保護 24時間", n: "ログアウト30分後にオフライン保護（ORP）が自動発動。初心者保護24時間（/npp）。" },
+      { k: "快適機能", v: "重量無限 · 常時回収可", n: "プレイヤー・恐竜ともに重量無限、建築物の常時回収、ワイヤレス発電機対応。" }
+    ],
+    marketHead: "Z-MARKET（安全地帯）・ショップ・エリートオークション",
+    marketPill: "経済の中心地",
+    marketCards: [
+      {
+        title: "公共クラフト設備（燃料ゼロで常時稼働）",
+        items: [
+          "Z-MARKET内のTekレプリケーター、工業炉、化学作業台、旋盤、冷蔵庫は燃料不要で常時稼働。",
+          "各オベリスクの公共Tekテレポーターも常時稼働。TP誘拐防止シールド付き（他トライブがあなたや恐竜を連れ去ることはできません）。",
+          "公共設備の中に個人アイテムを保管しないでください。"
+        ]
+      },
+      {
+        title: "ショップ・キット・資源売却",
+        items: [
+          "/kit、/shop pvp、クライオポッド（/buy 37）はマップどこからでも利用可能。",
+          "恐竜（Lv.350 去勢済クライオ＋サドル＋150レベルアップ枠）、サドル、Tek装備、/sell はZ-MARKET専用。",
+          "ラグナロクで100%採取できる高収益 /sell バッチ全8種（蜂蜜、スイートベジタブルケーキ、キブル、黒真珠、ワイバーンミルク、デスワームの角など）。"
+        ]
+      },
+      {
+        title: "ホットデマンド（90分ごとに2倍価格で買取）",
+        items: [
+          "90分ごとにマーケットが指定するラグナロク資源を2倍ポイントで買取（60分開催＋30分休憩）。",
+          "1) /demand で対象資源を確認。2) Z-MARKETへ行き（荷物を積んだ恐竜に騎乗したままでOK）、/deliver で納品。"
+        ]
+      },
+      {
+        title: "エリートオークション：4ステップガイド（Lv.450 繁殖可能）",
+        items: [
+          "1) 出品ラインナップ：限定15種（メイウィング、カルカロ、リーパー、ギガ、ロックエレメンタル、デスモダス、ヴォイドワーム、トゥソなど）。/auction list で全15種と出現優先度を確認できます。",
+          "2) 開始方法：/auction で投票。オンライン4人以上かつ3票で開始（12時間ごとに最大2回）。",
+          "3) 入札方法：5分以内にZ-MARKETへ移動し、/bid <ポイント> で入札（最低+500pts刻み）。上回られたポイントは即返還されます。",
+          "4) 不正防止＆受取：最低2つの別トライブの入札が必要。入札ごとに残り30秒リセット（10..1カウントダウン）。連続重複なし、落札後すぐクライオ受取（満杯時は /claim）。"
+        ]
+      }
+    ],
+    colorsTitle: "人気カラーID一覧 · /color <部位 0-5> <ID>（クリックでコピー）",
+    valhallaHead: "大型PvPvEイベント：VALHALLA（ヴァルハラ）",
+    valhallaPill: "水:砂漠 · 土:沼地 · 日:雪原 · 19:00 (UTC-6)",
+    valhallaIntro: "毎週 水・土・日曜 19:00（サーバー時刻 UTC-6 / 日本時間 翌10:00）に、3つのバイオームをローテーションする巨大な平地アリーナが出現。半透明のドームがフェーズ進行を示します。徒歩で /valhalla から入場し、ガーディアンと他トライブと戦い、3つの青い祭壇を制圧してウォー・スコア（War Score）1位のチャンピオンを目指します。",
+    valhallaArenas: [
+      { k: "水曜 · 19:00 (UTC-6)", v: "砂漠アリーナ（ゴリラまたはクモ）", n: "クラシック難易度。見通しの良い広大な砂丘地帯。ガーディアンはメガピテクスかブルードマザーがランダム出現。" },
+      { k: "土曜 · 19:00 (UTC-6)", v: "沼地アリーナ（フォレストタイタン）", n: "中〜高難易度。霧が立ち込める近接奇襲戦エリア。固定ガーディアン：フォレストタイタン。" },
+      { k: "日曜 · 19:00 (UTC-6)", v: "雪原アリーナ（アイスタイタン）", n: "最高難易度。極寒装備と万全の準備が必要な凍土決戦。固定ガーディアン：アイスタイタン。" }
+    ],
+    valhallaPhases: [
+      { k: "18:55 · 準備 (5分)", v: "紫ドーム：装備準備", n: "ボス未出現。装備を整え、恐竜をクライオにしまって徒歩で /valhalla と入力すると外周へ安全に転送されます。" },
+      { k: "フェーズ1 · ガーディアン (20分)", v: "ボス討伐＋赤ドロップ", n: "制限時間20分以内に中央のガーディアンを撃破（同時に赤ドロップ落下）。時間切れの場合はイベント失敗となり至高の宝物庫は開きません。" },
+      { k: "フェーズ2 · 祭壇争奪戦", v: "赤ドーム：3つの青い祭壇", n: "毎分ポイントが4倍に急増し、テイム可能な神話級恐竜2体と3つの青い祭壇が出現。敵のいない青いドーム内に10秒留まると占拠できます。" },
+      { k: "フェーズ3 · 撤収 (4分)", v: "金ドーム：至高の宝物庫解放", n: "中央の黄金宝物庫（エレメント、高品質設計図、Tek装備）が開放され、外周バリア解除とともにWar Score 1位がチャンピオンに輝きます。" }
+    ],
+    valhallaCards: [
+      {
+        title: "ウォー・スコア（War Score）：勝者の決定ルール",
+        items: [
+          "ヴァルハラの勝者は戦闘と目標への実貢献で決まります。フェーズ3で黄金宝物庫が開いた時点でWar Score 1位のプレイヤーがチャンピオンになります。",
+          "ガーディアンへ10,000ダメージ与えるごとに +10 War Score（ボスを無視すると優勝は困難）。",
+          "ガーディアンにとどめを刺したプレイヤーに +50 War Score（さらにエピックチビ＆エレメント500個）、ボス総ダメージ1位に +30 War Score。",
+          "ヴァルハラ内でのPvPキルごとに +40 War Score。",
+          "青い祭壇の占拠で +20 War Score（敵なし10秒）、占拠維持30秒ごとに +15 War Score。",
+          "アリーナ内で戦い続けた時間1分ごとに +5 War Score。",
+          "チャンピオン賞品（War Score 1位）：+5,000ポイント ＋ Lv.450 繁殖可能エリート恐竜（クライオ入り）。/valhalla で順位確認、所持品満杯時は /valhalla claim で受取。"
+        ]
+      },
+      {
+        title: "戦闘報酬・死亡時の復帰方法",
+        items: [
+          "アリーナ内滞在（祭壇フェーズで4倍）、PvPキル、祭壇占拠、さらに倒されても戦死者の名誉ボーナスでポイント獲得。敵と競合中の祭壇は勝利するまで回復効果が一時停止します。",
+          "バーサーカー連キル効果（無死）：ヴァルハラ内でPvPキルするたびに自分と騎乗恐竜が即時回復（1キル:+10%、2キル:+20%、3キル以降:+40%が倒されるまで継続）＋実力限定のエピックチビ獲得。",
+          "定期的な赤ドロップと中央の至高の宝物庫からエレメント、限定設計図、上位Tek戦利品を獲得可能。",
+          "入場方法：徒歩状態（恐竜はクライオ収納）で /valhalla と入力すると外周に転送されます。",
+          "死亡したら：拠点でリスポーン（戦利品バッグは残ります）し、/kit 4 で再装備、恐竜をクライオにしまって徒歩で /valhalla（クールダウン90秒）から即復帰できます。",
+          "外周バリア仕様：入場はいつでも可能ですが、フェーズ1・2の間はフェーズ3で宝物庫が開くまで外周から脱出できません。"
+        ]
+      }
+    ],
+    eventsHead: "毎時ワールドイベント・デイリー報酬・ランキング特典",
+    eventsPill: "陸上開催 · 60分ごと",
+    eventsCards: [
+      {
+        title: "陸上ダイナミックイベント4種（60分ごと）",
+        items: [
+          "キング・オブ・ザ・ヒル（KOTH）：赤いPvPドーム確保で毎分 +35 pts。",
+          "アルファレックス・ボス（Lv.350）：討伐参加者に +400 pts。",
+          "サプライボルト投下（設計図＆DLC）：上位金属防具・武器・DLCサドル設計図＋サングインエリキシル/変異ゲル＋一番乗りに200 pts。",
+          "野生エリート恐竜（Lv.330〜345）：赤金カラーの限定個体が40分間出現（テイム・争奪可）。",
+          "キルレース（50%コンボ発生）：制限時間内のPvPキル数競争、1位に賞金。"
+        ]
+      },
+      {
+        title: "報酬＆トップ1〜3ランキング特典",
+        items: [
+          "デイリー連続ログイン（/daily）：連続日数に応じて75〜400 pts。",
+          "週末ブースト（/boost）：毎週土日は15分ごとに追加 +25 pts。",
+          "PvPキル Top 1〜3：30分ごとに自動ボーナス（1位 +60、2位 +40、3位 +25 pts）＋チャンピオン告知。",
+          "ポイント Top 1〜3：Z-MARKETでの恐竜ペイント /color が無料＋富豪1位称号。"
+        ]
+      }
+    ],
+    biomesHead: "拡張ラグナロク生態系（他マップDLC恐竜14種＋Tek恐竜6種）",
+    biomesPill: "バランス調整済バイオーム",
+    biomes: [
+      { title: "雪原", items: ["雪フクロウ (Snow Owl)", "マナガルム (Managarmr)", "フェロックス (Ferox)"] },
+      { title: "砂漠・砂丘", items: ["ベロナサウルス (Velonasaur)", "ガスバッグ (Gasbags)", "Tekレックス / Tekラプトル"] },
+      { title: "中央・草原", items: ["シノマクロプス (Sinomacrops)", "ガスバッグ (Gasbags)", "シャインホーン (Shinehorn)", "バルブドッグ (Bulbdog)"] },
+      { title: "レッドウッド・沼地", items: ["シャドウメイン (Shadowmane)", "ブラッドストーカー (Bloodstalker)", "ディノピテクス (Dinopithecus)", "シノマクロプス", "ガチャ（レッドウッド超レア）"] },
+      { title: "山岳・海岸・ジャングル", items: ["デスモダス (Desmodus)", "アンドリューサルクス (Andrewsarchus)", "ラヴェジャー (Ravager)", "グローテイル / フェザーライト", "Tek全6種（レックス・ステゴ・ラプトル・パラサウロ・トリケラ・ケツァル）"] },
+      { title: "オークション限定 (/auction list)", items: ["メイウィング（ショップ・野生なし）", "カルカロドントサウルス、リーパー、ギガ、ヴォイドワーム", "ロックエレメンタル、ノグリン、トゥソ、モサほか（Lv.450 繁殖可能）"] }
+    ],
+    cmdsHead: "プレイヤー用チャットコマンド一覧",
+    cmdsPill: "ワンクリックコピー",
+    commands: [
+      { cmd: "/info  |  /help  |  /ayuda", copy: "/info", cat: "総合ガイド", desc: "8セクションの画面ガイドを表示：/info pvp, valhalla, auction, market, shop, events, dinos, colors。", kw: "ヘルプ ガイド メニュー" },
+      { cmd: "/en  |  /english  |  /es  |  /espanol", copy: "/en", cat: "ゲーム内言語", desc: "ゲーム内全プラグインの表示言語を英語（/en）またはスペイン語（/es）に切替。", kw: "言語 英語 language" },
+      { cmd: "/dc  |  /discord  |  /web  |  /pagina", copy: "/dc", cat: "コミュニティ", desc: "公式DiscordとこのWebガイドのリンクを表示。", kw: "ディスコード ウェブ" },
+      { cmd: "/groups  |  /grupos", copy: "/groups", cat: "アカウント", desc: "自分の権限グループ（Default, VIP, LangEN）を確認。", kw: "グループ ランク" },
+      { cmd: "/points  |  /puntos", copy: "/points", cat: "ショップ", desc: "現在の所持ポイント残高を確認。", kw: "ポイント 残高" },
+      { cmd: "/kit  |  /kits  |  /kit <1-4>", copy: "/kit", cat: "ショップ（全域）", desc: "キット一覧と受取（1:初期・20分自動チャージ最大2回、2:農業、3:テイム、4:PvP）。マップ全域で使用可。", kw: "キット 初期 スターター" },
+      { cmd: "/buykit <1-4> <数量>", copy: "/buykit 4 1", cat: "ショップ（全域）", desc: "ポイントを使って各キットの追加使用回数を購入。", kw: "キット購入" },
+      { cmd: "/shop <dinos|saddles|pvp|tek>  |  /tienda", copy: "/shop pvp", cat: "ショップ", desc: "カテゴリ別に商品閲覧。PvPとクライオは全域対応、その他はZ-MARKET内限定。", kw: "ショップ カタログ 購入" },
+      { cmd: "/buy <ID> [数量]", copy: "/buy 37 5", cat: "ショップ", desc: "アイテムやクライオ入り恐竜を購入（例：/buy 37 5 でクライオ5個）。", kw: "購入 買う" },
+      { cmd: "/shopfind <キーワード>", copy: "/shopfind cryo", cat: "ショップ", desc: "ショップ内のアイテムや恐竜をキーワード検索。", kw: "検索" },
+      { cmd: "/shopsell  |  /sell <ID> [数量]", copy: "/shopsell", cat: "マーケット", desc: "Z-MARKET内で資源バッチの買取一覧表示および売却。", kw: "売却 売る" },
+      { cmd: "/trade '名前' <Pts>  |  /pay  |  /pagar", copy: "/pay ", cat: "経済", desc: "Z-MARKET内で他のオンラインプレイヤーへポイント送金。", kw: "送金 トレード" },
+      { cmd: "/heal  |  /heal pay  |  /curar", copy: "/heal", cat: "マーケット", desc: "騎乗中の恐竜をHP100%回復＋クライオ酔い解除（CD5時間・10,000ptsで即解除可）。", kw: "回復 クリニック" },
+      { cmd: "/color <0-5> <1-100>", copy: "/color 0 55", cat: "マーケット", desc: "Z-MARKET内で騎乗中の恐竜をカラー変更（150pts・ポイントTop3は無料）。", kw: "色 ペイント カラー" },
+      { cmd: "/demand  |  /deliver [数]  |  /demanda  |  /entregar", copy: "/demand", cat: "マーケット", desc: "2倍買取のホットデマンド確認＆納品（騎乗中恐竜のインベントリから直接納品可能）。", kw: "ホットデマンド 納品" },
+      { cmd: "/auction  |  /auction list  |  /bid <Pts>  |  /claim", copy: "/auction list", cat: "マーケット", desc: "限定15種と優先度確認（/auction list）、投票（/auction）、入札（/bid）、Lv.450受取（/claim）。", kw: "オークション 入札 メイウィング" },
+      { cmd: "/bounty [名前] [Pts]  |  /bounties", copy: "/bounty", cat: "PvP＆マーケット", desc: "懸賞金の確認・設定（最低500pts・キャンセルは /bounty cancel）。", kw: "懸賞金 バウンティ" },
+      { cmd: "/daily", copy: "/daily", cat: "イベント", desc: "毎日ログイン連続ボーナスを受け取る（75〜400pts・VIP特典あり）。", kw: "デイリー 毎日" },
+      { cmd: "/valhalla  |  /valhalla info  |  /valhalla claim", copy: "/valhalla", cat: "大型イベント", desc: "水土日19:00(UTC-6)：ヴァルハラ外周へ転送、War Score確認、Lv.450クライオ・チビ・エレメント受取。", kw: "ヴァルハラ ボス 祭壇" },
+      { cmd: "/mutagen", copy: "/mutagen", cat: "PvP洞窟", desc: "変異原洞窟（キノコ洞窟）：発生中のバルブ（各3〜5変異原・45分リスポーン）とGPS座標を表示。", kw: "変異原 洞窟 ムタジェン" },
+      { cmd: "/event  |  /evento", copy: "/event", cat: "イベント", desc: "開催中のワールドイベント、GPS座標、次回までの残り時間を確認。", kw: "イベント 座標" },
+      { cmd: "/killrace  |  /racha", copy: "/killrace", cat: "PvPイベント", desc: "開催中のキルレース上位5名と賞金プールを表示。", kw: "キルレース 大会" },
+      { cmd: "/boost  |  /weekend", copy: "/boost", cat: "イベント", desc: "週末ポイントブースト（15分ごとに+25pts）が有効か確認。", kw: "週末 ブースト" },
+      { cmd: "/npp  |  /novato  |  /npp off  |  /pvp", copy: "/npp", cat: "保護", desc: "24時間初心者保護の残り時間確認、または /pvp で早期解除。", kw: "初心者保護 シールド" },
+      { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "ランキング", desc: "個人戦績およびPvPキル・恐竜ハンターTop10ランキングを表示。", kw: "戦績 ランキング" },
+      { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "ランキング", desc: "PvPキルTop10・ポイント富豪Top10へのショートカット。", kw: "トップ キル ポイント" },
+      { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "オーディオ", desc: "ARK公式BGM全14曲（Z-MARKETの穏やかな曲・ヴァルハラのボス曲）切替、または効果音ミュート。", kw: "音楽 サウンド ミュート" },
+      { cmd: "/die", copy: "/die", cat: "ユーティリティ", desc: "スタック・監禁脱出コマンド（10秒待機・気絶や手錠状態でも使用可）。", kw: "スタック 脱出 自殺" },
+      { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "透明性", desc: "サーバーで実行された直近10件の管理者コマンドを公開表示。", kw: "管理者 ログ 透明性" }
+    ],
+    rulesHead: "基本ルール＆フェアPvP保護",
+    rulesPill: "フェアプレイ",
+    rules: [
+      "チート、メッシュ建築・攻撃、複製（デュープ）、グリッチ悪用は一切禁止（即永久BAN）。",
+      "1トライブ最大2名（2Man）、1トライブ最大2拠点のルールを厳守してください。",
+      "リスポーン地点の封鎖、およびセーフゾーン境界線の悪用は禁止です。",
+      "すべてのアーティファクト洞窟、変異原洞窟（キノコ洞窟）、ヴァルハラアリーナは24時間建築禁止エリアです。",
+      "本気のPvPと健全な掛け合いは歓迎ですが、悪質な煽り、誹謗中傷、個人へのハラスメントは禁止です。",
+      "24時間初心者保護：他のプレイヤー・テイム恐竜・拠点へ自分から攻撃すると保護は即座に解除されます。",
+      "60秒戦闘タグ＆ポップコーン防止：PvP戦闘後60秒はセーフゾーン入場不可。レイド中の意図的な物資投棄はブロックされます。"
+    ]
   }
 };
 
@@ -1308,11 +1514,23 @@ function copyText(text, btn) {
 }
 
 function setLang(l) {
+  if (!CONTENT[l]) l = "es";
   lang = l;
   document.documentElement.lang = l;
   document.getElementById("btnES").classList.toggle("active", l === "es");
   document.getElementById("btnEN").classList.toggle("active", l === "en");
+  document.getElementById("btnJA").classList.toggle("active", l === "ja");
   render();
+}
+
+function detectInitialLang() {
+  const p = (new URLSearchParams(window.location.search).get("lang") || "").toLowerCase();
+  if (p === "ja" || p === "jp") return "ja";
+  if (p === "en") return "en";
+  if (p === "es") return "es";
+  const nl = (navigator.language || "").toLowerCase();
+  if (nl.startsWith("ja")) return "ja";
+  return "es";
 }
 
 function setTab(id) {
@@ -1332,20 +1550,31 @@ function render() {
   document.getElementById("heroBadge").textContent = t.badge;
   document.getElementById("heroTitle").textContent = t.title;
   document.getElementById("heroSub").textContent = t.sub;
-  document.getElementById("heroActions").innerHTML = lang === "es"
-    ? `
+  const heroActionsMap = {
+    es: `
       <a class="btn-primary" href="steam://run/346110//+connect%20198.50.250.196:27015">Conectar en Steam (1 Clic)</a>
       <button class="btn-secondary" type="button" onclick="copyText('198.50.250.196:27015', this)"><span class="btn-ip-code">198.50.250.196:27015</span> · Copiar IP</button>
       <a class="btn-secondary" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Discord Oficial</a>
-    `
-    : `
+    `,
+    en: `
       <a class="btn-primary" href="steam://run/346110//+connect%20198.50.250.196:27015">Connect on Steam (1-Click)</a>
       <button class="btn-secondary" type="button" onclick="copyText('198.50.250.196:27015', this)"><span class="btn-ip-code">198.50.250.196:27015</span> · Copy IP</button>
       <a class="btn-secondary" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">Official Discord</a>
-    `;
-  document.getElementById("heroConnectNote").textContent = lang === "es"
-    ? "Nombre en Steam: Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop · Favoritos Steam: Ver · Servidores · 198.50.250.196:27015"
-    : "Steam Server Name: Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop · Steam Favorites: View · Game Servers · 198.50.250.196:27015";
+    `,
+    ja: `
+      <a class="btn-primary" href="steam://run/346110//+connect%20198.50.250.196:27015">Steamで接続（ワンクリック）</a>
+      <button class="btn-secondary" type="button" onclick="copyText('198.50.250.196:27015', this)"><span class="btn-ip-code">198.50.250.196:27015</span> · IPコピー</button>
+      <a class="btn-secondary" href="https://discord.gg/58RTRZQ3qz" target="_blank" rel="noopener">公式Discord</a>
+    `
+  };
+  document.getElementById("heroActions").innerHTML = heroActionsMap[lang] || heroActionsMap.es;
+
+  const connectNoteMap = {
+    es: "Nombre en Steam: Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop · Favoritos Steam: Ver · Servidores · 198.50.250.196:27015",
+    en: "Steam Server Name: Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop · Steam Favorites: View · Game Servers · 198.50.250.196:27015",
+    ja: "Steamサーバー名: Z New Gen [x15] [2Man] [WIPE 26 Nov] PvP Shop · Steamお気に入り登録: 表示 · ゲームサーバー · 198.50.250.196:27015"
+  };
+  document.getElementById("heroConnectNote").textContent = connectNoteMap[lang] || connectNoteMap.es;
   document.getElementById("searchInput").placeholder = t.searchPh;
   document.getElementById("emptyTitle").textContent = t.emptyTitle;
   document.getElementById("emptySub").textContent = t.emptySub;
@@ -1357,19 +1586,27 @@ function render() {
     <div class="footer-copy">${esc(t.footerCopy)}</div>
   `;
 
-  const stripData = lang === "es"
-    ? [
-        { k: "Ritmo Ideal", v: "Farmeo & Tame x15 · Peso ∞" },
-        { k: "Formato PvP", v: "2Man · Máx. 2 Bases · ORP 30m" },
-        { k: "Mega-Evento", v: "Valhalla · Mié / Sáb / Dom 19:00" },
-        { k: "Transparencia", v: "100% No Admin Abuse (/adminlog)" }
-      ]
-    : [
-        { k: "Balanced Pace", v: "x15 Harvest & Tame · ∞ Weight" },
-        { k: "PvP Format", v: "2Man · Max 2 Bases · 30m ORP" },
-        { k: "Mega-Event", v: "Valhalla · Wed / Sat / Sun 19:00" },
-        { k: "Transparency", v: "100% No Admin Abuse (/adminlog)" }
-      ];
+  const stripMap = {
+    es: [
+      { k: "Ritmo Ideal", v: "Farmeo & Tame x15 · Peso ∞" },
+      { k: "Formato PvP", v: "2Man · Máx. 2 Bases · ORP 30m" },
+      { k: "Mega-Evento", v: "Valhalla · Mié / Sáb / Dom 19:00" },
+      { k: "Transparencia", v: "100% No Admin Abuse (/adminlog)" }
+    ],
+    en: [
+      { k: "Balanced Pace", v: "x15 Harvest & Tame · ∞ Weight" },
+      { k: "PvP Format", v: "2Man · Max 2 Bases · 30m ORP" },
+      { k: "Mega-Event", v: "Valhalla · Wed / Sat / Sun 19:00" },
+      { k: "Transparency", v: "100% No Admin Abuse (/adminlog)" }
+    ],
+    ja: [
+      { k: "快適バランス", v: "採取＆テイム x15 · 重量 ∞" },
+      { k: "PvPルール", v: "2Man · 最大2拠点 · ORP 30分" },
+      { k: "大型イベント", v: "Valhalla · 水/土/日 19:00 (UTC-6)" },
+      { k: "透明運営", v: "管理者不正ゼロ (/adminlog)" }
+    ]
+  };
+  const stripData = stripMap[lang] || stripMap.es;
   document.getElementById("heroStrip").innerHTML = stripData.map(s =>
     `<div class="hero-strip-item"><span>${esc(s.k)}</span><strong>${esc(s.v)}</strong></div>`
   ).join("");
@@ -1438,7 +1675,7 @@ function render() {
   // 2. Market & Colors
   if (show("market")) {
     const cards = t.marketCards.filter(c => matchesSearch(`${t.marketHead} ${c.title} ${c.items.join(" ")}`));
-    const colorsMatch = matchesSearch(`${t.colorsTitle} color pintar ${COLORS.map(c => `${c.id} ${c.es} ${c.en}`).join(" ")}`);
+    const colorsMatch = matchesSearch(`${t.colorsTitle} color pintar カラー 色 ${COLORS.map(c => `${c.id} ${c.es} ${c.en} ${c.ja}`).join(" ")}`);
     if (cards.length || colorsMatch) {
       visibleSections++;
       html += `
@@ -1459,7 +1696,7 @@ function render() {
                 <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
                   <div style="font-size:0.88rem;color:var(--muted);font-weight:600;">${esc(t.colorsTitle)}</div>
                   <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-                    <span style="font-size:0.78rem;color:var(--muted);">${lang === 'es' ? 'Región:' : 'Region:'}</span>
+                    <span style="font-size:0.78rem;color:var(--muted);">${lang === 'es' ? 'Región:' : (lang === 'ja' ? '部位:' : 'Region:')}</span>
                     ${[0,1,2,3,4,5].map(r => `
                       <button class="nav-btn ${colorRegion === r ? 'active' : ''}" style="padding:3px 10px;font-family:var(--mono);" onclick="setColorRegion(${r})">${r}</button>
                     `).join("")}
@@ -1641,7 +1878,7 @@ document.addEventListener("keydown", e => {
   else if (e.key === "/" && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
 });
 
-render();
+setLang(detectInitialLang());
 </script>
 </body>
 </html>
