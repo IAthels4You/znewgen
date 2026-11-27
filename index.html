@@ -1034,10 +1034,10 @@ const CONTENT = {
     biomesPill: "16 Especies DLC + 6 Tek",
     biomes: [
       { title: "Nieve", items: ["Snow Owl", "Managarmr", "Ferox"] },
-      { title: "Desierto y Dunas", items: ["Velonasaur", "Gasbags", "Blood Crystal Wyvern", "Tek Rex / Tek Raptor"] },
+      { title: "Desierto y Dunas", items: ["Velonasaur", "Gasbags", "Blood Crystal Wyvern (raro en Dunas)"] },
       { title: "Centro y Praderas", items: ["Sinomacrops", "Tropeognathus", "Gasbags", "Shinehorn", "Bulbdog", "Dinos Tek"] },
       { title: "Redwoods y Pantano", items: ["Shadowmane", "Bloodstalker", "Dinopithecus", "Sinomacrops", "Gacha (ultra-raro en Redwoods)"] },
-      { title: "Montañas, Highlands y Playas", items: ["Fjordhawk", "Tropeognathus", "Blood Crystal Wyvern", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight", "6 Especies Tek (Rex, Stego, Raptor, Para, Trike, Quetz)"] },
+      { title: "Montañas, Highlands y Playas", items: ["Fjordhawk", "Tropeognathus", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight", "6 Especies Tek (Rex, Stego, Raptor, Para, Trike, Quetz)"] },
       { title: "Exclusivos de Subasta (/subasta lista)", items: ["Maewing & Rhyniognatha (NO están en tienda ni salvajes)", "Rock Drake, Magmasaur & Blood Crystal Wyvern (Nvl 450 sin castrar)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm, Rock Elemental, Noglin, Tuso, Mosa y más"] }
     ],
     cmdsHead: "Comandos de Jugador (Chat)",
@@ -1058,7 +1058,7 @@ const CONTENT = {
       { cmd: "/curar  |  /curar pagar  |  /heal", copy: "/curar", cat: "Mercado", desc: "Cura al 100% tu dino montado y quita Cryo Sickness (CD 5h; pagar salta CD por 10,000 pts).", kw: "clinica heal" },
       { cmd: "/color <0-5> <1-100>", copy: "/color 0 55", cat: "Mercado", desc: "Pinta tu dino montado en Z-MARKET (150 pts · GRATIS para Top 3 Puntos).", kw: "pintar colores" },
       { cmd: "/demanda  |  /entregar [lotes]  |  /demand  |  /deliver", copy: "/demanda", cat: "Mercado", desc: "Consulta y entrega el material de Demanda Caliente 2x (acepta ítems directo del inventario de tu dino montado).", kw: "demand deliver" },
-      { cmd: "/subasta  |  /subasta lista  |  /pujar <Pts>  |  /reclamar", copy: "/subasta lista", cat: "Mercado", desc: "Mira los 15 dinos y su prioridad (/subasta lista), vota (/subasta), puja (/pujar) y reclama tu Cryopod 450 (/reclamar).", kw: "auction list bid claim maewing" },
+      { cmd: "/subasta  |  /subasta lista  |  /pujar <Pts>  |  /reclamar", copy: "/subasta lista", cat: "Mercado", desc: "Mira los 18 dinos y su prioridad (/subasta lista), vota (/subasta), puja (/pujar) y reclama tu Cryopod 450 (/reclamar).", kw: "auction list bid claim maewing" },
       { cmd: "/bounty [Jug] [Pts]  |  /bounties  |  /recompensa", copy: "/bounty", cat: "PvP & Mercado", desc: "Pon o consulta recompensas permanentes (mín. 500 pts; cancelar propia: /bounty cancelar).", kw: "recompensa caza" },
       { cmd: "/daily", copy: "/daily", cat: "Eventos", desc: "Reclama tu recompensa diaria de racha (75 a 400 pts; bonos VIP).", kw: "diaria racha" },
       { cmd: "/valhalla  |  /valhalla info  |  /valhalla claim", copy: "/valhalla", cat: "Mega-Evento", desc: "Mié/Sáb/Dom 19:00: tepea al perímetro de Valhalla, muestra Puntaje de Guerra o reclama Cryopod 450 / Chibi / Elemento.", kw: "valhalla boss guardian altares" },
@@ -1070,6 +1070,7 @@ const CONTENT = {
       { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "Rankings", desc: "Tus estadísticas personales y Rankings Top 10 de Kills PvP y Cazadores de Dinos.", kw: "stats ranking" },
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Rankings", desc: "Atajos directos al Top 10 de Kills PvP y al Top 10 de Jugadores más Ricos.", kw: "topkills toppoints" },
       { cmd: "/musica [1-14|on|off]  |  /sonido [on|off]", copy: "/musica", cat: "Audio (Nativo)", desc: "14 temas oficiales de ARK (música tranquila en Z-MARKET y combate épico en VALHALLA) o silencia alertas (/music, /sound).", kw: "musica sonido audio jukebox" },
+      { cmd: "/llenar [arb|tek|estado]  |  /fill [arb|tek|status]", copy: "/llenar", cat: "Utilidad Base", desc: "Reparte equitativamente tus balas ARB y Fragmentos de Elemento entre las torretas Auto, Heavy y Tek de tu tribu cercanas (bloqueado en raideo o con enemigos cerca).", kw: "torretas balas llenar fill arb tek shards" },
       { cmd: "/die", copy: "/die", cat: "Utilidad", desc: "Destrabe / anti-jaula global (10s espera, funciona incluso dormido o esposado).", kw: "suicidio atascado" },
       { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "Transparencia", desc: "Muestra los últimos 10 comandos administrativos ejecutados en el servidor.", kw: "transparencia logs" }
     ],
@@ -1230,10 +1231,10 @@ const CONTENT = {
     biomesPill: "Balanced Biomes",
     biomes: [
       { title: "Snow", items: ["Snow Owl", "Managarmr", "Ferox"] },
-      { title: "Desert & Dunes", items: ["Velonasaur", "Gasbags", "Blood Crystal Wyvern", "Tek Rex / Tek Raptor"] },
+      { title: "Desert & Dunes", items: ["Velonasaur", "Gasbags", "Blood Crystal Wyvern (rare in Dunes)"] },
       { title: "Center & Grasslands", items: ["Sinomacrops", "Tropeognathus", "Gasbags", "Shinehorn", "Bulbdog", "Tek Dinos"] },
       { title: "Redwoods & Swamp", items: ["Shadowmane", "Bloodstalker", "Dinopithecus", "Sinomacrops", "Gacha (ultra-rare in Redwoods)"] },
-      { title: "Mountains, Highlands & Beaches", items: ["Fjordhawk", "Tropeognathus", "Blood Crystal Wyvern", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight", "6 Tek Species (Rex, Stego, Raptor, Para, Trike, Quetz)"] },
+      { title: "Mountains, Highlands & Beaches", items: ["Fjordhawk", "Tropeognathus", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight", "6 Tek Species (Rex, Stego, Raptor, Para, Trike, Quetz)"] },
       { title: "Auction Exclusives (/auction list)", items: ["Maewing & Rhyniognatha (NOT in shop or wild)", "Rock Drake, Magmasaur & Blood Crystal Wyvern (Lvl 450 breedable)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm, Rock Elemental, Noglin, Tuso, Mosa & more"] }
     ],
     cmdsHead: "Player Chat Commands",
@@ -1254,7 +1255,7 @@ const CONTENT = {
       { cmd: "/heal  |  /heal pay  |  /curar", copy: "/heal", cat: "Market", desc: "100% mounted dino heal + clears Cryo Sickness (5h CD; pay skips CD for 10,000 pts).", kw: "clinic cure" },
       { cmd: "/color <0-5> <1-100>", copy: "/color 0 55", cat: "Market", desc: "Paint mounted dino in Z-MARKET (150 pts · FREE for Top 3 Points).", kw: "paint colors" },
       { cmd: "/demand  |  /deliver [batches]  |  /demanda  |  /entregar", copy: "/demand", cat: "Market", desc: "Check & turn in 2x Hot Demand material (works straight from your mounted dino's inventory!).", kw: "hot demand" },
-      { cmd: "/auction  |  /auction list  |  /bid <Pts>  |  /claim", copy: "/auction list", cat: "Market", desc: "See all 15 dinos & priority (/auction list), vote (/auction), bid (/bid) & claim Lvl 450 Cryopod (/claim).", kw: "subasta list bid maewing" },
+      { cmd: "/auction  |  /auction list  |  /bid <Pts>  |  /claim", copy: "/auction list", cat: "Market", desc: "See all 18 dinos & priority (/auction list), vote (/auction), bid (/bid) & claim Lvl 450 Cryopod (/claim).", kw: "subasta list bid maewing" },
       { cmd: "/bounty [Player] [Pts]  |  /bounties", copy: "/bounty", cat: "PvP & Market", desc: "View or place persistent bounties (min 500 pts; self-cancel: /bounty cancel).", kw: "hunt reward" },
       { cmd: "/daily", copy: "/daily", cat: "Events", desc: "Claim daily login streak reward (75 to 400 pts; VIP bonuses).", kw: "streak reward" },
       { cmd: "/valhalla  |  /valhalla info  |  /valhalla claim", copy: "/valhalla", cat: "Mega-Event", desc: "Wed/Sat/Sun 19:00: teleport to Valhalla perimeter, view War Score or claim Lvl 450 Cryopod / Chibi / Element.", kw: "valhalla boss guardian altars" },
@@ -1266,6 +1267,7 @@ const CONTENT = {
       { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "Leaderboards", desc: "View personal stats and Top 10 PvP Kills & Dino Hunter rankings.", kw: "stats ranking" },
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Leaderboards", desc: "Quick shortcuts to Top 10 PvP Kills & Top 10 Richest Players.", kw: "topkills toppoints" },
       { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "Audio (Native)", desc: "14 official ARK soundtracks (calm music in Z-MARKET, boss themes across VALHALLA) or mute alerts (/musica, /sonido).", kw: "music sound audio jukebox" },
+      { cmd: "/fill [arb|tek|status]  |  /llenar", copy: "/fill", cat: "Base Utility", desc: "Equitably splits ARB bullets & Element Shards from your inventory across nearby tribe Auto, Heavy & Tek turrets (blocked during raids or near enemies).", kw: "turrets ammo fill arb tek shards" },
       { cmd: "/die", copy: "/die", cat: "Utility", desc: "Global unstuck / anti-cage (10s delay, works knocked out or handcuffed).", kw: "unstuck cage" },
       { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "Transparency", desc: "View the last 10 admin commands executed on the server.", kw: "transparency audit" }
     ],
@@ -1426,10 +1428,10 @@ const CONTENT = {
     biomesPill: "バランス調整済バイオーム",
     biomes: [
       { title: "雪原", items: ["雪フクロウ (Snow Owl)", "マナガルム (Managarmr)", "フェロックス (Ferox)"] },
-      { title: "砂漠・砂丘", items: ["ベロナサウルス (Velonasaur)", "ガスバッグ (Gasbags)", "ブラッドクリスタルワイバーン", "Tekレックス / Tekラプトル"] },
+      { title: "砂漠・砂丘", items: ["ベロナサウルス (Velonasaur)", "ガスバッグ (Gasbags)", "ブラッドクリスタルワイバーン（砂丘レア）"] },
       { title: "中央・草原", items: ["シノマクロプス (Sinomacrops)", "トロペオグナトゥス (Tropeognathus)", "ガスバッグ (Gasbags)", "シャインホーン / バルブドッグ", "Tek恐竜"] },
       { title: "レッドウッド・沼地", items: ["シャドウメイン (Shadowmane)", "ブラッドストーカー (Bloodstalker)", "ディノピテクス (Dinopithecus)", "シノマクロプス", "ガチャ（レッドウッド超レア）"] },
-      { title: "山岳・高地・海岸・ジャングル", items: ["フィヨルドホーク (Fjordhawk)", "トロペオグナトゥス (Tropeognathus)", "ブラッドクリスタルワイバーン", "アンドリューサルクス / ラヴェジャー", "グローテイル / フェザーライト", "Tek全6種（レックス・ステゴ・ラプトル・パラサウロ・トリケラ・ケツァル）"] },
+      { title: "山岳・高地・海岸・ジャングル", items: ["フィヨルドホーク (Fjordhawk)", "トロペオグナトゥス (Tropeognathus)", "アンドリューサルクス / ラヴェジャー", "グローテイル / フェザーライト", "Tek全6種（レックス・ステゴ・ラプトル・パラサウロ・トリケラ・ケツァル）"] },
       { title: "オークション限定 (/auction list)", items: ["メイウィング＆リニオグナタ（ショップ・野生なし）", "ロックドレイク、マグマサウルス、ブラッドクリスタルワイバーン（Lv.450 繁殖可能）", "カルカロ、リーパー、ギガ、ヴォイドワーム、ロックエレメンタル、ノグリン、トゥソほか"] }
     ],
     cmdsHead: "プレイヤー用チャットコマンド一覧",
@@ -1450,7 +1452,7 @@ const CONTENT = {
       { cmd: "/heal  |  /heal pay  |  /curar", copy: "/heal", cat: "マーケット", desc: "騎乗中の恐竜をHP100%回復＋クライオ酔い解除（CD5時間・10,000ptsで即解除可）。", kw: "回復 クリニック" },
       { cmd: "/color <0-5> <1-100>", copy: "/color 0 55", cat: "マーケット", desc: "Z-MARKET内で騎乗中の恐竜をカラー変更（150pts・ポイントTop3は無料）。", kw: "色 ペイント カラー" },
       { cmd: "/demand  |  /deliver [数]  |  /demanda  |  /entregar", copy: "/demand", cat: "マーケット", desc: "2倍買取のホットデマンド確認＆納品（騎乗中恐竜のインベントリから直接納品可能）。", kw: "ホットデマンド 納品" },
-      { cmd: "/auction  |  /auction list  |  /bid <Pts>  |  /claim", copy: "/auction list", cat: "マーケット", desc: "限定15種と優先度確認（/auction list）、投票（/auction）、入札（/bid）、Lv.450受取（/claim）。", kw: "オークション 入札 メイウィング" },
+      { cmd: "/auction  |  /auction list  |  /bid <Pts>  |  /claim", copy: "/auction list", cat: "マーケット", desc: "限定18種と優先度確認（/auction list）、投票（/auction）、入札（/bid）、Lv.450受取（/claim）。", kw: "オークション 入札 メイウィング" },
       { cmd: "/bounty [名前] [Pts]  |  /bounties", copy: "/bounty", cat: "PvP＆マーケット", desc: "懸賞金の確認・設定（最低500pts・キャンセルは /bounty cancel）。", kw: "懸賞金 バウンティ" },
       { cmd: "/daily", copy: "/daily", cat: "イベント", desc: "毎日ログイン連続ボーナスを受け取る（75〜400pts・VIP特典あり）。", kw: "デイリー 毎日" },
       { cmd: "/valhalla  |  /valhalla info  |  /valhalla claim", copy: "/valhalla", cat: "大型イベント", desc: "水土日19:00(UTC-6)：ヴァルハラ外周へ転送、War Score確認、Lv.450クライオ・チビ・エレメント受取。", kw: "ヴァルハラ ボス 祭壇" },
@@ -1462,6 +1464,7 @@ const CONTENT = {
       { cmd: "/mystats  |  /stats [player|dino]", copy: "/mystats", cat: "ランキング", desc: "個人戦績およびPvPキル・恐竜ハンターTop10ランキングを表示。", kw: "戦績 ランキング" },
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "ランキング", desc: "PvPキルTop10・ポイント富豪Top10へのショートカット。", kw: "トップ キル ポイント" },
       { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "オーディオ", desc: "ARK公式BGM全14曲（Z-MARKETの穏やかな曲・ヴァルハラのボス曲）切替、または効果音ミュート。", kw: "音楽 サウンド ミュート" },
+      { cmd: "/fill [arb|tek|status]  |  /llenar", copy: "/fill", cat: "拠点便利", desc: "所持中のARB弾薬やエレメントシャードを周囲の自トライブ製タレット（オート・ヘビー・Tek）に均等分配します（レイド中・敵接近時は使用不可）。", kw: "タレット 弾薬 均等 補充 fill" },
       { cmd: "/die", copy: "/die", cat: "ユーティリティ", desc: "スタック・監禁脱出コマンド（10秒待機・気絶や手錠状態でも使用可）。", kw: "スタック 脱出 自殺" },
       { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "透明性", desc: "サーバーで実行された直近10件の管理者コマンドを公開表示。", kw: "管理者 ログ 透明性" }
     ],
