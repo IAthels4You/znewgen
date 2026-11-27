@@ -1071,6 +1071,9 @@ const CONTENT = {
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Rankings", desc: "Atajos directos al Top 10 de Kills PvP y al Top 10 de Jugadores más Ricos.", kw: "topkills toppoints" },
       { cmd: "/musica [1-14|on|off]  |  /sonido [on|off]", copy: "/musica", cat: "Audio (Nativo)", desc: "14 temas oficiales de ARK (música tranquila en Z-MARKET y combate épico en VALHALLA) o silencia alertas (/music, /sound).", kw: "musica sonido audio jukebox" },
       { cmd: "/llenar [arb|tek|estado]  |  /fill [arb|tek|status]", copy: "/llenar", cat: "Utilidad Base", desc: "Reparte equitativamente tus balas ARB y Fragmentos de Elemento entre las torretas Auto, Heavy y Tek de tu tribu cercanas (bloqueado en raideo o con enemigos cerca).", kw: "torretas balas llenar fill arb tek shards" },
+      { cmd: "/torretas [on|off|range|target|warn]  |  /turrets", copy: "/torretas", cat: "Utilidad Base", desc: "Configura en 1 clic rango (bajo/medio/alto), objetivo (todos/tameados/jugadores/montados) o encendido de tus torretas cercanas (bloqueado en raideo).", kw: "torretas turrets rango objetivo" },
+      { cmd: "/apagar [todo]  |  /encender  |  /off  |  /on", copy: "/apagar", cat: "Utilidad Base", desc: "Apaga o enciende de golpe tus estaciones ruidosas cercanas (Mesa Química, Fabricator, Fragua, Grinder, Cooker y Replicator) sin tocar generadores ni torretas.", kw: "apagar encender ruido quimica fabricator fragua" },
+      { cmd: "/misdinos [nombre|pag]  |  /mydinos", copy: "/misdinos", cat: "Utilidad Base", desc: "Localizador paginado (10/pág) con filtro por nombre o especie que muestra el GPS exacto y distancia de los dinos vivos de tu tribu.", kw: "misdinos mydinos buscar localizar gps" },
       { cmd: "/die", copy: "/die", cat: "Utilidad", desc: "Destrabe / anti-jaula global (10s espera, funciona incluso dormido o esposado).", kw: "suicidio atascado" },
       { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "Transparencia", desc: "Muestra los últimos 10 comandos administrativos ejecutados en el servidor.", kw: "transparencia logs" }
     ],
@@ -1268,6 +1271,9 @@ const CONTENT = {
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "Leaderboards", desc: "Quick shortcuts to Top 10 PvP Kills & Top 10 Richest Players.", kw: "topkills toppoints" },
       { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "Audio (Native)", desc: "14 official ARK soundtracks (calm music in Z-MARKET, boss themes across VALHALLA) or mute alerts (/musica, /sonido).", kw: "music sound audio jukebox" },
       { cmd: "/fill [arb|tek|status]  |  /llenar", copy: "/fill", cat: "Base Utility", desc: "Equitably splits ARB bullets & Element Shards from your inventory across nearby tribe Auto, Heavy & Tek turrets (blocked during raids or near enemies).", kw: "turrets ammo fill arb tek shards" },
+      { cmd: "/turrets [on|off|range|target|warn]  |  /torretas", copy: "/turrets", cat: "Base Utility", desc: "Batch configure range (low/med/high), target mode (all/tamed/players/mounted), or power for nearby tribe turrets (blocked during raids).", kw: "turrets range target config" },
+      { cmd: "/off [all]  |  /on  |  /apagar  |  /encender", copy: "/off", cat: "Base Utility", desc: "Toggle noisy nearby crafting stations (Chem Bench, Fabricator, Industrial Forge, Grinder, Cooker, Replicator) without touching generators or turrets.", kw: "off on mute stations chem bench fabricator" },
+      { cmd: "/mydinos [name|page]  |  /misdinos", copy: "/mydinos", cat: "Base Utility", desc: "Paginated (10/page) & searchable tribe dino locator displaying exact GPS and distance for your live tamed dinos.", kw: "mydinos find dino gps tracker" },
       { cmd: "/die", copy: "/die", cat: "Utility", desc: "Global unstuck / anti-cage (10s delay, works knocked out or handcuffed).", kw: "unstuck cage" },
       { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "Transparency", desc: "View the last 10 admin commands executed on the server.", kw: "transparency audit" }
     ],
@@ -1465,6 +1471,9 @@ const CONTENT = {
       { cmd: "/topkills  |  /toppoints", copy: "/topkills", cat: "ランキング", desc: "PvPキルTop10・ポイント富豪Top10へのショートカット。", kw: "トップ キル ポイント" },
       { cmd: "/music [1-14|on|off]  |  /sound [on|off]", copy: "/music", cat: "オーディオ", desc: "ARK公式BGM全14曲（Z-MARKETの穏やかな曲・ヴァルハラのボス曲）切替、または効果音ミュート。", kw: "音楽 サウンド ミュート" },
       { cmd: "/fill [arb|tek|status]  |  /llenar", copy: "/fill", cat: "拠点便利", desc: "所持中のARB弾薬やエレメントシャードを周囲の自トライブ製タレット（オート・ヘビー・Tek）に均等分配します（レイド中・敵接近時は使用不可）。", kw: "タレット 弾薬 均等 補充 fill" },
+      { cmd: "/turrets [on|off|range|target|warn]", copy: "/turrets", cat: "拠点便利", desc: "周囲の自トライブ製タレットの射程（low/med/high）・攻撃対象・電源を一括設定（レイド中・敵接近時は不可）。", kw: "タレット 設定 射程 turrets" },
+      { cmd: "/off [all]  |  /on", copy: "/off", cat: "拠点便利", desc: "周囲の化学作業台・旋盤・工業炉・破砕機・レプリケーター等の騒音設備を一括ON/OFF（発電機やタレットは対象外）。", kw: "作業台 電源 騒音 off on" },
+      { cmd: "/mydinos [名前|ページ]", copy: "/mydinos", cat: "拠点便利", desc: "自トライブの生存恐竜を10体ごとのページ表示または名前検索で正確なGPS座標と距離を確認できます。", kw: "恐竜 検索 迷子 GPS mydinos" },
       { cmd: "/die", copy: "/die", cat: "ユーティリティ", desc: "スタック・監禁脱出コマンド（10秒待機・気絶や手錠状態でも使用可）。", kw: "スタック 脱出 自殺" },
       { cmd: "/adminlog  |  /adminlogs", copy: "/adminlog", cat: "透明性", desc: "サーバーで実行された直近10件の管理者コマンドを公開表示。", kw: "管理者 ログ 透明性" }
     ],
