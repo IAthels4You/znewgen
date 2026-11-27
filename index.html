@@ -781,10 +781,213 @@
   }
   .toast.show { opacity: 1; transform: translateY(0); }
 
+  /* Progressive Disclosure: Animations, Explorer Cards, Filter Pills & Accordions */
+  @keyframes zFadeUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .section-card { animation: zFadeUp 0.28s cubic-bezier(0.22, 1, 0.36, 1) both; }
+
+  .search-banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+    background: rgba(230, 185, 106, 0.08);
+    border: 1px solid rgba(230, 185, 106, 0.34);
+    border-radius: 14px;
+    padding: 12px 18px;
+    font-size: 0.88rem;
+    color: var(--gold-bright);
+    animation: zFadeUp 0.2s ease both;
+  }
+
+  .portal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 16px;
+  }
+  .portal-card {
+    text-align: left;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.028), rgba(11, 10, 13, 0.62));
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    padding: 20px 22px;
+    cursor: pointer;
+    color: inherit;
+    font-family: inherit;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .portal-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(230, 185, 106, 0.62);
+    background: linear-gradient(180deg, rgba(230, 185, 106, 0.08), rgba(11, 10, 13, 0.68));
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.38);
+  }
+  .portal-eyebrow {
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .portal-title {
+    font-family: var(--display);
+    font-size: 1.06rem;
+    color: var(--text);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+  .portal-arrow {
+    color: var(--gold-bright);
+    transition: transform 0.2s ease;
+    font-family: var(--sans);
+  }
+  .portal-card:hover .portal-arrow { transform: translateX(4px); }
+  .portal-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.62;
+  }
+
+  .quick-cmds {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 12px;
+  }
+  .quick-cmd {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background: rgba(11, 10, 13, 0.56);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    padding: 13px 15px;
+    transition: border-color 0.18s ease, background 0.18s ease;
+  }
+  .quick-cmd:hover { border-color: var(--border-hi); background: rgba(230, 185, 106, 0.045); }
+  .quick-cmd-info { min-width: 0; }
+  .quick-cmd-code {
+    font-family: var(--mono);
+    font-size: 0.88rem;
+    color: var(--gold-bright);
+    font-weight: 600;
+    display: block;
+    margin-bottom: 3px;
+  }
+  .quick-cmd-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.5; }
+
+  .cmd-filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    padding: 16px 26px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(255, 255, 255, 0.015);
+  }
+  .filter-pill {
+    background: rgba(11, 10, 13, 0.56);
+    border: 1px solid var(--border);
+    color: var(--text-soft);
+    padding: 7px 14px;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+  }
+  .filter-pill:hover { border-color: rgba(230, 185, 106, 0.5); color: var(--gold-bright); }
+  .filter-pill.active {
+    background: rgba(230, 185, 106, 0.16);
+    border-color: var(--gold-bright);
+    color: var(--gold-bright);
+  }
+  .filter-count {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    padding: 1px 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--muted);
+  }
+  .filter-pill.active .filter-count { background: rgba(230, 185, 106, 0.24); color: var(--gold-bright); }
+
+  details.z-accordion {
+    margin-top: 20px;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    background: rgba(11, 10, 13, 0.44);
+    overflow: hidden;
+    transition: border-color 0.2s ease;
+  }
+  details.z-accordion[open] { border-color: rgba(230, 185, 106, 0.36); }
+  details.z-accordion > summary {
+    list-style: none;
+    cursor: pointer;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--gold-bright);
+    user-select: none;
+    transition: background 0.18s ease;
+  }
+  details.z-accordion > summary::-webkit-details-marker { display: none; }
+  details.z-accordion > summary:hover { background: rgba(230, 185, 106, 0.06); }
+  .acc-chevron {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1px solid rgba(230, 185, 106, 0.35);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.78rem;
+    color: var(--gold-bright);
+    transition: transform 0.22s ease, background 0.22s ease;
+    flex-shrink: 0;
+  }
+  details.z-accordion[open] .acc-chevron { transform: rotate(180deg); background: rgba(230, 185, 106, 0.16); }
+  .acc-body { padding: 4px 20px 20px; border-top: 1px solid var(--border); }
+
+  .section-foot-cta {
+    margin-top: 18px;
+    display: flex;
+    justify-content: flex-end;
+  }
+  .link-pill {
+    background: rgba(230, 185, 106, 0.09);
+    border: 1px solid rgba(230, 185, 106, 0.34);
+    color: var(--gold-bright);
+    padding: 9px 18px;
+    border-radius: 999px;
+    font-family: var(--sans);
+    font-size: 0.82rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.18s ease;
+  }
+  .link-pill:hover { background: rgba(230, 185, 106, 0.2); border-color: var(--gold-bright); transform: translateY(-1px); }
+
   @media (max-width: 780px) {
     .hero { padding: 48px 18px 34px; }
     main { padding: 0 16px; gap: 22px; }
-    .section-head, .section-body, .section-banner { padding-left: 18px; padding-right: 18px; }
+    .section-head, .section-body, .section-banner, .cmd-filter-bar { padding-left: 18px; padding-right: 18px; }
     .section-banner { min-height: 165px; }
     .cmd-row { grid-template-columns: 1fr; gap: 10px; padding: 14px 18px; }
     .copy-btn { justify-self: start; }
@@ -903,15 +1106,12 @@ const CONTENT = {
     footer: "Dentro del juego escribe /info para la guía modular, /dc para Discord y Web, o /en para inglés.",
     footerCopy: "© @znewgen2026 · Todos los derechos reservados",
     nav: [
-      { id: "all", label: "Todo" },
-      { id: "start", label: "Inicio Rápido" },
-      { id: "rates", label: "Rates" },
-      { id: "market", label: "Mercado & Subasta" },
-      { id: "valhalla", label: "Valhalla" },
-      { id: "events", label: "Eventos & Top" },
-      { id: "biomes", label: "Dinos DLC" },
+      { id: "home", label: "Inicio" },
+      { id: "market", label: "Mercado y Subastas" },
+      { id: "events", label: "Eventos y Valhalla" },
+      { id: "biomes", label: "Dinos y Biomas" },
       { id: "commands", label: "Comandos" },
-      { id: "rules", label: "Reglas" }
+      { id: "all", label: "Ver Todo" }
     ],
     startHead: "Empieza en 60 Segundos",
     startPill: "Guía Paso a Paso",
@@ -1103,15 +1303,12 @@ const CONTENT = {
     footer: "In-game type /info for the modular guide, /dc for Discord & Web, or /es for Spanish.",
     footerCopy: "© @znewgen2026 · All rights reserved",
     nav: [
-      { id: "all", label: "All" },
-      { id: "start", label: "Quick Start" },
-      { id: "rates", label: "Rates" },
-      { id: "market", label: "Market & Auction" },
-      { id: "valhalla", label: "Valhalla" },
-      { id: "events", label: "Events & Top" },
-      { id: "biomes", label: "DLC Dinos" },
+      { id: "home", label: "Home" },
+      { id: "market", label: "Market & Auctions" },
+      { id: "events", label: "Events & Valhalla" },
+      { id: "biomes", label: "Dinos & Biomes" },
       { id: "commands", label: "Commands" },
-      { id: "rules", label: "Rules" }
+      { id: "all", label: "View All" }
     ],
     startHead: "Start in 60 Seconds",
     startPill: "Step-by-Step Guide",
@@ -1303,15 +1500,12 @@ const CONTENT = {
     footer: "ゲーム内で /info でガイド表示、/dc でDiscordとWebリンク、/en で英語表示に切替できます。",
     footerCopy: "© @znewgen2026 · All rights reserved",
     nav: [
-      { id: "all", label: "すべて" },
-      { id: "start", label: "スタートガイド" },
-      { id: "rates", label: "倍率・設定" },
+      { id: "home", label: "ホーム" },
       { id: "market", label: "マーケット＆オークション" },
-      { id: "valhalla", label: "ヴァルハラ" },
-      { id: "events", label: "イベント＆ランキング" },
-      { id: "biomes", label: "DLC恐竜" },
-      { id: "commands", label: "コマンド一覧" },
-      { id: "rules", label: "ルール" }
+      { id: "events", label: "イベント＆ヴァルハラ" },
+      { id: "biomes", label: "恐竜・バイオーム" },
+      { id: "commands", label: "コマンド" },
+      { id: "all", label: "すべて表示" }
     ],
     startHead: "60秒で始めるスタートガイド",
     startPill: "ステップ別ガイド",
@@ -1492,13 +1686,49 @@ const CONTENT = {
 };
 
 let lang = "es";
-let activeTab = "all";
+let activeTab = "home";
+let cmdGroup = "essential";
 let query = "";
 let colorRegion = 0;
 
 function setColorRegion(r) {
   colorRegion = r;
   render();
+}
+
+function setCmdGroup(g) {
+  cmdGroup = g;
+  render();
+}
+
+function goTab(id) {
+  activeTab = id;
+  render();
+  const root = document.getElementById("appRoot");
+  if (root) {
+    const top = root.getBoundingClientRect().top + window.scrollY - 82;
+    window.scrollTo({ top: Math.max(0, top), behavior: "smooth" });
+  }
+}
+
+function classifyCommand(c) {
+  const s = `${c.copy} ${c.cmd}`.toLowerCase();
+  if (s.includes("/llenar") || s.includes("/fill") || s.includes("/torretas") || s.includes("/turrets") ||
+      s.includes("/apagar") || s.includes("/off") || s.includes("/misdinos") || s.includes("/mydinos") ||
+      s.includes("/die")) return "base";
+  if (s.includes("/shop") || s.includes("/tienda") || s.includes("/buy") || s.includes("/sell") ||
+      s.includes("/kit") || s.includes("/points") || s.includes("/pagar") || s.includes("/pay") ||
+      s.includes("/curar") || s.includes("/heal") || s.includes("/color") || s.includes("/demanda") ||
+      s.includes("/demand") || s.includes("/subasta") || s.includes("/auction")) return "economy";
+  if (s.includes("/valhalla") || s.includes("/event") || s.includes("/mutagen") || s.includes("/killrace") ||
+      s.includes("/daily") || s.includes("/boost") || s.includes("/bounty") || s.includes("/mystats") ||
+      s.includes("/topkills")) return "events";
+  return "general";
+}
+
+function isEssentialCommand(c) {
+  const cp = (c.copy || "").trim().toLowerCase();
+  return ["/kit", "/tienda pvp", "/shop pvp", "/llenar", "/fill", "/npp", "/event", "/valhalla", "/subasta lista", "/auction list", "/info", "/apagar", "/off", "/misdinos", "/mydinos"].includes(cp);
 }
 
 function norm(s) {
@@ -1630,10 +1860,100 @@ function render() {
 
   let html = "";
   let visibleSections = 0;
-  const show = id => activeTab === "all" || activeTab === id;
+  const isSearching = query.trim().length > 0;
+  const show = id => isSearching || activeTab === "all" || activeTab === id;
 
-  // 0. Quick Start (60-Second Beginner Guide)
-  if (show("start")) {
+  const uiText = {
+    es: {
+      searchNotice: q => `Mostrando resultados en toda la guía para "${q}"`,
+      clearSearch: "Volver a la pestaña",
+      quickCmdHead: "Comandos Esenciales para Empezar",
+      quickCmdPill: "Los 6 Más Usados",
+      allCmdsBtn: "Explorar los 32 comandos con filtros ->",
+      exploreHead: "Explorar el Servidor por Tema",
+      explorePill: "Elige lo que necesitas",
+      portals: [
+        { tab: "market", eye: "Economía y Zona Segura", title: "Mercado, Tienda y Subastas", desc: "Estaciones sin combustible, Demanda 2x, 18 especies Élite Nvl 450 y selector de 42 colores." },
+        { tab: "events", eye: "Acción PvP", title: "Valhalla y Eventos cada 45m", desc: "Mega-evento Mié/Sáb/Dom 19:00, 3 Bóvedas simultáneas, KOTH, Bosses y Cueva de Mutagen." },
+        { tab: "biomes", eye: "Fauna Expandida", title: "Dinos DLC y 6 Especies Tek", desc: "Mapa exacto de dónde encontrar Fjordhawk, Shadowmane, Blood Wyvern, Tropeognathus y Tek." },
+        { tab: "commands", eye: "Atajos de Chat", title: "Todos los Comandos por Categoría", desc: "Filtra por Base y Torretas (/llenar, /torretas, /apagar, /misdinos), Tienda o Eventos." }
+      ],
+      colorsAcc: "Abrir Selector Interactivo de 42 Colores (/color)",
+      valhallaAcc: "Ver Reglas Detalladas de Valhalla, Puntaje de Guerra y Qué Hacer si Mueres",
+      rulesAcc: "Ver Reglas Completas y Límites de Tribu / Bases",
+      cmdGroups: [
+        { id: "essential", label: "Esenciales" },
+        { id: "base", label: "Base y Torretas" },
+        { id: "economy", label: "Tienda y Mercado" },
+        { id: "events", label: "Eventos y PvP" },
+        { id: "general", label: "Cuenta y Audio" },
+        { id: "all", label: "Todos" }
+      ]
+    },
+    en: {
+      searchNotice: q => `Showing results across the entire guide for "${q}"`,
+      clearSearch: "Clear search",
+      quickCmdHead: "Essential Starter Commands",
+      quickCmdPill: "Top 6 Most Used",
+      allCmdsBtn: "Browse all 32 commands with filters ->",
+      exploreHead: "Explore the Server by Topic",
+      explorePill: "Jump to what you need",
+      portals: [
+        { tab: "market", eye: "SafeZone & Economy", title: "Market, Shop & Auctions", desc: "0-fuel crafting benches, 2x Hot Demand, 18 Lvl 450 Elite species & 42-color dino picker." },
+        { tab: "events", eye: "PvP Action", title: "Valhalla & 45m World Events", desc: "Wed/Sat/Sun 19:00 mega-event, 3 simultaneous Supply Vaults, KOTH, Bosses & Mutagen Cave." },
+        { tab: "biomes", eye: "Expanded Wildlife", title: "Wild DLC Dinos & 6 Tek Species", desc: "Exact Ragnarok biomes for Fjordhawk, Shadowmane, Blood Wyvern, Tropeognathus & Tek." },
+        { tab: "commands", eye: "Chat Shortcuts", title: "All Commands by Category", desc: "Filter by Base & Turrets (/fill, /turrets, /off, /mydinos), Shop, Market or Events." }
+      ],
+      colorsAcc: "Open Interactive 42-Color Picker (/color)",
+      valhallaAcc: "View Detailed Valhalla Rules, War Score Breakdown & Death Rejoin Guide",
+      rulesAcc: "View Complete Server Rules & Tribe / Base Limits",
+      cmdGroups: [
+        { id: "essential", label: "Essential" },
+        { id: "base", label: "Base & Turrets" },
+        { id: "economy", label: "Shop & Market" },
+        { id: "events", label: "Events & PvP" },
+        { id: "general", label: "Account & Audio" },
+        { id: "all", label: "All" }
+      ]
+    },
+    ja: {
+      searchNotice: q => `全ガイドから「${q}」の検索結果を表示中`,
+      clearSearch: "検索をクリア",
+      quickCmdHead: "まず覚える基本コマンド",
+      quickCmdPill: "よく使う6つ",
+      allCmdsBtn: "全32コマンドをカテゴリ別に見る ->",
+      exploreHead: "テーマ別に詳しく見る",
+      explorePill: "必要な情報へすぐ移動",
+      portals: [
+        { tab: "market", eye: "セーフゾーン＆経済", title: "マーケット・ショップ・オークション", desc: "燃料不要の設備、2倍ホットデマンド、Lv.450限定18種オークション、42色カラー選択。" },
+        { tab: "events", eye: "PvPアクション", title: "ヴァルハラ＆45分ごとイベント", desc: "水土日19:00大型イベント、3か所同時金庫、KOTH、ボス討伐、変異原洞窟。" },
+        { tab: "biomes", eye: "拡張エコシステム", title: "DLC恐竜＆Tek恐竜6種の生息地", desc: "フィヨルドホーク、シャドウメイン、ブラッドワイバーン、Tek恐竜の生息エリア一覧。" },
+        { tab: "commands", eye: "チャット便利機能", title: "全コマンド（カテゴリ絞り込み）", desc: "拠点・タレット管理（/fill, /turrets, /off, /mydinos）、ショップ、イベント別に整理。" }
+      ],
+      colorsAcc: "42色インタラクティブ・カラーピッカーを開く (/color)",
+      valhallaAcc: "ヴァルハラ詳細ルール・War Score計算・死亡時リジョイン手順を見る",
+      rulesAcc: "サーバルールとトライブ・拠点制限の詳細を見る",
+      cmdGroups: [
+        { id: "essential", label: "必須" },
+        { id: "base", label: "拠点・タレット" },
+        { id: "economy", label: "ショップ・市場" },
+        { id: "events", label: "イベント・PvP" },
+        { id: "general", label: "設定・音楽" },
+        { id: "all", label: "すべて" }
+      ]
+    }
+  }[lang];
+
+  if (isSearching) {
+    html += `
+      <div class="search-banner">
+        <span>${esc(uiText.searchNotice(query.trim()))}</span>
+        <button class="copy-btn" onclick="query='';document.getElementById('searchInput').value='';render();">${esc(uiText.clearSearch)}</button>
+      </div>`;
+  }
+
+  // 0. Quick Start (Home & All)
+  if (show("home")) {
     const steps = t.startSteps.filter(s => matchesSearch(`${t.startHead} ${s.k} ${s.v} ${s.n}`));
     if (steps.length) {
       visibleSections++;
@@ -1658,8 +1978,60 @@ function render() {
     }
   }
 
-  // 1. Rates
-  if (show("rates")) {
+  // 0.5 Portal Navigator & Top 6 Essential Commands (Home view only, hidden when searching or in All)
+  if (!isSearching && activeTab === "home") {
+    visibleSections++;
+    const topCopies = lang === "es"
+      ? ["/kit", "/tienda pvp", "/llenar", "/npp", "/event", "/info"]
+      : ["/kit", "/shop pvp", "/fill", "/npp", "/event", "/info"];
+    const topCmds = topCopies.map(cp => t.commands.find(c => c.copy === cp)).filter(Boolean);
+    html += `
+      <section class="section-card">
+        <div class="section-head">
+          <h2>${esc(uiText.exploreHead)}</h2>
+          <span class="pill pill-gold">${esc(uiText.explorePill)}</span>
+        </div>
+        <div class="section-body">
+          <div class="portal-grid">
+            ${uiText.portals.map(p => `
+              <button type="button" class="portal-card" onclick="goTab('${p.tab}')">
+                <div class="portal-eyebrow">${esc(p.eye)}</div>
+                <div class="portal-title"><span>${esc(p.title)}</span><span class="portal-arrow">-></span></div>
+                <div class="portal-desc">${esc(p.desc)}</div>
+              </button>
+            `).join("")}
+          </div>
+        </div>
+      </section>
+
+      <section class="section-card">
+        <div class="section-head">
+          <h2>${esc(uiText.quickCmdHead)}</h2>
+          <span class="pill pill-emerald">${esc(uiText.quickCmdPill)}</span>
+        </div>
+        <div class="section-body">
+          <div class="quick-cmds">
+            ${topCmds.map(c => {
+              const safe = c.copy.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
+              return `
+                <div class="quick-cmd">
+                  <div class="quick-cmd-info">
+                    <span class="quick-cmd-code">${esc(c.copy)}</span>
+                    <div class="quick-cmd-desc">${esc(c.desc)}</div>
+                  </div>
+                  <button class="copy-btn" onclick="copyText('${safe}', this)">${esc(t.copy)}</button>
+                </div>`;
+            }).join("")}
+          </div>
+          <div class="section-foot-cta">
+            <button type="button" class="link-pill" onclick="goTab('commands')">${esc(uiText.allCmdsBtn)}</button>
+          </div>
+        </div>
+      </section>`;
+  }
+
+  // 1. Rates (Home & All)
+  if (show("home")) {
     const items = t.rates.filter(r => matchesSearch(`${t.ratesHead} ${r.k} ${r.v} ${r.n}`));
     if (items.length) {
       visibleSections++;
@@ -1684,10 +2056,11 @@ function render() {
     }
   }
 
-  // 2. Market & Colors
+  // 2. Market & Collapsible 42-Color Picker
   if (show("market")) {
     const cards = t.marketCards.filter(c => matchesSearch(`${t.marketHead} ${c.title} ${c.items.join(" ")}`));
     const colorsMatch = matchesSearch(`${t.colorsTitle} color pintar カラー 色 ${COLORS.map(c => `${c.id} ${c.es} ${c.en} ${c.ja}`).join(" ")}`);
+    const openColors = isSearching && colorsMatch ? " open" : "";
     if (cards.length || colorsMatch) {
       visibleSections++;
       html += `
@@ -1704,44 +2077,51 @@ function render() {
               </div>
             `).join("")}</div>` : ""}
             ${colorsMatch ? `
-              <div style="margin-top:20px;">
-                <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
-                  <div style="font-size:0.88rem;color:var(--muted);font-weight:600;">${esc(t.colorsTitle)}</div>
-                  <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
-                    <span style="font-size:0.78rem;color:var(--muted);">${lang === 'es' ? 'Región:' : (lang === 'ja' ? '部位:' : 'Region:')}</span>
-                    ${[0,1,2,3,4,5].map(r => `
-                      <button class="nav-btn ${colorRegion === r ? 'active' : ''}" style="padding:3px 10px;font-family:var(--mono);" onclick="setColorRegion(${r})">${r}</button>
+              <details class="z-accordion"${openColors}>
+                <summary>
+                  <span>${esc(uiText.colorsAcc)}</span>
+                  <span class="acc-chevron">▾</span>
+                </summary>
+                <div class="acc-body">
+                  <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;margin-top:14px;">
+                    <div style="font-size:0.86rem;color:var(--muted);font-weight:600;">${esc(t.colorsTitle)}</div>
+                    <div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;">
+                      <span style="font-size:0.78rem;color:var(--muted);">${lang === 'es' ? 'Región:' : (lang === 'ja' ? '部位:' : 'Region:')}</span>
+                      ${[0,1,2,3,4,5].map(r => `
+                        <button class="nav-btn ${colorRegion === r ? 'active' : ''}" style="padding:3px 10px;font-family:var(--mono);" onclick="setColorRegion(${r})">${r}</button>
+                      `).join("")}
+                    </div>
+                  </div>
+                  <div class="swatches">
+                    ${COLORS.map(c => `
+                      <div class="swatch" onclick="copyText('/color ${colorRegion} ${c.id}')">
+                        <span class="dot" style="background:${c.hex}"></span>
+                        <span><b>${c.id}</b> · ${esc(c[lang])}</span>
+                      </div>
                     `).join("")}
                   </div>
                 </div>
-                <div class="swatches">
-                  ${COLORS.map(c => `
-                    <div class="swatch" onclick="copyText('/color ${colorRegion} ${c.id}')">
-                      <span class="dot" style="background:${c.hex}"></span>
-                      <span><b>${c.id}</b> · ${esc(c[lang])}</span>
-                    </div>
-                  `).join("")}
-                </div>
-              </div>` : ""}
+              </details>` : ""}
           </div>
         </section>`;
     }
   }
 
-  // 2.5 VALHALLA Dedicated Weekend Mega-Event Section
-  if (show("valhalla")) {
+  // 3. Events & VALHALLA (Unified Tab with Collapsible Deep Mechanics)
+  if (show("events")) {
     const vHay = `${t.valhallaHead} ${t.valhallaIntro} ${t.valhallaArenas.map(a => `${a.k} ${a.v} ${a.n}`).join(" ")} ${t.valhallaPhases.map(p => `${p.k} ${p.v} ${p.n}`).join(" ")} ${t.valhallaCards.map(c => `${c.title} ${c.items.join(" ")}`).join(" ")}`;
+    const openValDetails = isSearching ? " open" : "";
     if (matchesSearch(vHay)) {
       visibleSections++;
       html += `
         <section class="section-card" style="border-color:rgba(230,185,106,0.38);">
-          <div class="section-banner" style="min-height:225px;background-image:url('img/valhalla-arena.svg');">
+          <div class="section-banner" style="min-height:215px;background-image:url('img/valhalla-arena.svg');">
             <h2>${esc(t.valhallaHead)}</h2>
             <span class="pill pill-gold">${esc(t.valhallaPill)}</span>
           </div>
           <div class="section-body">
             <p class="editorial-lead">${esc(t.valhallaIntro)}</p>
-            <div class="grid-stats" style="margin-bottom:20px;">
+            <div class="grid-stats" style="margin-bottom:18px;">
               ${t.valhallaArenas.map(a => `
                 <div class="stat-box" style="border-color:rgba(112,198,245,0.28);background:linear-gradient(180deg, rgba(112,198,245,0.06), rgba(11,10,13,0.56));">
                   <div class="label" style="color:var(--sky);">${esc(a.k)}</div>
@@ -1750,7 +2130,7 @@ function render() {
                 </div>
               `).join("")}
             </div>
-            <div class="grid-stats" style="margin-bottom:20px;">
+            <div class="grid-stats">
               ${t.valhallaPhases.map(p => `
                 <div class="stat-box" style="border-color:rgba(245,185,66,0.25);">
                   <div class="label" style="color:var(--gold);">${esc(p.k)}</div>
@@ -1759,21 +2139,26 @@ function render() {
                 </div>
               `).join("")}
             </div>
-            <div class="grid-2">
-              ${t.valhallaCards.map(c => `
-                <div class="feature-box">
-                  <h3>${esc(c.title)}</h3>
-                  <ul>${c.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+            <details class="z-accordion"${openValDetails}>
+              <summary>
+                <span>${esc(uiText.valhallaAcc)}</span>
+                <span class="acc-chevron">▾</span>
+              </summary>
+              <div class="acc-body" style="padding-top:16px;">
+                <div class="grid-2">
+                  ${t.valhallaCards.map(c => `
+                    <div class="feature-box">
+                      <h3>${esc(c.title)}</h3>
+                      <ul>${c.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul>
+                    </div>
+                  `).join("")}
                 </div>
-              `).join("")}
-            </div>
+              </div>
+            </details>
           </div>
         </section>`;
     }
-  }
 
-  // 3. Events & Top
-  if (show("events")) {
     const cards = t.eventsCards.filter(c => matchesSearch(`${t.eventsHead} ${c.title} ${c.items.join(" ")}`));
     if (cards.length) {
       visibleSections++;
@@ -1822,10 +2207,26 @@ function render() {
     }
   }
 
-  // 5. Player Commands
+  // 5. Player Commands (Categorized Filter Pills when not searching)
   if (show("commands")) {
-    const cmds = t.commands.filter(c => matchesSearch(`${t.cmdsHead} ${c.cmd} ${c.cat} ${c.desc} ${c.kw || ""}`));
-    if (cmds.length) {
+    const searched = t.commands.filter(c => matchesSearch(`${t.cmdsHead} ${c.cmd} ${c.cat} ${c.desc} ${c.kw || ""}`));
+    const counts = {
+      essential: t.commands.filter(isEssentialCommand).length,
+      base: t.commands.filter(c => classifyCommand(c) === "base").length,
+      economy: t.commands.filter(c => classifyCommand(c) === "economy").length,
+      events: t.commands.filter(c => classifyCommand(c) === "events").length,
+      general: t.commands.filter(c => classifyCommand(c) === "general").length,
+      all: t.commands.length
+    };
+    const cmds = isSearching
+      ? searched
+      : searched.filter(c => {
+          if (cmdGroup === "all") return true;
+          if (cmdGroup === "essential") return isEssentialCommand(c);
+          return classifyCommand(c) === cmdGroup;
+        });
+
+    if (cmds.length || (!isSearching && activeTab === "commands")) {
       visibleSections++;
       html += `
         <section class="section-card">
@@ -1833,6 +2234,15 @@ function render() {
             <h2>${esc(t.cmdsHead)}</h2>
             <span class="pill pill-emerald">${esc(t.cmdsPill)}</span>
           </div>
+          ${!isSearching ? `
+            <div class="cmd-filter-bar">
+              ${uiText.cmdGroups.map(g => `
+                <button type="button" class="filter-pill ${cmdGroup === g.id ? 'active' : ''}" onclick="setCmdGroup('${g.id}')">
+                  <span>${esc(g.label)}</span>
+                  <span class="filter-count">${counts[g.id]}</span>
+                </button>
+              `).join("")}
+            </div>` : ""}
           <div class="cmd-list">
             ${cmds.map(c => {
               const safe = c.copy.replace(/\\/g, "\\\\").replace(/'/g, "\\'");
@@ -1851,11 +2261,12 @@ function render() {
     }
   }
 
-  // 6. Rules
-  if (show("rules")) {
+  // 6. Rules (Home & All; collapsible on Home so landing stays crisp, auto-expanded on Search/All)
+  if (show("home")) {
     const rules = t.rules.filter(r => matchesSearch(`${t.rulesHead} ${r}`));
     if (rules.length) {
       visibleSections++;
+      const openRules = (isSearching || activeTab === "all") ? " open" : "";
       html += `
         <section class="section-card">
           <div class="section-head">
@@ -1863,14 +2274,22 @@ function render() {
             <span class="pill pill-amber">${esc(t.rulesPill)}</span>
           </div>
           <div class="section-body">
-            <div class="rules-list">
-              ${rules.map((r, i) => `
-                <div class="rule-item">
-                  <div class="rule-num">0${i + 1}</div>
-                  <div>${esc(r)}</div>
+            <details class="z-accordion" style="margin-top:0;"${openRules}>
+              <summary>
+                <span>${esc(uiText.rulesAcc)} (${rules.length})</span>
+                <span class="acc-chevron">▾</span>
+              </summary>
+              <div class="acc-body" style="padding-top:16px;">
+                <div class="rules-list">
+                  ${rules.map((r, i) => `
+                    <div class="rule-item">
+                      <div class="rule-num">0${i + 1}</div>
+                      <div>${esc(r)}</div>
+                    </div>
+                  `).join("")}
                 </div>
-              `).join("")}
-            </div>
+              </div>
+            </details>
           </div>
         </section>`;
     }
@@ -1883,10 +2302,10 @@ function render() {
 const searchInput = document.getElementById("searchInput");
 searchInput.addEventListener("input", e => { query = e.target.value; render(); });
 document.getElementById("clearBtn").addEventListener("click", () => {
-  query = ""; searchInput.value = ""; activeTab = "all"; render(); searchInput.focus();
+  query = ""; searchInput.value = ""; render(); searchInput.focus();
 });
 document.addEventListener("keydown", e => {
-  if (e.key === "Escape") { query = ""; searchInput.value = ""; activeTab = "all"; render(); }
+  if (e.key === "Escape") { query = ""; searchInput.value = ""; render(); }
   else if (e.key === "/" && document.activeElement !== searchInput) { e.preventDefault(); searchInput.focus(); }
 });
 
