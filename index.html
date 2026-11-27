@@ -960,7 +960,7 @@ const CONTENT = {
       {
         title: "Subastas Élite: Cómo Funcionan en 4 Pasos (Nvl 450 sin Castrar)",
         items: [
-          "1) ¿Qué se subasta? 15 especies exclusivas (Maewing, Carcha, Reaper, Giga, Gólem, Desmodus, Voidwyrm, Tuso y más). Escribe /subasta lista para ver los 15 dinos y cuáles tienen más prioridad para salir.",
+          "1) ¿Qué se subasta? 18 especies exclusivas (Maewing, Rhyniognatha, Rock Drake, Magmasaur, Blood Crystal Wyvern, Carcha, Reaper, Giga, Gólem, Voidwyrm, Tuso y más). Escribe /subasta lista para ver los 18 dinos y cuáles tienen más prioridad para salir.",
           "2) ¿Cómo se inicia? Escribe /subasta. Arranca cuando hay 4+ jugadores conectados y 3 votos (máx. 2 subastas cada 12 horas).",
           "3) ¿Cómo pujo? Tienes 5 min para ir a Z-MARKET. Ya dentro, escribe /pujar <puntos> (sube mínimo +500 pts). Si alguien te supera, tus puntos se devuelven al instante.",
           "4) Anti-abuso y entrega: Deben pujar mínimo 2 TRIBUS DISTINTAS; cada puja reinicia 30s (cuenta 10..1). Nunca repite dino seguido y el ganador recibe el Cryopod al instante (si tienes inventario lleno: /reclamar)."
@@ -1007,15 +1007,15 @@ const CONTENT = {
         ]
       }
     ],
-    eventsHead: "Eventos Horarios, Recompensas y Beneficios de Ranking",
-    eventsPill: "Tierra Firme · Cada 60 min",
+    eventsHead: "Eventos Cada 45 min, Recompensas y Beneficios de Ranking",
+    eventsPill: "Tierra Firme · Cada 45 min",
     eventsCards: [
       {
-        title: "4 Eventos Dinámicos en Tierra Firme (Cada 60 min)",
+        title: "4 Eventos Dinámicos en Tierra Firme (Cada 45 min)",
         items: [
           "Rey de la Colina (KOTH): +35 pts/min por mantener la Cúpula Roja PvP.",
           "Boss Alpha Rex (Nivel 350): +400 pts a los participantes al derrotarlo.",
-          "Bóveda de Suministros (Blueprints & DLC): Planos de Flak/Armas/Monturas DLC + Elixir Sanguíneo/Mutagel + 200 pts al primero.",
+          "3 Bóvedas de Suministros simultáneas (Blueprints & DLC): 3 ubicaciones distintas con Planos de Flak/Armas/Monturas DLC + Elixir Sanguíneo/Mutagen + 200 pts al primero en cada bóveda.",
           "Dino Élite Salvaje (Nvl 330 a 345): Colores Rojo/Oro listo para domar o pelear (40 min).",
           "KillRace (50% combo): Carrera cronometrada de kills PvP con premio al #1."
         ]
@@ -1030,15 +1030,15 @@ const CONTENT = {
         ]
       }
     ],
-    biomesHead: "Ecosistema Ragnarok Expandido (Dinos Salvajes de Otros Mapas)",
-    biomesPill: "14 Especies DLC Integradas",
+    biomesHead: "Ecosistema Ragnarok Expandido (Dinos Salvajes DLC + 6 Especies Tek)",
+    biomesPill: "16 Especies DLC + 6 Tek",
     biomes: [
       { title: "Nieve", items: ["Snow Owl", "Managarmr", "Ferox"] },
-      { title: "Desierto y Dunas", items: ["Velonasaur", "Gasbags"] },
-      { title: "Centro y Praderas", items: ["Sinomacrops", "Gasbags", "Shinehorn", "Bulbdog"] },
+      { title: "Desierto y Dunas", items: ["Velonasaur", "Gasbags", "Blood Crystal Wyvern", "Tek Rex / Tek Raptor"] },
+      { title: "Centro y Praderas", items: ["Sinomacrops", "Tropeognathus", "Gasbags", "Shinehorn", "Bulbdog", "Dinos Tek"] },
       { title: "Redwoods y Pantano", items: ["Shadowmane", "Bloodstalker", "Dinopithecus", "Sinomacrops", "Gacha (ultra-raro en Redwoods)"] },
-      { title: "Montañas y Playas", items: ["Desmodus", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight"] },
-      { title: "Exclusivos de Subasta (/subasta lista)", items: ["Maewing (NO está en tienda ni salvaje)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm", "Rock Elemental, Noglin, Tuso, Mosa y más (Nvl 450 sin castrar)"] }
+      { title: "Montañas, Highlands y Playas", items: ["Fjordhawk", "Tropeognathus", "Blood Crystal Wyvern", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight", "6 Especies Tek (Rex, Stego, Raptor, Para, Trike, Quetz)"] },
+      { title: "Exclusivos de Subasta (/subasta lista)", items: ["Maewing & Rhyniognatha (NO están en tienda ni salvajes)", "Rock Drake, Magmasaur & Blood Crystal Wyvern (Nvl 450 sin castrar)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm, Rock Elemental, Noglin, Tuso, Mosa y más"] }
     ],
     cmdsHead: "Comandos de Jugador (Chat)",
     cmdsPill: "Clic en Copiar",
@@ -1156,7 +1156,7 @@ const CONTENT = {
       {
         title: "Elite Auctions: How They Work in 4 Steps (Lvl 450 Breedable)",
         items: [
-          "1) What's in the pool? 15 exclusive species (Maewing, Carcha, Reaper, Giga, Rock Elemental, Desmodus, Voidwyrm, Tuso & more). Type /auction list to see all 15 dinos & their priority queue.",
+          "1) What's in the pool? 18 exclusive species (Maewing, Rhyniognatha, Rock Drake, Magmasaur, Blood Crystal Wyvern, Carcha, Reaper, Giga, Rock Elemental, Voidwyrm, Tuso & more). Type /auction list to see all 18 dinos & their priority queue.",
           "2) How to start one? Type /auction. Starts at 4+ players online & 3 votes (max 2 auctions per 12h).",
           "3) How to bid? You get 5m to reach Z-MARKET. Inside, type /bid <points> (+500 min raise). Outbid points refund instantly.",
           "4) Anti-abuse & delivery: Requires at least 2 DISTINCT TRIBES bidding; each bid resets 30s (10..1 countdown). Never repeats back-to-back & delivers Cryopod instantly (inventory full: /claim)."
@@ -1203,15 +1203,15 @@ const CONTENT = {
         ]
       }
     ],
-    eventsHead: "Hourly World Events, Daily Rewards & Leaderboard Perks",
-    eventsPill: "Dry Land · Every 60 min",
+    eventsHead: "World Events Every 45m, Daily Rewards & Leaderboard Perks",
+    eventsPill: "Dry Land · Every 45 min",
     eventsCards: [
       {
-        title: "4 Dynamic Dry-Land World Events (Every 60m)",
+        title: "4 Dynamic Dry-Land World Events (Every 45m)",
         items: [
           "King of the Hill (KOTH): +35 pts/min for holding the Red PvP Dome.",
           "Alpha Rex Boss (Level 350): +400 pts to nearby fighters on defeat.",
-          "Supply Vault Drop (Blueprints & DLC): High-tier Flak/Weapon/DLC Saddle Blueprints + Sanguine Elixir/Mutagel + 200 pts to first arrival.",
+          "3 Simultaneous Supply Vaults (Blueprints & DLC): 3 separate locations with High-tier Flak/Weapon/DLC Saddle Blueprints + Sanguine Elixir/Mutagen + 200 pts to first arrival at each vault.",
           "Wild Elite Dino (Lvl 330 to 345): Red/Gold colors ready to tame or contest (40m).",
           "KillRace (50% combo): Timed PvP kill tournament rewarding #1."
         ]
@@ -1226,15 +1226,15 @@ const CONTENT = {
         ]
       }
     ],
-    biomesHead: "Expanded Ragnarok Ecosystem (14 Wild DLC Species)",
+    biomesHead: "Expanded Ragnarok Ecosystem (16 Wild DLC Species + 6 Tek Species)",
     biomesPill: "Balanced Biomes",
     biomes: [
       { title: "Snow", items: ["Snow Owl", "Managarmr", "Ferox"] },
-      { title: "Desert & Dunes", items: ["Velonasaur", "Gasbags"] },
-      { title: "Center & Grasslands", items: ["Sinomacrops", "Gasbags", "Shinehorn", "Bulbdog"] },
+      { title: "Desert & Dunes", items: ["Velonasaur", "Gasbags", "Blood Crystal Wyvern", "Tek Rex / Tek Raptor"] },
+      { title: "Center & Grasslands", items: ["Sinomacrops", "Tropeognathus", "Gasbags", "Shinehorn", "Bulbdog", "Tek Dinos"] },
       { title: "Redwoods & Swamp", items: ["Shadowmane", "Bloodstalker", "Dinopithecus", "Sinomacrops", "Gacha (ultra-rare in Redwoods)"] },
-      { title: "Mountains & Beaches", items: ["Desmodus", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight"] },
-      { title: "Auction Exclusives (/auction list)", items: ["Maewing (NOT in shop or wild)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm", "Rock Elemental, Noglin, Tuso, Mosa & more (Lvl 450 breedable)"] }
+      { title: "Mountains, Highlands & Beaches", items: ["Fjordhawk", "Tropeognathus", "Blood Crystal Wyvern", "Andrewsarchus", "Ravager", "Glowtail", "Featherlight", "6 Tek Species (Rex, Stego, Raptor, Para, Trike, Quetz)"] },
+      { title: "Auction Exclusives (/auction list)", items: ["Maewing & Rhyniognatha (NOT in shop or wild)", "Rock Drake, Magmasaur & Blood Crystal Wyvern (Lvl 450 breedable)", "Carcharodontosaurus, Reaper, Giga, Voidwyrm, Rock Elemental, Noglin, Tuso, Mosa & more"] }
     ],
     cmdsHead: "Player Chat Commands",
     cmdsPill: "1-Click Copy",
@@ -1352,7 +1352,7 @@ const CONTENT = {
       {
         title: "エリートオークション：4ステップガイド（Lv.450 繁殖可能）",
         items: [
-          "1) 出品ラインナップ：限定15種（メイウィング、カルカロ、リーパー、ギガ、ロックエレメンタル、デスモダス、ヴォイドワーム、トゥソなど）。/auction list で全15種と出現優先度を確認できます。",
+          "1) 出品ラインナップ：限定18種（メイウィング、リニオグナタ、ロックドレイク、マグマサウルス、ブラッドクリスタルワイバーン、カルカロ、リーパー、ギガ、ロックエレメンタル、ヴォイドワーム、トゥソなど）。/auction list で全18種と出現優先度を確認できます。",
           "2) 開始方法：/auction で投票。オンライン4人以上かつ3票で開始（12時間ごとに最大2回）。",
           "3) 入札方法：5分以内にZ-MARKETへ移動し、/bid <ポイント> で入札（最低+500pts刻み）。上回られたポイントは即返還されます。",
           "4) 不正防止＆受取：最低2つの別トライブの入札が必要。入札ごとに残り30秒リセット（10..1カウントダウン）。連続重複なし、落札後すぐクライオ受取（満杯時は /claim）。"
@@ -1399,15 +1399,15 @@ const CONTENT = {
         ]
       }
     ],
-    eventsHead: "毎時ワールドイベント・デイリー報酬・ランキング特典",
-    eventsPill: "陸上開催 · 60分ごと",
+    eventsHead: "45分ごとのワールドイベント・デイリー報酬・ランキング特典",
+    eventsPill: "陸上開催 · 45分ごと",
     eventsCards: [
       {
-        title: "陸上ダイナミックイベント4種（60分ごと）",
+        title: "陸上ダイナミックイベント4種（45分ごと）",
         items: [
           "キング・オブ・ザ・ヒル（KOTH）：赤いPvPドーム確保で毎分 +35 pts。",
           "アルファレックス・ボス（Lv.350）：討伐参加者に +400 pts。",
-          "サプライボルト投下（設計図＆DLC）：上位金属防具・武器・DLCサドル設計図＋サングインエリキシル/変異ゲル＋一番乗りに200 pts。",
+          "サプライボルト3箇所同時投下（設計図＆DLC）：3か所に分散出現。上位金属防具・武器・DLCサドル設計図＋サングインエリキシル/変異原＋各ボルト一番乗りに200 pts。",
           "野生エリート恐竜（Lv.330〜345）：赤金カラーの限定個体が40分間出現（テイム・争奪可）。",
           "キルレース（50%コンボ発生）：制限時間内のPvPキル数競争、1位に賞金。"
         ]
@@ -1422,15 +1422,15 @@ const CONTENT = {
         ]
       }
     ],
-    biomesHead: "拡張ラグナロク生態系（他マップDLC恐竜14種＋Tek恐竜6種）",
+    biomesHead: "拡張ラグナロク生態系（他マップDLC恐竜16種＋Tek恐竜6種）",
     biomesPill: "バランス調整済バイオーム",
     biomes: [
       { title: "雪原", items: ["雪フクロウ (Snow Owl)", "マナガルム (Managarmr)", "フェロックス (Ferox)"] },
-      { title: "砂漠・砂丘", items: ["ベロナサウルス (Velonasaur)", "ガスバッグ (Gasbags)", "Tekレックス / Tekラプトル"] },
-      { title: "中央・草原", items: ["シノマクロプス (Sinomacrops)", "ガスバッグ (Gasbags)", "シャインホーン (Shinehorn)", "バルブドッグ (Bulbdog)"] },
+      { title: "砂漠・砂丘", items: ["ベロナサウルス (Velonasaur)", "ガスバッグ (Gasbags)", "ブラッドクリスタルワイバーン", "Tekレックス / Tekラプトル"] },
+      { title: "中央・草原", items: ["シノマクロプス (Sinomacrops)", "トロペオグナトゥス (Tropeognathus)", "ガスバッグ (Gasbags)", "シャインホーン / バルブドッグ", "Tek恐竜"] },
       { title: "レッドウッド・沼地", items: ["シャドウメイン (Shadowmane)", "ブラッドストーカー (Bloodstalker)", "ディノピテクス (Dinopithecus)", "シノマクロプス", "ガチャ（レッドウッド超レア）"] },
-      { title: "山岳・海岸・ジャングル", items: ["デスモダス (Desmodus)", "アンドリューサルクス (Andrewsarchus)", "ラヴェジャー (Ravager)", "グローテイル / フェザーライト", "Tek全6種（レックス・ステゴ・ラプトル・パラサウロ・トリケラ・ケツァル）"] },
-      { title: "オークション限定 (/auction list)", items: ["メイウィング（ショップ・野生なし）", "カルカロドントサウルス、リーパー、ギガ、ヴォイドワーム", "ロックエレメンタル、ノグリン、トゥソ、モサほか（Lv.450 繁殖可能）"] }
+      { title: "山岳・高地・海岸・ジャングル", items: ["フィヨルドホーク (Fjordhawk)", "トロペオグナトゥス (Tropeognathus)", "ブラッドクリスタルワイバーン", "アンドリューサルクス / ラヴェジャー", "グローテイル / フェザーライト", "Tek全6種（レックス・ステゴ・ラプトル・パラサウロ・トリケラ・ケツァル）"] },
+      { title: "オークション限定 (/auction list)", items: ["メイウィング＆リニオグナタ（ショップ・野生なし）", "ロックドレイク、マグマサウルス、ブラッドクリスタルワイバーン（Lv.450 繁殖可能）", "カルカロ、リーパー、ギガ、ヴォイドワーム、ロックエレメンタル、ノグリン、トゥソほか"] }
     ],
     cmdsHead: "プレイヤー用チャットコマンド一覧",
     cmdsPill: "ワンクリックコピー",
