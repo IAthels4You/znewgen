@@ -1125,12 +1125,12 @@ const CONTENT = {
     ratesHead: "Rates y Formato del Servidor",
     ratesPill: "PvP Competitivo · 2Man",
     rates: [
-      { k: "Recolección y XP", v: "Farmeo x15 · XP x6", n: "Progresión ágil pensada para llegar rápido al PvP sin perder el valor del progreso." },
-      { k: "Tameo y Crianza", v: "Tameo x15 · Cría Rápida", n: "Incubación x80 · Maduración x65 · Impronta compartida de tribu." },
-      { k: "Dinos Salvajes", v: "Máx. Nivel 300", n: "Tek y Wyvern hasta nivel 380 en estado salvaje." },
+      { k: "Recolección y XP", v: "Farmeo x15 · XP x6", n: "Progresión ágil + caza salvaje con recompensas de puntos (Alfas, Wyverns, Gigas, Carchas, Titanosaur y Jefes de Cueva +40 Elemento)." },
+      { k: "Tameo y Crianza", v: "Tameo x15 · Mutaciones x3", n: "Incubación x80 · Maduración x65 · Impronta cómoda cada ~21 min · Probabilidad de mutación mejorada x3." },
+      { k: "Dinos Salvajes", v: "Máx. Nivel 300", n: "Tek y Wyvern hasta nivel 380 en estado salvaje (Ice Wyvern con nidos reforzados)." },
       { k: "Tribu y Bases", v: "2Man · 1 Alianza · Máx. 2 Bases", n: "Máximo 2 jugadores por tribu, 1 alianza formal y máximo 2 bases por tribu." },
       { k: "Protecciones y Raideos", v: "Raideo Lun-Vie 15:00-23:00 CR · Fin de Semana 24h", n: "PvP en mundo abierto y eventos 24/7. Fuera de horario (06:00-14:00 JST) las bases y dinos pasivos sin jinete quedan protegidos. ORP 30m y Novato 24h (/npp · /raidtime)." },
-      { k: "Comodidad", v: "Peso Infinito · Pickup Siempre", n: "Peso infinito en jugadores y dinos, recoger estructuras en todo momento y generador inalámbrico." }
+      { k: "Comodidad", v: "Cryo 150s · Comida/Agua 0.25 · Colmenas x3", n: "Peso infinito, Cryo Sickness reducido a 150s, colmenas mejoradas (3 miel c/3m con Flor Rara) y generador inalámbrico." }
     ],
     marketHead: "Z-MARKET (Zona Segura), Tienda y Subastas Élite",
     marketPill: "Corazón Económico",
@@ -1146,9 +1146,9 @@ const CONTENT = {
       {
         title: "Tienda, Kits y Ventas",
         items: [
-          "/kit, /tienda pvp y Cryopods (/buy 37) funcionan en cualquier lugar del mapa.",
+          "/kit, /tienda pvp, /tienda consumibles, /tienda materiales y Cryopods (/buy 37) funcionan en cualquier lugar del mapa.",
           "Dinos (Nivel 350 castrados en Cryopod + montura + 150 niveles), Monturas, Tek y /sell son exclusivos de Z-MARKET.",
-          "8 lotes rentables en /sell 100% farmeables en Ragnarok (Miel, Pasteles, Kibbles, Perlas Negras, Leche, Cuerno Deathworm)."
+          "9 lotes rentables en /sell 100% farmeables en Ragnarok (Miel con colmenas mejoradas, Polímero Duro, Pasteles, Kibbles, Perlas Negras, Leche y Cuerno Deathworm)."
         ]
       },
       {
@@ -1251,7 +1251,7 @@ const CONTENT = {
       { cmd: "/points  |  /puntos", copy: "/points", cat: "Tienda", desc: "Consulta tu saldo actual de puntos.", kw: "puntos saldo" },
       { cmd: "/kit  |  /kits  |  /kit <1-4>", copy: "/kit", cat: "Tienda (Global)", desc: "Lista y reclama kits (1 Inicio, 2 Granja, 3 Doma, 4 PvP) en cualquier punto del mapa.", kw: "kits inicio starter" },
       { cmd: "/buykit <1-4> <Cant>", copy: "/buykit 4 1", cat: "Tienda (Global)", desc: "Compra usos adicionales de cualquier kit usando puntos.", kw: "comprar kit" },
-      { cmd: "/tienda <dinos|monturas|pvp|consumibles|tek>  |  /shop", copy: "/tienda pvp", cat: "Tienda", desc: "5 categorías claras. PvP, Consumibles, Cryopods y Madera Fúngica funcionan en todo el mapa; el resto en Z-MARKET.", kw: "shop catalogo comprar consumibles" },
+      { cmd: "/tienda <dinos|monturas|pvp|consumibles|materiales|tek>  |  /shop", copy: "/tienda materiales", cat: "Tienda", desc: "6 categorías claras. PvP, Consumibles, Materiales y Cryopods funcionan en todo el mapa; el resto en Z-MARKET.", kw: "shop catalogo comprar consumibles materiales metal cemento" },
       { cmd: "/buy <ID> [Cant]", copy: "/buy 37 5", cat: "Tienda", desc: "Compra artículos o dinos en Cryopod (ej. /buy 37 5 para 5 Cryopods).", kw: "comprar" },
       { cmd: "/shopfind <palabra>", copy: "/shopfind cryo", cat: "Tienda", desc: "Busca artículos o dinos en la tienda por palabra clave.", kw: "buscar tienda" },
       { cmd: "/shopsell  |  /sell <ID> [Cant]", copy: "/shopsell", cat: "Mercado", desc: "Ver catálogo y vender lotes de recursos por puntos dentro de Z-MARKET.", kw: "vender" },
@@ -1326,12 +1326,12 @@ const CONTENT = {
     ratesHead: "Server Rates & Format",
     ratesPill: "Competitive PvP · 2Man",
     rates: [
-      { k: "Harvest & XP", v: "Harvest x15 · XP x6", n: "Smooth, rewarding pace built to get you into real PvP without losing progression value." },
-      { k: "Taming & Breeding", v: "Taming x15 · Fast Breed", n: "Hatch x80 · Mature x65 · Tribe-wide imprint." },
-      { k: "Wild Dinos", v: "Max Wild Level 300", n: "Tek & Wyverns spawn up to wild level 380." },
+      { k: "Harvest & XP", v: "Harvest x15 · XP x6", n: "Smooth pace + wild hunt point rewards (Alphas, Wyverns, Gigas, Carchas, Titanosaur & Cave Mini-Bosses +40 Element)." },
+      { k: "Taming & Breeding", v: "Taming x15 · 3x Mutations", n: "Hatch x80 · Mature x65 · Comfortable ~21m imprint · 3x boosted mutation chance." },
+      { k: "Wild Dinos", v: "Max Wild Level 300", n: "Tek & Wyverns spawn up to wild level 380 (Ice Wyvern nests boosted)." },
       { k: "Tribe & Bases", v: "2Man · 1 Alliance · Max 2 Bases", n: "Max 2 players per tribe, 1 formal alliance and max 2 bases per tribe." },
       { k: "Raid Schedule & ORP", v: "Raids Mon-Fri 15:00-23:00 CR · Weekends 24h", n: "Open-world PvP & events stay 24/7. Off-hours protect bases & unridden passive dinos (06:00-14:00 JST). 30m ORP & 24h Newbie Shield (/npp · /raidtime)." },
-      { k: "Quality of Life", v: "Infinite Weight · Always Pickup", n: "Infinite weight on players & dinos, always pick up structures & wireless generator." }
+      { k: "Quality of Life", v: "Cryo 150s · Food/Water 0.25 · Buffed Hives", n: "Infinite weight, Cryo Sickness cut to 150s, buffed player BeeHives (3 honey/3m w/ Rare Flower) & wireless generator." }
     ],
     marketHead: "Z-MARKET (Safe Zone), Shop & Elite Auctions",
     marketPill: "Economic Hub",
@@ -1347,9 +1347,9 @@ const CONTENT = {
       {
         title: "Shop, Kits & Selling",
         items: [
-          "/kit, /shop pvp & Cryopods (/buy 37) work anywhere on the map.",
+          "/kit, /shop pvp, /shop consumables, /shop materials & Cryopods (/buy 37) work anywhere on the map.",
           "Dinos (Level 350 neutered in Cryopod + saddle + 150 level-ups), Saddles, Tek & /sell are Z-MARKET exclusive.",
-          "8 profitable /sell batches 100% farmable on Ragnarok (Honey, Veggie Cakes, Kibbles, Black Pearls, Wyvern Milk, Deathworm Horns)."
+          "9 profitable /sell batches 100% farmable on Ragnarok (Buffed BeeHive Honey, Hard Polymer, Veggie Cakes, Kibbles, Black Pearls, Wyvern Milk, Deathworm Horns)."
         ]
       },
       {
@@ -1452,7 +1452,7 @@ const CONTENT = {
       { cmd: "/points  |  /puntos", copy: "/points", cat: "Shop", desc: "Check your current point balance.", kw: "balance" },
       { cmd: "/kit  |  /kits  |  /kit <1-4>", copy: "/kit", cat: "Shop (Global)", desc: "List and claim kits (1 Starter, 2 Farm, 3 Taming, 4 PvP) anywhere on the map.", kw: "starter kits" },
       { cmd: "/buykit <1-4> <Amt>", copy: "/buykit 4 1", cat: "Shop (Global)", desc: "Buy extra uses of any kit with points.", kw: "buy kit" },
-      { cmd: "/shop <dinos|saddles|pvp|consumables|tek>  |  /tienda", copy: "/shop pvp", cat: "Shop", desc: "5 clear categories. PvP, Consumables, Cryopods & Fungal Wood work anywhere; all others require Z-MARKET.", kw: "catalog buy consumables" },
+      { cmd: "/shop <dinos|saddles|pvp|consumables|materials|tek>  |  /tienda", copy: "/shop materials", cat: "Shop", desc: "6 clear categories. PvP, Consumables, Materials & Cryopods work anywhere; all others require Z-MARKET.", kw: "catalog buy consumables materials metal paste" },
       { cmd: "/buy <ID> [Amt]", copy: "/buy 37 5", cat: "Shop", desc: "Buy items or Cryopod dinos (e.g. /buy 37 5 for 5 Cryopods).", kw: "purchase" },
       { cmd: "/shopfind <word>", copy: "/shopfind cryo", cat: "Shop", desc: "Search store items or dinos by keyword.", kw: "search shop" },
       { cmd: "/shopsell  |  /sell <ID> [Amt]", copy: "/shopsell", cat: "Market", desc: "View and sell resource batches for points inside Z-MARKET.", kw: "sell" },
@@ -1527,12 +1527,12 @@ const CONTENT = {
     ratesHead: "サーバー倍率・基本仕様",
     ratesPill: "競技PvP · 2Man",
     rates: [
-      { k: "採取・経験値", v: "採取 x15 · 経験値 x6", n: "育成の達成感を保ちつつ、素早くPvPへ参加できる快適バランス。" },
-      { k: "テイム・ブリーディング", v: "テイム x15 · 高速育成", n: "孵化 x80 · 成長 x65 · トライブ共有インプリント対応。" },
-      { k: "野生恐竜レベル", v: "野生最大 Lv.300", n: "Tek恐竜（全6種出現率アップ）とワイバーンは野生最大 Lv.380。" },
+      { k: "採取・経験値", v: "採取 x15 · 経験値 x6", n: "高速育成＋野生討伐ポイント報酬（アルファ・ワイバーン・ギガ・カルカロ・ティタノサウルス・洞窟ミニボスでエレメント+40）。" },
+      { k: "テイム・ブリーディング", v: "テイム x15 · 突然変異3倍", n: "孵化 x80 · 成長 x65 · 快適インプリント約21分間隔 · 突然変異率3倍ブースト。" },
+      { k: "野生恐竜レベル", v: "野生最大 Lv.300", n: "Tek恐竜（全6種出現率アップ）とワイバーンは野生最大 Lv.380（アイスワイバーンの巣強化済）。" },
       { k: "トライブ・拠点制限", v: "2人トライブ · 最大2拠点", n: "1トライブ最大2名、1トライブ最大2拠点。タレット上限200基。" },
       { k: "レイド時間＆保護", v: "平日 06:00-14:00 JST · 土日24時間レイド可", n: "フィールドPvP＆イベントは24時間有効。平日時間外は拠点と騎乗していない無抵抗恐竜を保護。ORP30分＆初心者保護24h（/npp · /raidtime）。" },
-      { k: "快適機能", v: "重量無限 · 常時回収可", n: "プレイヤー・恐竜ともに重量無限、建築物の常時回収、ワイヤレス発電機対応。" }
+      { k: "快適機能", v: "クライオ酔い150秒 · 食料水消費0.25", n: "重量無限、クライオ酔い150秒短縮、巣箱ハチミツ生産強化（レアフラワー入りで3分毎+3）、ワイヤレス発電機対応。" }
     ],
     marketHead: "Z-MARKET（安全地帯）・ショップ・エリートオークション",
     marketPill: "経済の中心地",
@@ -1548,9 +1548,9 @@ const CONTENT = {
       {
         title: "ショップ・キット・資源売却",
         items: [
-          "/kit、/shop pvp、クライオポッド（/buy 37）はマップどこからでも利用可能。",
+          "/kit、/shop pvp、/shop consumables、/shop materials、クライオポッド（/buy 37）はマップどこからでも利用可能。",
           "恐竜（Lv.350 去勢済クライオ＋サドル＋150レベルアップ枠）、サドル、Tek装備、/sell はZ-MARKET専用。",
-          "ラグナロクで100%採取できる高収益 /sell バッチ全8種（蜂蜜、スイートベジタブルケーキ、キブル、黒真珠、ワイバーンミルク、デスワームの角など）。"
+          "ラグナロクで100%採取できる高収益 /sell バッチ全9種（強化巣箱ハチミツ、ポリマー、ベジタブルケーキ、キブル、黒真珠、ワイバーンミルク、デスワームの角など）。"
         ]
       },
       {
@@ -1653,7 +1653,7 @@ const CONTENT = {
       { cmd: "/points  |  /puntos", copy: "/points", cat: "ショップ", desc: "現在の所持ポイント残高を確認。", kw: "ポイント 残高" },
       { cmd: "/kit  |  /kits  |  /kit <1-4>", copy: "/kit", cat: "ショップ（全域）", desc: "キット一覧と受取（1:初期・20分自動チャージ最大2回、2:農業、3:テイム、4:PvP）。マップ全域で使用可。", kw: "キット 初期 スターター" },
       { cmd: "/buykit <1-4> <数量>", copy: "/buykit 4 1", cat: "ショップ（全域）", desc: "ポイントを使って各キットの追加使用回数を購入。", kw: "キット購入" },
-      { cmd: "/shop <dinos|saddles|pvp|consumables|tek>  |  /tienda", copy: "/shop pvp", cat: "ショップ", desc: "5カテゴリ別に整理。PvP・消耗品・クライオ・菌類の木材は全域対応、その他はZ-MARKET内限定。", kw: "ショップ カタログ 購入 消耗品" },
+      { cmd: "/shop <dinos|saddles|pvp|consumables|materials|tek>  |  /tienda", copy: "/shop materials", cat: "ショップ", desc: "6カテゴリ別に整理。PvP・消耗品・基本素材・クライオは全域対応、その他はZ-MARKET内限定。", kw: "ショップ カタログ 購入 消耗品 素材 金属" },
       { cmd: "/buy <ID> [数量]", copy: "/buy 37 5", cat: "ショップ", desc: "アイテムやクライオ入り恐竜を購入（例：/buy 37 5 でクライオ5個）。", kw: "購入 買う" },
       { cmd: "/shopfind <キーワード>", copy: "/shopfind cryo", cat: "ショップ", desc: "ショップ内のアイテムや恐竜をキーワード検索。", kw: "検索" },
       { cmd: "/shopsell  |  /sell <ID> [数量]", copy: "/shopsell", cat: "マーケット", desc: "Z-MARKET内で資源バッチの買取一覧表示および売却。", kw: "売却 売る" },
