@@ -1130,7 +1130,7 @@ const CONTENT = {
       { k: "Dinos Salvajes", v: "Máx. Nivel 300", n: "Tek y Wyvern hasta nivel 380 en estado salvaje (Ice Wyvern con nidos reforzados)." },
       { k: "Tribu y Bases", v: "2Man · 1 Alianza · Máx. 2 Bases", n: "Máximo 2 jugadores por tribu, 1 alianza formal y máximo 2 bases por tribu." },
       { k: "Protecciones y Raideos", v: "Raideo Lun-Vie 15:00-23:00 CR · Fin de Semana 24h", n: "PvP en mundo abierto y eventos 24/7. Fuera de horario (06:00-14:00 JST) las bases y dinos pasivos sin jinete quedan protegidos. ORP 30m y Novato 24h (/npp · /raidtime)." },
-      { k: "Comodidad", v: "Cryo 150s · Comida/Agua 0.25 · Colmenas x3", n: "Peso infinito, Cryo Sickness reducido a 150s, colmenas mejoradas (3 miel c/3m con Flor Rara) y generador inalámbrico." }
+      { k: "Comodidad", v: "Cryo 150s · Cultivos x35 · Colmenas x6", n: "Peso infinito, Cryo Sickness reducido a 150s, cultivos acelerados x35, colmenas mejoradas (6 miel c/2m con Flor Rara) y generador inalámbrico." }
     ],
     marketHead: "Z-MARKET (Zona Segura), Tienda y Subastas Élite",
     marketPill: "Corazón Económico",
@@ -1331,7 +1331,7 @@ const CONTENT = {
       { k: "Wild Dinos", v: "Max Wild Level 300", n: "Tek & Wyverns spawn up to wild level 380 (Ice Wyvern nests boosted)." },
       { k: "Tribe & Bases", v: "2Man · 1 Alliance · Max 2 Bases", n: "Max 2 players per tribe, 1 formal alliance and max 2 bases per tribe." },
       { k: "Raid Schedule & ORP", v: "Raids Mon-Fri 15:00-23:00 CR · Weekends 24h", n: "Open-world PvP & events stay 24/7. Off-hours protect bases & unridden passive dinos (06:00-14:00 JST). 30m ORP & 24h Newbie Shield (/npp · /raidtime)." },
-      { k: "Quality of Life", v: "Cryo 150s · Food/Water 0.25 · Buffed Hives", n: "Infinite weight, Cryo Sickness cut to 150s, buffed player BeeHives (3 honey/3m w/ Rare Flower) & wireless generator." }
+      { k: "Quality of Life", v: "Cryo 150s · Crops x35 · Buffed Hives", n: "Infinite weight, Cryo Sickness cut to 150s, fast x35 crops, buffed player BeeHives (6 honey/2m w/ Rare Flower) & wireless generator." }
     ],
     marketHead: "Z-MARKET (Safe Zone), Shop & Elite Auctions",
     marketPill: "Economic Hub",
@@ -1532,7 +1532,7 @@ const CONTENT = {
       { k: "野生恐竜レベル", v: "野生最大 Lv.300", n: "Tek恐竜（全6種出現率アップ）とワイバーンは野生最大 Lv.380（アイスワイバーンの巣強化済）。" },
       { k: "トライブ・拠点制限", v: "2人トライブ · 最大2拠点", n: "1トライブ最大2名、1トライブ最大2拠点。タレット上限200基。" },
       { k: "レイド時間＆保護", v: "平日 06:00-14:00 JST · 土日24時間レイド可", n: "フィールドPvP＆イベントは24時間有効。平日時間外は拠点と騎乗していない無抵抗恐竜を保護。ORP30分＆初心者保護24h（/npp · /raidtime）。" },
-      { k: "快適機能", v: "クライオ酔い150秒 · 食料水消費0.25", n: "重量無限、クライオ酔い150秒短縮、巣箱ハチミツ生産強化（レアフラワー入りで3分毎+3）、ワイヤレス発電機対応。" }
+      { k: "快適機能", v: "クライオ酔い150秒 · 菜園x35 · 巣箱強化", n: "重量無限、クライオ酔い150秒短縮、菜園成長速度x35、巣箱ハチミツ生産強化（レアフラワー入りで2分毎+6）、ワイヤレス発電機対応。" }
     ],
     marketHead: "Z-MARKET（安全地帯）・ショップ・エリートオークション",
     marketPill: "経済の中心地",
@@ -1903,7 +1903,7 @@ function render() {
       exploreHead: "Explorar el Servidor por Tema",
       explorePill: "Elige lo que necesitas",
       portals: [
-        { tab: "shop", eye: "Catálogo Visual (70 Packs + 4 Kits)", title: "Tienda, Kits y /buy en 1 Clic", desc: "Explora todos los dinos, monturas, packs PvP, consumibles, materiales, Tek y kits con sus imágenes, contenido exacto y selector de cantidad." },
+        { tab: "shop", eye: "Catálogo Visual (71 Packs + 4 Kits)", title: "Tienda, Kits y /buy en 1 Clic", desc: "Explora todos los dinos, monturas, packs PvP, consumibles, materiales, Tek y kits con sus imágenes, contenido exacto y selector de cantidad." },
         { tab: "market", eye: "Economía y Zona Segura", title: "Z-MARKET, Demanda 2x y Subastas", desc: "Estaciones sin combustible, Demanda Caliente 2x, 18 especies Élite Nvl 450 y selector de 42 colores." },
         { tab: "events", eye: "Acción PvP", title: "Valhalla y Eventos cada 45m", desc: "Mega-evento Mié/Sáb/Dom 19:00, 6 Mini-Jefes rotativos, 3 Bóvedas simultáneas, KOTH y Cueva de Mutagen." },
         { tab: "biomes", eye: "Fauna Expandida", title: "Dinos DLC, Ice Wyvern y 6 Tek", desc: "Mapa exacto de dónde encontrar Fjordhawk, Shadowmane, Blood Wyvern (Cañón Sureste), Ice Wyvern y Tek." }
@@ -1929,7 +1929,7 @@ function render() {
       exploreHead: "Explore the Server by Topic",
       explorePill: "Jump to what you need",
       portals: [
-        { tab: "shop", eye: "Visual Catalog (70 Packs + 4 Kits)", title: "Shop, Kits & 1-Click /buy", desc: "Browse every dino, saddle, PvP pack, consumable, material, Tek item & kit with official icons, exact pack contents & live quantity copy." },
+        { tab: "shop", eye: "Visual Catalog (71 Packs + 4 Kits)", title: "Shop, Kits & 1-Click /buy", desc: "Browse every dino, saddle, PvP pack, consumable, material, Tek item & kit with official icons, exact pack contents & live quantity copy." },
         { tab: "market", eye: "SafeZone & Economy", title: "Z-MARKET, 2x Demand & Auctions", desc: "0-fuel crafting benches, 2x Hot Demand, 18 Lvl 450 Elite species & 42-color dino picker." },
         { tab: "events", eye: "PvP Action", title: "Valhalla & 45m World Events", desc: "Wed/Sat/Sun 19:00 mega-event, 6 rotating Mini-Bosses, 3 Supply Vaults, KOTH & Mutagen Cave." },
         { tab: "biomes", eye: "Expanded Wildlife", title: "Wild DLC, Ice Wyvern & 6 Tek", desc: "Exact Ragnarok biomes for Fjordhawk, Shadowmane, Blood Wyvern (SE Canyon), Ice Wyvern & Tek." }
@@ -1955,7 +1955,7 @@ function render() {
       exploreHead: "テーマ別に詳しく見る",
       explorePill: "必要な情報へすぐ移動",
       portals: [
-        { tab: "shop", eye: "ビジュアルカタログ (70種 + 4キット)", title: "ショップ＆キット (/buy 1クリック)", desc: "全恐竜・サドル・PvPパック・消耗品・素材・Tek・キットの中身を画像付きで確認し、数量指定で /buy を即コピー。" },
+        { tab: "shop", eye: "ビジュアルカタログ (71種 + 4キット)", title: "ショップ＆キット (/buy 1クリック)", desc: "全恐竜・サドル・PvPパック・消耗品・素材・Tek・キットの中身を画像付きで確認し、数量指定で /buy を即コピー。" },
         { tab: "market", eye: "セーフゾーン＆経済", title: "Z-MARKET・2倍買取・オークション", desc: "燃料不要の設備、2倍ホットデマンド、Lv.450限定18種オークション、42色カラー選択。" },
         { tab: "events", eye: "PvPアクション", title: "ヴァルハラ＆45分ごとイベント", desc: "水土日19:00大型イベント、ミニボス6種、3か所同時金庫、KOTH、変異原洞窟。" },
         { tab: "biomes", eye: "拡張エコシステム", title: "DLC恐竜・アイスワイバーン・Tek6種", desc: "フィヨルドホーク、シャドウメイン、ブラッドワイバーン（南東キャニオン）、Tek恐竜の生息エリア一覧。" }
