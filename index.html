@@ -984,6 +984,287 @@
   }
   .link-pill:hover { background: rgba(230, 185, 106, 0.2); border-color: var(--gold-bright); transform: translateY(-1px); }
 
+  /* Interactive Visual Shop & Kits Explorer */
+  .shop-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 14px 26px;
+    border-bottom: 1px solid var(--border);
+    background: rgba(11, 10, 13, 0.35);
+  }
+  .shop-loc-pills {
+    display: inline-flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .shop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 18px;
+  }
+  .shop-card {
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.032), rgba(11, 10, 13, 0.72));
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .shop-card:hover {
+    transform: translateY(-3px);
+    border-color: rgba(230, 185, 106, 0.52);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.44);
+  }
+  .shop-card.is-kit {
+    border-color: rgba(52, 211, 153, 0.34);
+    background: linear-gradient(180deg, rgba(52, 211, 153, 0.055), rgba(11, 10, 13, 0.76));
+  }
+  .shop-card.is-kit:hover { border-color: rgba(52, 211, 153, 0.65); }
+  .shop-card-top {
+    display: flex;
+    gap: 14px;
+    padding: 16px 16px 12px;
+    align-items: center;
+  }
+  .shop-thumb {
+    position: relative;
+    width: 72px;
+    height: 72px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background: radial-gradient(circle at 50% 42%, rgba(230, 185, 106, 0.18), rgba(11, 10, 13, 0.88) 76%);
+    border: 1px solid rgba(230, 185, 106, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    overflow: hidden;
+  }
+  .shop-card.is-kit .shop-thumb {
+    background: radial-gradient(circle at 50% 42%, rgba(52, 211, 153, 0.2), rgba(11, 10, 13, 0.88) 76%);
+    border-color: rgba(52, 211, 153, 0.36);
+  }
+  .shop-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.65));
+  }
+  .shop-id-badge {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-family: var(--mono);
+    font-size: 0.66rem;
+    font-weight: 700;
+    padding: 1px 5px;
+    border-radius: 6px;
+    background: rgba(11, 10, 13, 0.86);
+    color: var(--gold-bright);
+    border: 1px solid rgba(230, 185, 106, 0.34);
+  }
+  .shop-meta { min-width: 0; flex: 1; }
+  .shop-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 6px;
+  }
+  .shop-badge {
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 2px 7px;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    color: var(--muted);
+    background: rgba(255, 255, 255, 0.04);
+  }
+  .shop-badge.global {
+    color: var(--emerald);
+    border-color: rgba(52, 211, 153, 0.36);
+    background: rgba(52, 211, 153, 0.1);
+  }
+  .shop-badge.market {
+    color: var(--gold-bright);
+    border-color: rgba(230, 185, 106, 0.36);
+    background: rgba(230, 185, 106, 0.1);
+  }
+  .shop-badge.sky {
+    color: var(--sky);
+    border-color: rgba(112, 198, 245, 0.34);
+    background: rgba(112, 198, 245, 0.1);
+  }
+  .shop-title {
+    font-size: 0.94rem;
+    font-weight: 600;
+    color: var(--text);
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .shop-price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .shop-price {
+    font-family: var(--mono);
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--gold-bright);
+  }
+  .shop-price.sell { color: var(--emerald); }
+  .shop-subnote { font-size: 0.75rem; color: var(--muted); }
+
+  .pack-contents {
+    margin: 0 14px 12px;
+    padding: 10px;
+    border-radius: 12px;
+    background: rgba(11, 10, 13, 0.56);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    flex: 1;
+  }
+  .pack-contents-head {
+    font-size: 0.69rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 8px;
+    font-weight: 600;
+  }
+  .pack-chips {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(126px, 1fr));
+    gap: 7px;
+  }
+  .pack-chip {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 5px 7px;
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.055);
+    min-width: 0;
+  }
+  .pack-chip img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    flex-shrink: 0;
+    filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.55));
+  }
+  .pack-chip-txt { min-width: 0; line-height: 1.2; }
+  .pack-chip-name {
+    font-size: 0.74rem;
+    color: var(--text-soft);
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .pack-chip-qty {
+    font-family: var(--mono);
+    font-size: 0.71rem;
+    color: var(--gold-bright);
+    font-weight: 600;
+  }
+
+  .shop-buy-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 11px 14px;
+    border-top: 1px solid var(--border);
+    background: rgba(11, 10, 13, 0.66);
+    flex-wrap: wrap;
+  }
+  .qty-stepper {
+    display: inline-flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 9px;
+    background: rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+  }
+  .qty-btn {
+    width: 28px;
+    height: 30px;
+    border: none;
+    background: transparent;
+    color: var(--gold-bright);
+    font-size: 0.95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.15s ease;
+  }
+  .qty-btn:hover { background: rgba(230, 185, 106, 0.16); }
+  .qty-val {
+    min-width: 28px;
+    text-align: center;
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--text);
+    font-weight: 600;
+  }
+  .buy-cmd-btn {
+    flex: 1;
+    min-width: 155px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 7px 12px;
+    border-radius: 9px;
+    border: 1px solid rgba(230, 185, 106, 0.42);
+    background: linear-gradient(135deg, rgba(230, 185, 106, 0.16), rgba(230, 185, 106, 0.06));
+    color: var(--gold-bright);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.16s ease;
+  }
+  .buy-cmd-btn:hover {
+    background: linear-gradient(135deg, rgba(230, 185, 106, 0.3), rgba(230, 185, 106, 0.14));
+    border-color: var(--gold-bright);
+  }
+  .buy-cmd-btn.copied {
+    background: rgba(52, 211, 153, 0.22);
+    border-color: var(--emerald);
+    color: #d1fae5;
+  }
+  .buy-cmd-btn.kit-claim {
+    border-color: rgba(52, 211, 153, 0.45);
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.2), rgba(52, 211, 153, 0.08));
+    color: #a7f3d0;
+  }
+  .buy-cmd-btn.kit-claim:hover {
+    background: linear-gradient(135deg, rgba(52, 211, 153, 0.34), rgba(52, 211, 153, 0.14));
+    border-color: var(--emerald);
+  }
+  .buy-cmd-tag {
+    font-family: var(--sans);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 780px) {
+    .shop-grid { grid-template-columns: 1fr; }
+    .shop-toolbar { padding: 12px 18px; }
+    .pack-chips { grid-template-columns: 1fr 1fr; }
+  }
+
   @media (max-width: 780px) {
     .hero { padding: 48px 18px 34px; }
     main { padding: 0 16px; gap: 22px; }
@@ -1045,6 +1326,7 @@
 <footer id="footerText"></footer>
 <div class="toast" id="toast"></div>
 
+<script src="shop_data.js"></script>
 <script>
 const COLORS = [
   { id: 1, es: "Rojo", en: "Red", ja: "赤", hex: "#ef4444" },
@@ -1107,6 +1389,7 @@ const CONTENT = {
     footerCopy: "© @znewgen2026 · Todos los derechos reservados",
     nav: [
       { id: "home", label: "Inicio" },
+      { id: "shop", label: "Tienda y Kits" },
       { id: "market", label: "Mercado y Subastas" },
       { id: "events", label: "Eventos y Valhalla" },
       { id: "biomes", label: "Dinos y Biomas" },
@@ -1307,6 +1590,7 @@ const CONTENT = {
     footerCopy: "© @znewgen2026 · All rights reserved",
     nav: [
       { id: "home", label: "Home" },
+      { id: "shop", label: "Shop & Kits" },
       { id: "market", label: "Market & Auctions" },
       { id: "events", label: "Events & Valhalla" },
       { id: "biomes", label: "Dinos & Biomes" },
@@ -1507,6 +1791,7 @@ const CONTENT = {
     footerCopy: "© @znewgen2026 · All rights reserved",
     nav: [
       { id: "home", label: "ホーム" },
+      { id: "shop", label: "ショップ＆キット" },
       { id: "market", label: "マーケット＆オークション" },
       { id: "events", label: "イベント＆ヴァルハラ" },
       { id: "biomes", label: "恐竜・バイオーム" },
@@ -1697,8 +1982,20 @@ const CONTENT = {
 let lang = "es";
 let activeTab = "home";
 let cmdGroup = "essential";
+let shopCat = "all";
+let shopLoc = "all";
+const shopQty = {};
 let query = "";
 let colorRegion = 0;
+
+function setShopCat(c) { shopCat = c; render(); }
+function setShopLoc(l) { shopLoc = l; render(); }
+function getShopQty(key) { return Math.max(1, shopQty[key] || 1); }
+function stepShopQty(key, delta) {
+  const next = Math.max(1, Math.min(99, getShopQty(key) + delta));
+  shopQty[key] = next;
+  render();
+}
 
 function setColorRegion(r) {
   colorRegion = r;
@@ -1882,10 +2179,10 @@ function render() {
       exploreHead: "Explorar el Servidor por Tema",
       explorePill: "Elige lo que necesitas",
       portals: [
-        { tab: "market", eye: "Economía y Zona Segura", title: "Mercado, Tienda y Subastas", desc: "Estaciones sin combustible, Demanda 2x, 18 especies Élite Nvl 450 y selector de 42 colores." },
-        { tab: "events", eye: "Acción PvP", title: "Valhalla y Eventos cada 45m", desc: "Mega-evento Mié/Sáb/Dom 19:00, 3 Bóvedas simultáneas, KOTH, Bosses y Cueva de Mutagen." },
-        { tab: "biomes", eye: "Fauna Expandida", title: "Dinos DLC y 6 Especies Tek", desc: "Mapa exacto de dónde encontrar Fjordhawk, Shadowmane, Blood Wyvern, Tropeognathus y Tek." },
-        { tab: "commands", eye: "Atajos de Chat", title: "Todos los Comandos por Categoría", desc: "Filtra por Base y Torretas (/llenar, /torretas, /apagar, /misdinos), Tienda o Eventos." }
+        { tab: "shop", eye: "Catálogo Visual (55 Packs + 4 Kits)", title: "Tienda, Kits y /buy en 1 Clic", desc: "Explora todos los dinos, monturas, packs PvP, consumibles, Tek y kits con sus imágenes, contenido exacto y selector de cantidad." },
+        { tab: "market", eye: "Economía y Zona Segura", title: "Z-MARKET, Demanda 2x y Subastas", desc: "Estaciones sin combustible, Demanda Caliente 2x, 18 especies Élite Nvl 450 y selector de 42 colores." },
+        { tab: "events", eye: "Acción PvP", title: "Valhalla y Eventos cada 45m", desc: "Mega-evento Mié/Sáb/Dom 19:00, 6 Mini-Jefes rotativos, 3 Bóvedas simultáneas, KOTH y Cueva de Mutagen." },
+        { tab: "biomes", eye: "Fauna Expandida", title: "Dinos DLC, Ice Wyvern y 6 Tek", desc: "Mapa exacto de dónde encontrar Fjordhawk, Shadowmane, Blood Wyvern (Cañón Sureste), Ice Wyvern y Tek." }
       ],
       colorsAcc: "Abrir Selector Interactivo de 42 Colores (/color)",
       valhallaAcc: "Ver Reglas Detalladas de Valhalla, Puntaje de Guerra y Qué Hacer si Mueres",
@@ -1908,10 +2205,10 @@ function render() {
       exploreHead: "Explore the Server by Topic",
       explorePill: "Jump to what you need",
       portals: [
-        { tab: "market", eye: "SafeZone & Economy", title: "Market, Shop & Auctions", desc: "0-fuel crafting benches, 2x Hot Demand, 18 Lvl 450 Elite species & 42-color dino picker." },
-        { tab: "events", eye: "PvP Action", title: "Valhalla & 45m World Events", desc: "Wed/Sat/Sun 19:00 mega-event, 3 simultaneous Supply Vaults, KOTH, Bosses & Mutagen Cave." },
-        { tab: "biomes", eye: "Expanded Wildlife", title: "Wild DLC Dinos & 6 Tek Species", desc: "Exact Ragnarok biomes for Fjordhawk, Shadowmane, Blood Wyvern, Tropeognathus & Tek." },
-        { tab: "commands", eye: "Chat Shortcuts", title: "All Commands by Category", desc: "Filter by Base & Turrets (/fill, /turrets, /off, /mydinos), Shop, Market or Events." }
+        { tab: "shop", eye: "Visual Catalog (55 Packs + 4 Kits)", title: "Shop, Kits & 1-Click /buy", desc: "Browse every dino, saddle, PvP pack, consumable, Tek item & kit with official icons, exact pack contents & live quantity copy." },
+        { tab: "market", eye: "SafeZone & Economy", title: "Z-MARKET, 2x Demand & Auctions", desc: "0-fuel crafting benches, 2x Hot Demand, 18 Lvl 450 Elite species & 42-color dino picker." },
+        { tab: "events", eye: "PvP Action", title: "Valhalla & 45m World Events", desc: "Wed/Sat/Sun 19:00 mega-event, 6 rotating Mini-Bosses, 3 Supply Vaults, KOTH & Mutagen Cave." },
+        { tab: "biomes", eye: "Expanded Wildlife", title: "Wild DLC, Ice Wyvern & 6 Tek", desc: "Exact Ragnarok biomes for Fjordhawk, Shadowmane, Blood Wyvern (SE Canyon), Ice Wyvern & Tek." }
       ],
       colorsAcc: "Open Interactive 42-Color Picker (/color)",
       valhallaAcc: "View Detailed Valhalla Rules, War Score Breakdown & Death Rejoin Guide",
@@ -1934,10 +2231,10 @@ function render() {
       exploreHead: "テーマ別に詳しく見る",
       explorePill: "必要な情報へすぐ移動",
       portals: [
-        { tab: "market", eye: "セーフゾーン＆経済", title: "マーケット・ショップ・オークション", desc: "燃料不要の設備、2倍ホットデマンド、Lv.450限定18種オークション、42色カラー選択。" },
-        { tab: "events", eye: "PvPアクション", title: "ヴァルハラ＆45分ごとイベント", desc: "水土日19:00大型イベント、3か所同時金庫、KOTH、ボス討伐、変異原洞窟。" },
-        { tab: "biomes", eye: "拡張エコシステム", title: "DLC恐竜＆Tek恐竜6種の生息地", desc: "フィヨルドホーク、シャドウメイン、ブラッドワイバーン、Tek恐竜の生息エリア一覧。" },
-        { tab: "commands", eye: "チャット便利機能", title: "全コマンド（カテゴリ絞り込み）", desc: "拠点・タレット管理（/fill, /turrets, /off, /mydinos）、ショップ、イベント別に整理。" }
+        { tab: "shop", eye: "ビジュアルカタログ (55種 + 4キット)", title: "ショップ＆キット (/buy 1クリック)", desc: "全恐竜・サドル・PvPパック・消耗品・Tek・キットの中身を画像付きで確認し、数量指定で /buy を即コピー。" },
+        { tab: "market", eye: "セーフゾーン＆経済", title: "Z-MARKET・2倍買取・オークション", desc: "燃料不要の設備、2倍ホットデマンド、Lv.450限定18種オークション、42色カラー選択。" },
+        { tab: "events", eye: "PvPアクション", title: "ヴァルハラ＆45分ごとイベント", desc: "水土日19:00大型イベント、ミニボス6種、3か所同時金庫、KOTH、変異原洞窟。" },
+        { tab: "biomes", eye: "拡張エコシステム", title: "DLC恐竜・アイスワイバーン・Tek6種", desc: "フィヨルドホーク、シャドウメイン、ブラッドワイバーン（南東キャニオン）、Tek恐竜の生息エリア一覧。" }
       ],
       colorsAcc: "42色インタラクティブ・カラーピッカーを開く (/color)",
       valhallaAcc: "ヴァルハラ詳細ルール・War Score計算・死亡時リジョイン手順を見る",
@@ -2060,6 +2357,346 @@ function render() {
                 </div>
               `).join("")}
             </div>
+          </div>
+        </section>`;
+    }
+  }
+
+  // 1.5 Interactive Visual Shop, Kits & Sell Explorer
+  if (show("shop") && window.ZSHOP_CATALOG) {
+    const catData = window.ZSHOP_CATALOG;
+    const fmtPts = n => Number(n || 0).toLocaleString("en-US");
+    const stText = {
+      es: {
+        head: "Explorador Visual de Tienda, Kits y Ventas",
+        pill: `${catData.items.length} Packs · ${catData.kits.length} Kits · ${catData.sell.length} Ventas`,
+        cats: [
+          { id: "all", label: "Todos" },
+          { id: "kits", label: "Kits" },
+          { id: "dinos", label: "Dinos" },
+          { id: "monturas", label: "Monturas" },
+          { id: "pvp", label: "PvP" },
+          { id: "consumibles", label: "Consumibles" },
+          { id: "tek", label: "Tek" },
+          { id: "sell", label: "Vender (/sell)" }
+        ],
+        locAll: "Todos los lugares",
+        locGlobal: "Global (Todo el Mapa)",
+        locMarket: "Solo Z-MARKET",
+        badgeGlobal: "Global",
+        badgeMarket: "Z-MARKET",
+        includes: "Contenido exacto del pack",
+        kitIncludes: "Todo lo que trae este Kit",
+        dinoNote: "Nvl 350 · Cryo · Castrado",
+        armorLbl: a => `Arm. ${a}`,
+        qualLbl: q => q >= 3 ? "Calidad Alta" : (q === 2 ? "Calidad Media" : "Mejorado"),
+        freeUses: k => k.rechargeMinutes > 0
+          ? `${k.defaultAmount} usos gratis · recarga c/${k.rechargeMinutes}m`
+          : (k.defaultAmount > 0 ? `${k.defaultAmount} uso gratis incluido` : "Compra usos con puntos"),
+        claimKit: "Reclamar",
+        buyExtra: "Comprar usos",
+        copyTag: "Copiar",
+        sellBatch: a => `Entregas lote de ${fmtPts(a)} unidades`,
+        kitsTitle: "Kits Disponibles (Funcionan en Todo el Mapa)",
+        itemsTitle: "Catálogo de Tienda (/buy <ID> <cantidad>)",
+        sellTitle: "Vender Recursos en Z-MARKET (/sell <ID> <lotes>)",
+        emptyCat: "No hay artículos con este filtro."
+      },
+      en: {
+        head: "Visual Shop, Kits & Sell Explorer",
+        pill: `${catData.items.length} Packs · ${catData.kits.length} Kits · ${catData.sell.length} Sells`,
+        cats: [
+          { id: "all", label: "All" },
+          { id: "kits", label: "Kits" },
+          { id: "dinos", label: "Dinos" },
+          { id: "monturas", label: "Saddles" },
+          { id: "pvp", label: "PvP" },
+          { id: "consumibles", label: "Consumables" },
+          { id: "tek", label: "Tek" },
+          { id: "sell", label: "Sell (/sell)" }
+        ],
+        locAll: "All locations",
+        locGlobal: "Global (Anywhere)",
+        locMarket: "Z-MARKET Only",
+        badgeGlobal: "Global",
+        badgeMarket: "Z-MARKET",
+        includes: "Exact pack contents",
+        kitIncludes: "Everything inside this Kit",
+        dinoNote: "Lvl 350 · Cryo · Neutered",
+        armorLbl: a => `${a} Armor`,
+        qualLbl: q => q >= 3 ? "High Quality" : (q === 2 ? "Mid Quality" : "Upgraded"),
+        freeUses: k => k.rechargeMinutes > 0
+          ? `${k.defaultAmount} free uses · recharges every ${k.rechargeMinutes}m`
+          : (k.defaultAmount > 0 ? `${k.defaultAmount} free use included` : "Purchase uses with points"),
+        claimKit: "Claim",
+        buyExtra: "Buy uses",
+        copyTag: "Copy",
+        sellBatch: a => `Turn in batch of ${fmtPts(a)} items`,
+        kitsTitle: "Available Kits (Work Anywhere on the Map)",
+        itemsTitle: "Shop Catalog (/buy <ID> <amount>)",
+        sellTitle: "Sell Resources at Z-MARKET (/sell <ID> <batches>)",
+        emptyCat: "No items match this filter."
+      },
+      ja: {
+        head: "ショップ・キット・資源買取 ビジュアルカタログ",
+        pill: `${catData.items.length}種 · ${catData.kits.length}キット · ${catData.sell.length}買取`,
+        cats: [
+          { id: "all", label: "すべて" },
+          { id: "kits", label: "キット" },
+          { id: "dinos", label: "恐竜" },
+          { id: "monturas", label: "サドル" },
+          { id: "pvp", label: "PvP" },
+          { id: "consumibles", label: "消耗品" },
+          { id: "tek", label: "Tek" },
+          { id: "sell", label: "資源売却 (/sell)" }
+        ],
+        locAll: "すべて表示",
+        locGlobal: "全域利用可",
+        locMarket: "Z-MARKET限定",
+        badgeGlobal: "全域OK",
+        badgeMarket: "Z-MARKET",
+        includes: "パック内容一覧",
+        kitIncludes: "キットに含まれる全アイテム",
+        dinoNote: "Lv.350 · クライオ · 去勢済",
+        armorLbl: a => `防御 ${a}`,
+        qualLbl: q => q >= 3 ? "高品質" : (q === 2 ? "中品質" : "強化済"),
+        freeUses: k => k.rechargeMinutes > 0
+          ? `無料${k.defaultAmount}回 · ${k.rechargeMinutes}分毎チャージ`
+          : (k.defaultAmount > 0 ? `無料${k.defaultAmount}回付き` : "ポイントで購入"),
+        claimKit: "受取",
+        buyExtra: "追加購入",
+        copyTag: "コピー",
+        sellBatch: a => `${fmtPts(a)}個まとめて売却`,
+        kitsTitle: "利用可能なキット（マップどこでも受取可）",
+        itemsTitle: "ショップ商品一覧 (/buy <ID> <数量>)",
+        sellTitle: "Z-MARKET 資源買取 (/sell <ID> <セット数>)",
+        emptyCat: "該当する商品はありません。"
+      }
+    }[lang];
+
+    const renderChip = c => {
+      const nm = c[lang] || c.en || c.es;
+      const tags = [];
+      if (c.level) tags.push(`Lv.${c.level}`);
+      else tags.push(`x${fmtPts(c.amount || 1)}`);
+      if (c.armor) tags.push(stText.armorLbl(c.armor));
+      if (c.quality) tags.push(stText.qualLbl(c.quality));
+      return `
+        <div class="pack-chip" title="${esc(nm)} (${esc(tags.join(' · '))})">
+          ${c.icon ? `<img src="${esc(c.icon)}" alt="${esc(nm)}" loading="lazy">` : ""}
+          <div class="pack-chip-txt">
+            <div class="pack-chip-name">${esc(nm)}</div>
+            <div class="pack-chip-qty">${esc(tags.join(" · "))}</div>
+          </div>
+        </div>`;
+    };
+
+    const itemHay = it => `${it.id} /buy ${it.id} ${it.cat} ${it.es} ${it.en} ${it.ja} ${(it.contents || []).map(c => `${c.es} ${c.en} ${c.ja}`).join(" ")}`;
+    const kitHay  = k  => `kit ${k.id} /kit ${k.id} /buykit ${k.id} ${k.es} ${k.en} ${k.ja} ${(k.contents || []).map(c => `${c.es} ${c.en} ${c.ja}`).join(" ")}`;
+    const sellHay = s  => `sell vender ${s.id} /sell ${s.id} ${s.es} ${s.en} ${s.ja}`;
+
+    const catCounts = {
+      all: catData.items.length + catData.kits.length,
+      kits: catData.kits.length,
+      dinos: catData.items.filter(i => i.cat === "dinos").length,
+      monturas: catData.items.filter(i => i.cat === "monturas").length,
+      pvp: catData.items.filter(i => i.cat === "pvp").length,
+      consumibles: catData.items.filter(i => i.cat === "consumibles").length,
+      tek: catData.items.filter(i => i.cat === "tek").length,
+      sell: catData.sell.length
+    };
+
+    const showKits = isSearching || shopCat === "all" || shopCat === "kits";
+    const showItems = isSearching || (shopCat !== "kits" && shopCat !== "sell");
+    const showSell = isSearching || shopCat === "sell";
+
+    const filteredKits = showKits ? catData.kits.filter(k => {
+      if (!isSearching && shopLoc === "market") return false;
+      return matchesSearch(kitHay(k));
+    }) : [];
+
+    const filteredItems = showItems ? catData.items.filter(it => {
+      if (!isSearching && shopCat !== "all" && it.cat !== shopCat) return false;
+      if (!isSearching && shopLoc === "global" && it.requireMarket) return false;
+      if (!isSearching && shopLoc === "market" && !it.requireMarket) return false;
+      return matchesSearch(itemHay(it));
+    }) : [];
+
+    const filteredSell = showSell ? catData.sell.filter(s => matchesSearch(sellHay(s))) : [];
+
+    if (filteredKits.length || filteredItems.length || filteredSell.length || (!isSearching && activeTab === "shop")) {
+      visibleSections++;
+      const renderKitCard = k => {
+        const qKey = `kit_${k.id}`;
+        const qty = getShopQty(qKey);
+        const total = k.price * qty;
+        const claimCmd = `/kit ${k.id}`;
+        const buyCmd = `/buykit ${k.id} ${qty}`;
+        return `
+          <article class="shop-card is-kit">
+            <div class="shop-card-top">
+              <div class="shop-thumb">
+                <span class="shop-id-badge">KIT ${esc(k.id)}</span>
+                ${k.icon ? `<img src="${esc(k.icon)}" alt="${esc(k[lang] || k.es)}" loading="lazy">` : ""}
+              </div>
+              <div class="shop-meta">
+                <div class="shop-badges">
+                  <span class="shop-badge global">${esc(stText.badgeGlobal)}</span>
+                  <span class="shop-badge sky">${esc(stText.freeUses(k))}</span>
+                </div>
+                <div class="shop-title">${esc(k[lang] || k.es)}</div>
+                <div class="shop-price-row">
+                  <span class="shop-price">${fmtPts(total)} pts</span>
+                  <span class="shop-subnote">${esc(stText.buyExtra)} (${fmtPts(k.price)}/u)</span>
+                </div>
+              </div>
+            </div>
+            <div class="pack-contents">
+              <div class="pack-contents-head">${esc(stText.kitIncludes)} (${k.contents.length})</div>
+              <div class="pack-chips">${k.contents.map(renderChip).join("")}</div>
+            </div>
+            <div class="shop-buy-bar">
+              <button type="button" class="buy-cmd-btn kit-claim" style="min-width:118px;flex:0 0 auto;" onclick="copyText('${claimCmd}', this)">
+                <span>${esc(claimCmd)}</span>
+                <span class="buy-cmd-tag">${esc(stText.claimKit)}</span>
+              </button>
+              <div class="qty-stepper">
+                <button type="button" class="qty-btn" onclick="stepShopQty('${qKey}', -1)">-</button>
+                <span class="qty-val">${qty}</span>
+                <button type="button" class="qty-btn" onclick="stepShopQty('${qKey}', 1)">+</button>
+              </div>
+              <button type="button" class="buy-cmd-btn" onclick="copyText('${buyCmd}', this)">
+                <span>${esc(buyCmd)}</span>
+                <span class="buy-cmd-tag">${esc(stText.copyTag)}</span>
+              </button>
+            </div>
+          </article>`;
+      };
+
+      const renderItemCard = it => {
+        const qKey = `buy_${it.id}`;
+        const qty = getShopQty(qKey);
+        const total = it.price * qty;
+        const buyCmd = `/buy ${it.id} ${qty}`;
+        const catObj = stText.cats.find(c => c.id === it.cat);
+        const catLabel = catObj ? catObj.label : it.cat;
+        return `
+          <article class="shop-card">
+            <div class="shop-card-top">
+              <div class="shop-thumb">
+                <span class="shop-id-badge">#${esc(it.id)}</span>
+                ${it.icon ? `<img src="${esc(it.icon)}" alt="${esc(it[lang] || it.es)}" loading="lazy">` : ""}
+              </div>
+              <div class="shop-meta">
+                <div class="shop-badges">
+                  <span class="shop-badge ${it.requireMarket ? 'market' : 'global'}">${esc(it.requireMarket ? stText.badgeMarket : stText.badgeGlobal)}</span>
+                  <span class="shop-badge">${esc(catLabel)}</span>
+                  ${it.type === 'dino' ? `<span class="shop-badge sky">${esc(stText.dinoNote)}</span>` : ""}
+                </div>
+                <div class="shop-title">${esc(it[lang] || it.es)}</div>
+                <div class="shop-price-row">
+                  <span class="shop-price">${fmtPts(total)} pts</span>
+                  ${qty > 1 ? `<span class="shop-subnote">(${fmtPts(it.price)} x ${qty})</span>` : ""}
+                </div>
+              </div>
+            </div>
+            <div class="pack-contents">
+              <div class="pack-contents-head">${esc(stText.includes)} (${it.contents.length})</div>
+              <div class="pack-chips">${it.contents.map(renderChip).join("")}</div>
+            </div>
+            <div class="shop-buy-bar">
+              <div class="qty-stepper">
+                <button type="button" class="qty-btn" onclick="stepShopQty('${qKey}', -1)">-</button>
+                <span class="qty-val">${qty}</span>
+                <button type="button" class="qty-btn" onclick="stepShopQty('${qKey}', 1)">+</button>
+              </div>
+              <button type="button" class="buy-cmd-btn" onclick="copyText('${buyCmd}', this)">
+                <span>${esc(buyCmd)}</span>
+                <span class="buy-cmd-tag">${esc(stText.copyTag)}</span>
+              </button>
+            </div>
+          </article>`;
+      };
+
+      const renderSellCard = s => {
+        const qKey = `sell_${s.id}`;
+        const qty = getShopQty(qKey);
+        const total = s.price * qty;
+        const sellCmd = `/sell ${s.id} ${qty}`;
+        return `
+          <article class="shop-card">
+            <div class="shop-card-top">
+              <div class="shop-thumb">
+                <span class="shop-id-badge">S#${esc(s.id)}</span>
+                ${s.icon ? `<img src="${esc(s.icon)}" alt="${esc(s[lang] || s.es)}" loading="lazy">` : ""}
+              </div>
+              <div class="shop-meta">
+                <div class="shop-badges">
+                  <span class="shop-badge market">${esc(stText.badgeMarket)}</span>
+                  <span class="shop-badge global">x${fmtPts(s.amount * qty)}</span>
+                </div>
+                <div class="shop-title">${esc(s[lang] || s.es)}</div>
+                <div class="shop-price-row">
+                  <span class="shop-price sell">+${fmtPts(total)} pts</span>
+                  <span class="shop-subnote">${esc(stText.sellBatch(s.amount))}</span>
+                </div>
+              </div>
+            </div>
+            <div class="shop-buy-bar" style="margin-top:auto;">
+              <div class="qty-stepper">
+                <button type="button" class="qty-btn" onclick="stepShopQty('${qKey}', -1)">-</button>
+                <span class="qty-val">${qty}</span>
+                <button type="button" class="qty-btn" onclick="stepShopQty('${qKey}', 1)">+</button>
+              </div>
+              <button type="button" class="buy-cmd-btn kit-claim" onclick="copyText('${sellCmd}', this)">
+                <span>${esc(sellCmd)}</span>
+                <span class="buy-cmd-tag">${esc(stText.copyTag)}</span>
+              </button>
+            </div>
+          </article>`;
+      };
+
+      html += `
+        <section class="section-card" style="border-color:rgba(230,185,106,0.38);">
+          <div class="section-head" style="background:linear-gradient(90deg, rgba(230,185,106,0.12), transparent);">
+            <h2>${esc(stText.head)}</h2>
+            <span class="pill pill-gold">${esc(stText.pill)}</span>
+          </div>
+          ${!isSearching ? `
+            <div class="cmd-filter-bar">
+              ${stText.cats.map(c => `
+                <button type="button" class="filter-pill ${shopCat === c.id ? 'active' : ''}" onclick="setShopCat('${c.id}')">
+                  <span>${esc(c.label)}</span>
+                  <span class="filter-count">${catCounts[c.id]}</span>
+                </button>
+              `).join("")}
+            </div>
+            ${shopCat !== "sell" && shopCat !== "kits" ? `
+              <div class="shop-toolbar">
+                <div class="shop-loc-pills">
+                  <button type="button" class="filter-pill ${shopLoc === 'all' ? 'active' : ''}" onclick="setShopLoc('all')">${esc(stText.locAll)}</button>
+                  <button type="button" class="filter-pill ${shopLoc === 'global' ? 'active' : ''}" onclick="setShopLoc('global')">${esc(stText.locGlobal)}</button>
+                  <button type="button" class="filter-pill ${shopLoc === 'market' ? 'active' : ''}" onclick="setShopLoc('market')">${esc(stText.locMarket)}</button>
+                </div>
+                <span style="font-size:0.78rem;color:var(--muted);">${esc(lang === 'es' ? 'Ajusta la cantidad y haz clic para copiar el comando exacto' : (lang === 'ja' ? '数量を調整してワンクリックでコマンドをコピー' : 'Pick a quantity and click to copy the exact chat command'))}</span>
+              </div>` : ""}
+          ` : ""}
+          <div class="section-body">
+            ${filteredKits.length ? `
+              <div style="font-family:var(--display);font-size:0.96rem;color:var(--emerald);margin-bottom:12px;letter-spacing:0.03em;">${esc(stText.kitsTitle)}</div>
+              <div class="shop-grid" style="margin-bottom:${filteredItems.length ? '26px' : '0'};">${filteredKits.map(renderKitCard).join("")}</div>
+            ` : ""}
+            ${filteredItems.length ? `
+              ${filteredKits.length ? `<div style="font-family:var(--display);font-size:0.96rem;color:var(--gold-bright);margin-bottom:12px;letter-spacing:0.03em;">${esc(stText.itemsTitle)}</div>` : ""}
+              <div class="shop-grid">${filteredItems.map(renderItemCard).join("")}</div>
+            ` : ""}
+            ${filteredSell.length ? `
+              <div style="font-family:var(--display);font-size:0.96rem;color:var(--emerald);margin-bottom:12px;letter-spacing:0.03em;">${esc(stText.sellTitle)}</div>
+              <div class="shop-grid">${filteredSell.map(renderSellCard).join("")}</div>
+            ` : ""}
+            ${(!filteredKits.length && !filteredItems.length && !filteredSell.length) ? `
+              <div style="text-align:center;padding:34px;color:var(--muted);">${esc(stText.emptyCat)}</div>
+            ` : ""}
           </div>
         </section>`;
     }
