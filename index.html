@@ -1179,15 +1179,15 @@ const CONTENT = {
     ],
     valhallaPhases: [
       { k: "18:55 · Preaviso (5m)", v: "Cúpula Púrpura: Prepárate", n: "Aún no despierta el Guardián. Equípate, guarda tu dino en Cryopod y escribe /valhalla (a pie) para entrar al perímetro." },
-      { k: "Fase 1 · El Guardián (20m)", v: "Derrota al Jefe + Drops Rojos", n: "Tienes 20 minutos para derribar al Guardián en el centro mientras caen Drops Rojos. Si el Guardián no muere a tiempo, el evento falla y la Bóveda Suprema NO se abre." },
+      { k: "Fase 1 · El Guardián (20m)", v: "Derrota al Jefe + Drops Rojos", n: "Tienes 20 minutos para derribar al Guardián en el centro mientras caen Drops Rojos. Si lo matan: +5,000 pts a TODO el servidor por igual, curación 100% en la arena y se desbloquea la Bóveda Suprema. Si se acaba el tiempo, el Guardián se retira, la Bóveda queda sellada y el evento continúa a Fase 2 (Altares)." },
       { k: "Fase 2 · Frenesí Altares", v: "Cúpula Roja: 3 Altares Azules", n: "Los puntos por minuto estallan al máximo (x4), aparecen 2 Bestias Míticas domables y se activan 3 Altares Azules: quédate 10 segundos dentro de su cúpula azul sin enemigos para conquistarlo." },
-      { k: "Fase 3 · Extracción (4m)", v: "Cúpula Dorada: Bóveda Suprema", n: "Se abre la Bóveda Dorada central (Elemento, Planos de alto nivel y equipo Tek), se libera la barrera y se corona al Campeón #1 en Puntaje de Guerra." }
+      { k: "Fase 3 · Extracción (4m)", v: "Cúpula Dorada: Barrera Abierta", n: "La cúpula se abre SIEMPRE al terminar Altares y se corona al Campeón #1 en Puntaje de Guerra. Si derrotaron al Guardián en Fase 1, también se abre la Bóveda Suprema central (Elemento, Planos de alto nivel y equipo Tek)." }
     ],
     valhallaCards: [
       {
         title: "Puntaje de Guerra (War Score): Cómo se Define el Ganador",
         items: [
-          "El ganador de Valhalla se define por impacto real en combate y objetivo: durante la arena acumulas Puntaje de Guerra (War Score) y al abrirse la Bóveda Dorada en Fase 3, el jugador #1 se corona Campeón.",
+          "El ganador de Valhalla se define por impacto real en combate y objetivo: durante la arena acumulas Puntaje de Guerra (War Score) y al iniciar la Cúpula Dorada en Fase 3, el jugador #1 se corona Campeón.",
           "+10 War Score por cada 10,000 de daño infligido al Guardián (quien ignore al Jefe difícilmente podrá ganar).",
           "+50 War Score al jugador que dé el Golpe Final al Guardián (además de Chibi Épico y 500 Elemento) y +30 War Score al Top #1 de daño total al Jefe.",
           "+40 War Score por cada Kill PvP conseguida dentro del perímetro de Valhalla.",
@@ -1204,7 +1204,7 @@ const CONTENT = {
           "Drops Rojos periódicos y Bóveda Suprema central con Elemento, Planos exclusivos y botín Tek de alto valor.",
           "¿Cómo entro? Quédate a pie (mete tu dino en Cryopod) y escribe /valhalla para aparecer en el perímetro.",
           "¿Qué pasa si muero? Reapareces en tu base (tus bolsas permanecen disponibles), sacas otro kit con /kit 4, guardas tu dino en Cryopod y vuelves directo al combate con /valhalla (a pie, CD 90s).",
-          "Perímetro sellado con retorno libre: puedes entrar cuando quieras, pero en Fases 1 y 2 nadie puede salir hasta que se abre la Bóveda Dorada en Fase 3."
+          "Perímetro sellado con retorno libre: puedes entrar cuando quieras, pero en Fases 1 y 2 nadie puede salir hasta que se abre la Cúpula Dorada en Fase 3."
         ]
       }
     ],
@@ -1380,15 +1380,15 @@ const CONTENT = {
     ],
     valhallaPhases: [
       { k: "18:55 · Prep (5m)", v: "Purple Dome: Gear Up", n: "No boss yet. Grab gear, cryo your dino and type /valhalla (on foot) to teleport safely to the perimeter." },
-      { k: "Phase 1 · Guardian (20m)", v: "Defeat the Boss + Red Drops", n: "You have 20 minutes to slay the Guardian at center while Red Drops spawn. If the Boss survives past 20m, the arena fails and the Supreme Vault stays SEALED." },
+      { k: "Phase 1 · Guardian (20m)", v: "Defeat the Boss + Red Drops", n: "You have 20 minutes to slay the Guardian at center while Red Drops spawn. Slaying it awards +5,000 pts to ALL online players equally, heals everyone inside 100% and unlocks the Supreme Vault. If time expires, the Guardian retreats, the Vault stays sealed and the match still advances to Phase 2 (Altars)." },
       { k: "Phase 2 · Altars Frenzy", v: "Red Dome: 3 Blue Altars", n: "Points per minute surge to peak levels (4x), 2 tamable Mythic Beasts spawn and 3 Blue Altars activate: stand 10 seconds inside a Blue dome uncontested to capture it." },
-      { k: "Phase 3 · Extract (4m)", v: "Gold Dome: Supreme Vault", n: "Center Gold Vault unlocks (Element, high-tier Blueprints & Tek gear), the barrier drops and the #1 War Score player is crowned Champion." }
+      { k: "Phase 3 · Extract (4m)", v: "Gold Dome: Barrier Opens", n: "The Gold Dome barrier ALWAYS opens after Altars and crowns the #1 War Score Champion. If the Guardian was slain in Phase 1, the central Supreme Vault also opens (Element, high-tier Blueprints & Tek gear)." }
     ],
     valhallaCards: [
       {
         title: "War Score: How the Arena Winner Is Decided",
         items: [
-          "Winning Valhalla rewards real objective play and PvP: throughout the match you build War Score, and when the Gold Vault unlocks in Phase 3, the #1 fighter is crowned Champion.",
+          "Winning Valhalla rewards real objective play and PvP: throughout the match you build War Score, and when the Gold Dome opens in Phase 3, the #1 fighter is crowned Champion.",
           "+10 War Score for every 10,000 damage dealt to the Guardian (ignoring the Boss makes winning nearly impossible).",
           "+50 War Score for landing the Guardian Killing Blow (plus Epic Chibi & 500 Element) and +30 War Score for finishing Top #1 in total Boss damage.",
           "+40 War Score for every PvP Kill scored inside the Valhalla perimeter.",
@@ -1405,7 +1405,7 @@ const CONTENT = {
           "Periodic Red Drops and the central Supreme Vault filled with Element, exclusive Blueprints and high-tier Tek loot.",
           "How do I join? Stay on foot (cryo your dino) and type /valhalla to enter the perimeter.",
           "What if I die? Respawn at base (loot bags stay available), grab another kit with /kit 4, cryo your dino and jump right back in with /valhalla (on foot, 90s CD).",
-          "Sealed perimeter, open entry: you can enter anytime, while during Phases 1 & 2 nobody can exit until the Gold Vault opens in Phase 3."
+          "Sealed perimeter, open entry: you can enter anytime, while during Phases 1 & 2 nobody can exit until the Gold Dome opens in Phase 3."
         ]
       }
     ],
@@ -1581,15 +1581,15 @@ const CONTENT = {
     ],
     valhallaPhases: [
       { k: "18:55 · 準備 (5分)", v: "紫ドーム：装備準備", n: "ボス未出現。装備を整え、恐竜をクライオにしまって徒歩で /valhalla と入力すると外周へ安全に転送されます。" },
-      { k: "フェーズ1 · ガーディアン (20分)", v: "ボス討伐＋赤ドロップ", n: "制限時間20分以内に中央のガーディアンを撃破（同時に赤ドロップ落下）。時間切れの場合はイベント失敗となり至高の宝物庫は開きません。" },
+      { k: "フェーズ1 · ガーディアン (20分)", v: "ボス討伐＋赤ドロップ", n: "制限時間20分以内に中央のガーディアンを撃破（同時に赤ドロップ落下）。撃破するとサーバー全員に一律+5,000ポイント、アリーナ内100%回復、至高の宝物庫が解放されます。時間切れの場合は宝物庫が封印されたままフェーズ2（祭壇戦）へ進みます。" },
       { k: "フェーズ2 · 祭壇争奪戦", v: "赤ドーム：3つの青い祭壇", n: "毎分ポイントが4倍に急増し、テイム可能な神話級恐竜2体と3つの青い祭壇が出現。敵のいない青いドーム内に10秒留まると占拠できます。" },
-      { k: "フェーズ3 · 撤収 (4分)", v: "金ドーム：至高の宝物庫解放", n: "中央の黄金宝物庫（エレメント、高品質設計図、Tek装備）が開放され、外周バリア解除とともにWar Score 1位がチャンピオンに輝きます。" }
+      { k: "フェーズ3 · 撤収 (4分)", v: "金ドーム：バリア解除", n: "祭壇フェーズ終了後に外周バリアが必ず解除され、War Score 1位がチャンピオンに輝きます。フェーズ1でガーディアンを撃破していれば、中央の至高の宝物庫（エレメント・設計図・Tek装備）も解放されます。" }
     ],
     valhallaCards: [
       {
         title: "ウォー・スコア（War Score）：勝者の決定ルール",
         items: [
-          "ヴァルハラの勝者は戦闘と目標への実貢献で決まります。フェーズ3で黄金宝物庫が開いた時点でWar Score 1位のプレイヤーがチャンピオンになります。",
+          "ヴァルハラの勝者は戦闘と目標への実貢献で決まります。フェーズ3で金ドームが開放された時点でWar Score 1位のプレイヤーがチャンピオンになります。",
           "ガーディアンへ10,000ダメージ与えるごとに +10 War Score（ボスを無視すると優勝は困難）。",
           "ガーディアンにとどめを刺したプレイヤーに +50 War Score（さらにエピックチビ＆エレメント500個）、ボス総ダメージ1位に +30 War Score。",
           "ヴァルハラ内でのPvPキルごとに +40 War Score。",
@@ -1606,7 +1606,7 @@ const CONTENT = {
           "定期的な赤ドロップと中央の至高の宝物庫からエレメント、限定設計図、上位Tek戦利品を獲得可能。",
           "入場方法：徒歩状態（恐竜はクライオ収納）で /valhalla と入力すると外周に転送されます。",
           "死亡したら：拠点でリスポーン（戦利品バッグは残ります）し、/kit 4 で再装備、恐竜をクライオにしまって徒歩で /valhalla（クールダウン90秒）から即復帰できます。",
-          "外周バリア仕様：入場はいつでも可能ですが、フェーズ1・2の間はフェーズ3で宝物庫が開くまで外周から脱出できません。"
+          "外周バリア仕様：入場はいつでも可能ですが、フェーズ1・2の間はフェーズ3で金ドームが開くまで外周から脱出できません。"
         ]
       }
     ],
@@ -1903,7 +1903,7 @@ function render() {
       exploreHead: "Explorar el Servidor por Tema",
       explorePill: "Elige lo que necesitas",
       portals: [
-        { tab: "shop", eye: "Catálogo Visual (55 Packs + 4 Kits)", title: "Tienda, Kits y /buy en 1 Clic", desc: "Explora todos los dinos, monturas, packs PvP, consumibles, Tek y kits con sus imágenes, contenido exacto y selector de cantidad." },
+        { tab: "shop", eye: "Catálogo Visual (70 Packs + 4 Kits)", title: "Tienda, Kits y /buy en 1 Clic", desc: "Explora todos los dinos, monturas, packs PvP, consumibles, materiales, Tek y kits con sus imágenes, contenido exacto y selector de cantidad." },
         { tab: "market", eye: "Economía y Zona Segura", title: "Z-MARKET, Demanda 2x y Subastas", desc: "Estaciones sin combustible, Demanda Caliente 2x, 18 especies Élite Nvl 450 y selector de 42 colores." },
         { tab: "events", eye: "Acción PvP", title: "Valhalla y Eventos cada 45m", desc: "Mega-evento Mié/Sáb/Dom 19:00, 6 Mini-Jefes rotativos, 3 Bóvedas simultáneas, KOTH y Cueva de Mutagen." },
         { tab: "biomes", eye: "Fauna Expandida", title: "Dinos DLC, Ice Wyvern y 6 Tek", desc: "Mapa exacto de dónde encontrar Fjordhawk, Shadowmane, Blood Wyvern (Cañón Sureste), Ice Wyvern y Tek." }
@@ -1929,7 +1929,7 @@ function render() {
       exploreHead: "Explore the Server by Topic",
       explorePill: "Jump to what you need",
       portals: [
-        { tab: "shop", eye: "Visual Catalog (55 Packs + 4 Kits)", title: "Shop, Kits & 1-Click /buy", desc: "Browse every dino, saddle, PvP pack, consumable, Tek item & kit with official icons, exact pack contents & live quantity copy." },
+        { tab: "shop", eye: "Visual Catalog (70 Packs + 4 Kits)", title: "Shop, Kits & 1-Click /buy", desc: "Browse every dino, saddle, PvP pack, consumable, material, Tek item & kit with official icons, exact pack contents & live quantity copy." },
         { tab: "market", eye: "SafeZone & Economy", title: "Z-MARKET, 2x Demand & Auctions", desc: "0-fuel crafting benches, 2x Hot Demand, 18 Lvl 450 Elite species & 42-color dino picker." },
         { tab: "events", eye: "PvP Action", title: "Valhalla & 45m World Events", desc: "Wed/Sat/Sun 19:00 mega-event, 6 rotating Mini-Bosses, 3 Supply Vaults, KOTH & Mutagen Cave." },
         { tab: "biomes", eye: "Expanded Wildlife", title: "Wild DLC, Ice Wyvern & 6 Tek", desc: "Exact Ragnarok biomes for Fjordhawk, Shadowmane, Blood Wyvern (SE Canyon), Ice Wyvern & Tek." }
@@ -1955,7 +1955,7 @@ function render() {
       exploreHead: "テーマ別に詳しく見る",
       explorePill: "必要な情報へすぐ移動",
       portals: [
-        { tab: "shop", eye: "ビジュアルカタログ (55種 + 4キット)", title: "ショップ＆キット (/buy 1クリック)", desc: "全恐竜・サドル・PvPパック・消耗品・Tek・キットの中身を画像付きで確認し、数量指定で /buy を即コピー。" },
+        { tab: "shop", eye: "ビジュアルカタログ (70種 + 4キット)", title: "ショップ＆キット (/buy 1クリック)", desc: "全恐竜・サドル・PvPパック・消耗品・素材・Tek・キットの中身を画像付きで確認し、数量指定で /buy を即コピー。" },
         { tab: "market", eye: "セーフゾーン＆経済", title: "Z-MARKET・2倍買取・オークション", desc: "燃料不要の設備、2倍ホットデマンド、Lv.450限定18種オークション、42色カラー選択。" },
         { tab: "events", eye: "PvPアクション", title: "ヴァルハラ＆45分ごとイベント", desc: "水土日19:00大型イベント、ミニボス6種、3か所同時金庫、KOTH、変異原洞窟。" },
         { tab: "biomes", eye: "拡張エコシステム", title: "DLC恐竜・アイスワイバーン・Tek6種", desc: "フィヨルドホーク、シャドウメイン、ブラッドワイバーン（南東キャニオン）、Tek恐竜の生息エリア一覧。" }
