@@ -1000,6 +1000,42 @@
     flex-wrap: wrap;
     gap: 6px;
   }
+  .shop-cat-block {
+    margin-bottom: 30px;
+  }
+  .shop-cat-block:last-child { margin-bottom: 0; }
+  .shop-cat-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px 16px;
+    margin-bottom: 14px;
+    border-radius: 12px;
+    background: linear-gradient(90deg, rgba(230, 185, 106, 0.11), rgba(11, 10, 13, 0.45));
+    border: 1px solid rgba(230, 185, 106, 0.28);
+  }
+  .shop-cat-head.emerald {
+    background: linear-gradient(90deg, rgba(52, 211, 153, 0.12), rgba(11, 10, 13, 0.45));
+    border-color: rgba(52, 211, 153, 0.32);
+  }
+  .shop-cat-head.sky {
+    background: linear-gradient(90deg, rgba(112, 198, 245, 0.11), rgba(11, 10, 13, 0.45));
+    border-color: rgba(112, 198, 245, 0.3);
+  }
+  .shop-cat-head-left { display: flex; flex-direction: column; gap: 2px; }
+  .shop-cat-title {
+    font-family: var(--display);
+    font-size: 1.02rem;
+    color: var(--gold-bright);
+    letter-spacing: 0.03em;
+    font-weight: 600;
+  }
+  .shop-cat-head.emerald .shop-cat-title { color: var(--emerald); }
+  .shop-cat-head.sky .shop-cat-title { color: var(--sky); }
+  .shop-cat-sub { font-size: 0.78rem; color: var(--muted); }
+  .shop-cat-head-right { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
   .shop-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -2377,9 +2413,18 @@ function render() {
           { id: "monturas", label: "Monturas" },
           { id: "pvp", label: "PvP" },
           { id: "consumibles", label: "Consumibles" },
-          { id: "tek", label: "Tek" },
+          { id: "tek", label: "Tek y Recursos DLC" },
           { id: "sell", label: "Vender (/sell)" }
         ],
+        catSections: [
+          { id: "dinos", title: "Dinos Nivel 350 en Cryopod", sub: "Castrados, +150 niveles por subir y montura incluida (Solo Z-MARKET)", cmd: "/tienda dinos", tone: "sky" },
+          { id: "monturas", title: "Monturas de Combate y Farmeo", sub: "Armadura 40 a 50 listas para usar (Solo Z-MARKET)", cmd: "/tienda monturas", tone: "" },
+          { id: "pvp", title: "Combate PvP, Armaduras y Raideo", sub: "Flak, armas, torretas, C4, cohetes y munición Tek (Global en todo el mapa)", cmd: "/tienda pvp", tone: "" },
+          { id: "consumibles", title: "Consumibles, Brebajes y Crianza", sub: "Brebajes PvP, Mindwipe, Cerveza, Kibbles, Elixir, Veneno y Ámbar (Global)", cmd: "/tienda consumibles", tone: "emerald" },
+          { id: "tek", title: "Tek, Cryopods, Estaciones y Recursos DLC", sub: "Cryopods, Madera Fúngica, Gemas y Gas globales · Elemento y Tek en Z-MARKET", cmd: "/tienda tek", tone: "sky" }
+        ],
+        kitsSub: "Reclámalos en cualquier lugar del mapa · Kit 1 se recarga cada 20 min",
+        sellSub: "Vende lotes farmeables de Ragnarok por puntos dentro de Z-MARKET",
         locAll: "Todos los lugares",
         locGlobal: "Global (Todo el Mapa)",
         locMarket: "Solo Z-MARKET",
@@ -2412,9 +2457,18 @@ function render() {
           { id: "monturas", label: "Saddles" },
           { id: "pvp", label: "PvP" },
           { id: "consumibles", label: "Consumables" },
-          { id: "tek", label: "Tek" },
+          { id: "tek", label: "Tek & DLC Resources" },
           { id: "sell", label: "Sell (/sell)" }
         ],
+        catSections: [
+          { id: "dinos", title: "Level 350 Dinos in Cryopod", sub: "Neutered, +150 level-ups & included saddle where listed (Z-MARKET only)", cmd: "/shop dinos", tone: "sky" },
+          { id: "monturas", title: "Combat & Farming Saddles", sub: "40 to 50 Armor saddles ready to equip (Z-MARKET only)", cmd: "/shop saddles", tone: "" },
+          { id: "pvp", title: "PvP Combat, Weapons & Raiding", sub: "Flak, guns, heavy turrets, C4, rockets & Tek PvP ammo (Global anywhere)", cmd: "/shop pvp", tone: "" },
+          { id: "consumibles", title: "Consumables, Brews & Raising", sub: "PvP brews, Mindwipe, Beer, Kibbles, Elixir, Venom & Ambergris (Global)", cmd: "/shop consumables", tone: "emerald" },
+          { id: "tek", title: "Tek, Cryopods, Industrial & DLC Resources", sub: "Cryopods, Fungal Wood, Gems & Gas global · Element & Tek in Z-MARKET", cmd: "/shop tek", tone: "sky" }
+        ],
+        kitsSub: "Claim anywhere on the map · Kit 1 recharges automatically every 20m",
+        sellSub: "Sell farmable Ragnarok resource batches for points inside Z-MARKET",
         locAll: "All locations",
         locGlobal: "Global (Anywhere)",
         locMarket: "Z-MARKET Only",
@@ -2447,9 +2501,18 @@ function render() {
           { id: "monturas", label: "サドル" },
           { id: "pvp", label: "PvP" },
           { id: "consumibles", label: "消耗品" },
-          { id: "tek", label: "Tek" },
+          { id: "tek", label: "Tek・DLC資源" },
           { id: "sell", label: "資源売却 (/sell)" }
         ],
+        catSections: [
+          { id: "dinos", title: "Lv.350 恐竜（クライオポッド入り）", sub: "去勢済・+150レベル成長枠・記載のサドル付き（Z-MARKET限定）", cmd: "/shop dinos", tone: "sky" },
+          { id: "monturas", title: "戦闘＆採取用サドル", sub: "防御力40〜50の即戦力サドル（Z-MARKET限定）", cmd: "/shop saddles", tone: "" },
+          { id: "pvp", title: "PvP装備・武器・レイド弾薬", sub: "金属防具、銃、ヘビータレット、C4、ロケット、Tek弾薬（マップ全域対応）", cmd: "/shop pvp", tone: "" },
+          { id: "consumibles", title: "消耗品・回復薬・育成アイテム", sub: "戦闘バフ薬、マインドワイプ、ビール、キブル、エリキシル、毒、アンバーグリス（全域）", cmd: "/shop consumables", tone: "emerald" },
+          { id: "tek", title: "Tek・クライオ・工業設備・DLC資源", sub: "クライオ・菌類の木材・宝石・ガスは全域対応 · エレメント・TekはZ-MARKET限定", cmd: "/shop tek", tone: "sky" }
+        ],
+        kitsSub: "マップどこでも受取可 · Kit 1は20分ごとに自動チャージ",
+        sellSub: "ラグナロクで採取できる資源をZ-MARKETでポイントに換金",
         locAll: "すべて表示",
         locGlobal: "全域利用可",
         locMarket: "Z-MARKET限定",
@@ -2496,7 +2559,7 @@ function render() {
     const sellHay = s  => `sell vender ${s.id} /sell ${s.id} ${s.es} ${s.en} ${s.ja}`;
 
     const catCounts = {
-      all: catData.items.length + catData.kits.length,
+      all: catData.items.length + catData.kits.length + catData.sell.length,
       kits: catData.kits.length,
       dinos: catData.items.filter(i => i.cat === "dinos").length,
       monturas: catData.items.filter(i => i.cat === "monturas").length,
@@ -2508,7 +2571,7 @@ function render() {
 
     const showKits = isSearching || shopCat === "all" || shopCat === "kits";
     const showItems = isSearching || (shopCat !== "kits" && shopCat !== "sell");
-    const showSell = isSearching || shopCat === "sell";
+    const showSell = isSearching || shopCat === "all" || shopCat === "sell";
 
     const filteredKits = showKits ? catData.kits.filter(k => {
       if (!isSearching && shopLoc === "market") return false;
@@ -2522,7 +2585,10 @@ function render() {
       return matchesSearch(itemHay(it));
     }) : [];
 
-    const filteredSell = showSell ? catData.sell.filter(s => matchesSearch(sellHay(s))) : [];
+    const filteredSell = showSell ? catData.sell.filter(s => {
+      if (!isSearching && shopLoc === "global") return false;
+      return matchesSearch(sellHay(s));
+    }) : [];
 
     if (filteredKits.length || filteredItems.length || filteredSell.length || (!isSearching && activeTab === "shop")) {
       visibleSections++;
@@ -2683,16 +2749,52 @@ function render() {
           ` : ""}
           <div class="section-body">
             ${filteredKits.length ? `
-              <div style="font-family:var(--display);font-size:0.96rem;color:var(--emerald);margin-bottom:12px;letter-spacing:0.03em;">${esc(stText.kitsTitle)}</div>
-              <div class="shop-grid" style="margin-bottom:${filteredItems.length ? '26px' : '0'};">${filteredKits.map(renderKitCard).join("")}</div>
+              <div class="shop-cat-block">
+                <div class="shop-cat-head emerald">
+                  <div class="shop-cat-head-left">
+                    <div class="shop-cat-title">${esc(stText.kitsTitle)}</div>
+                    <div class="shop-cat-sub">${esc(stText.kitsSub)}</div>
+                  </div>
+                  <div class="shop-cat-head-right">
+                    <span class="pill pill-emerald">${filteredKits.length}</span>
+                    <button type="button" class="copy-btn" onclick="copyText('/kit', this)">/kit</button>
+                  </div>
+                </div>
+                <div class="shop-grid">${filteredKits.map(renderKitCard).join("")}</div>
+              </div>
             ` : ""}
-            ${filteredItems.length ? `
-              ${filteredKits.length ? `<div style="font-family:var(--display);font-size:0.96rem;color:var(--gold-bright);margin-bottom:12px;letter-spacing:0.03em;">${esc(stText.itemsTitle)}</div>` : ""}
-              <div class="shop-grid">${filteredItems.map(renderItemCard).join("")}</div>
-            ` : ""}
+            ${stText.catSections.map(sec => {
+              const secItems = filteredItems.filter(it => it.cat === sec.id);
+              if (!secItems.length) return "";
+              return `
+                <div class="shop-cat-block">
+                  <div class="shop-cat-head ${sec.tone}">
+                    <div class="shop-cat-head-left">
+                      <div class="shop-cat-title">${esc(sec.title)}</div>
+                      <div class="shop-cat-sub">${esc(sec.sub)}</div>
+                    </div>
+                    <div class="shop-cat-head-right">
+                      <span class="pill ${sec.tone === 'emerald' ? 'pill-emerald' : (sec.tone === 'sky' ? 'pill-sky' : 'pill-gold')}">${secItems.length}</span>
+                      <button type="button" class="copy-btn" onclick="copyText('${sec.cmd}', this)">${esc(sec.cmd)}</button>
+                    </div>
+                  </div>
+                  <div class="shop-grid">${secItems.map(renderItemCard).join("")}</div>
+                </div>`;
+            }).join("")}
             ${filteredSell.length ? `
-              <div style="font-family:var(--display);font-size:0.96rem;color:var(--emerald);margin-bottom:12px;letter-spacing:0.03em;">${esc(stText.sellTitle)}</div>
-              <div class="shop-grid">${filteredSell.map(renderSellCard).join("")}</div>
+              <div class="shop-cat-block">
+                <div class="shop-cat-head emerald">
+                  <div class="shop-cat-head-left">
+                    <div class="shop-cat-title">${esc(stText.sellTitle)}</div>
+                    <div class="shop-cat-sub">${esc(stText.sellSub)}</div>
+                  </div>
+                  <div class="shop-cat-head-right">
+                    <span class="pill pill-emerald">${filteredSell.length}</span>
+                    <button type="button" class="copy-btn" onclick="copyText('/shopsell', this)">/shopsell</button>
+                  </div>
+                </div>
+                <div class="shop-grid">${filteredSell.map(renderSellCard).join("")}</div>
+              </div>
             ` : ""}
             ${(!filteredKits.length && !filteredItems.length && !filteredSell.length) ? `
               <div style="text-align:center;padding:34px;color:var(--muted);">${esc(stText.emptyCat)}</div>
